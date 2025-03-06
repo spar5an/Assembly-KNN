@@ -10955,7 +10955,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
-# 2 "keypad.s" 2
+# 1 "keypad.s" 2
+
 
 global KEYPAD_Setup, KEYPAD_Read, delay, total_input
 
@@ -10971,9 +10972,6 @@ KEYPAD_Setup:
  bsf ((PADCFG1) and 0FFh), 6, b;enable pullup resistors
  movlb 0
  clrf LATE, A
-
-
-
  return
 
 KEYPAD_Read:

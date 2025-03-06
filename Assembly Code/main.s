@@ -1,6 +1,6 @@
 	#include <xc.inc>
 
-extrn	KEYPAD_Setup, KEYPAD_Read, total_input
+extrn	NUM1, NUM2, RESULT, long_add
 	
 psect	code, abs
 main:
@@ -12,12 +12,17 @@ main:
 
 psect	main_code, class=CODE
 setup:	
-	call	KEYPAD_Setup
-	movlw	0x00
-	movwf	TRISH, A
+	movlw	0x0
+	movwf	TRISC, A
+	movwf	TRISD, A
+	movwf	TRISE, A
 	
 	
 read:
-	call	KEYPAD_Read
-	movff	total_input, PORTH, A
-	bra	read
+	movlw	0x01
+	movwf	NUM1, A
+	movwf	NUM2, A
+	call	long_add
+	movf	RESULT, PORTC, A
+	movf	RESULT+1, PORTD, A
+	movf	RESULT+2, PORTE, A
