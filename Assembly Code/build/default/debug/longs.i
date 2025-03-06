@@ -1,6 +1,6 @@
-# 1 "main.s"
+# 1 "longs.s"
 # 1 "<built-in>" 1
-# 1 "main.s" 2
+# 1 "longs.s" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
 
 
@@ -10955,33 +10955,40 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
-# 1 "main.s" 2
+# 2 "longs.s" 2
+
+;Library for mathematics involving 3 byte long numbers
+;All are stored in bid endian
+;Enter the numbers into NUM1+0/1/2 and NUM2+0/1/2 and result will come out
+;In RESULT+0/1/2
 
 
-extrn NUM1, NUM2, RESULT, long_add
+global long_add, NUM1, NUM2, RESULT
 
-psect code, abs
-main:
- org 0x0
- goto setup
+psect udata_acs
+NUM1: ds 3
+NUM2: ds 3
+RESULT: ds 3
 
- org 0x100 ; Main code starts here at address 0x100
+psect long_code, class=CODE
+long_add:
+    ;lowest
+    movf NUM1+2, W, A
+    addwf NUM2+2, W, A
+    movwf RESULT+2, A
 
-setup:
- movlw 0x0
- movwf TRISC, A
- movwf TRISD, A
- movwf TRISE, A
+    ;middle
+    movf NUM1+1, W
+    btfsc STATUS, 0
+    incf WREG, F
+    addwf NUM2+1, W
+    movwf RESULT+1, A
 
+    ;highest
+    movf NUM1, W
+    btfsc STATUS, 0
+    incf WREG, F
+    addwf NUM2, W
+    movwf RESULT
 
-read:
- movlw 0x01
- movwf NUM1+2, A
- movwf NUM2+2, A
- call long_add
- movff RESULT, PORTC, A
- movff RESULT+1, PORTD, A
- movff RESULT+2, PORTE, A
- goto $
-
- end main
+    return

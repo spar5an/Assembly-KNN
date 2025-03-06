@@ -1,5 +1,7 @@
+NUM1 0 0 COMRAM 1
+NUM2 3 0 COMRAM 1
 __S0 20000 0 ABS 0
-__S1 2 0 ABS 0
+__S1 B 0 ABS 0
 __S3 0 0 ABS 0
 __Hudata_bank10 0 0 ABS 0
 __Ludata_bank10 0 0 ABS 0
@@ -8,6 +10,7 @@ delay 1FFFA 0 CODE 0
 __Ludata_bank4 0 0 ABS 0
 __Hudata_bank13 0 0 ABS 0
 __Ludata_bank13 0 0 ABS 0
+RESULT 6 0 COMRAM 1
 __Hconfig 30000E 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 __Hudata_acs 0 0 ABS 0
@@ -31,6 +34,7 @@ __Hudata_bank14 0 0 ABS 0
 __Ludata_bank14 0 0 ABS 0
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
+long_add 1FFBA 0 CODE 0
 __Hedata 0 0 ABS 0
 __Ledata 0 0 ABS 0
 __Hudata 0 0 ABS 0
@@ -40,7 +44,7 @@ __Ludata_bank1 0 0 ABS 0
 KEYPAD_Setup 1FFD6 0 CODE 0
 __Hspace_0 20000 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__Hspace_1 2 0 ABS 0
+__Hspace_1 B 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hudata_bank7 0 0 ABS 0
 __Ludata_bank7 0 0 ABS 0
@@ -50,8 +54,8 @@ __Hspace_4 60000E 0 ABS 0
 __Lspace_4 0 0 ABS 0
 __Hudata_bank2 0 0 ABS 0
 __Ludata_bank2 0 0 ABS 0
-__Hmain_code 0 0 ABS 0
-__Lmain_code 0 0 ABS 0
+__Hlong_code 0 0 ABS 0
+__Llong_code 0 0 ABS 0
 __Hudata_bank12 0 0 ABS 0
 __Ludata_bank12 0 0 ABS 0
 __Hudata_bank8 0 0 ABS 0
@@ -60,26 +64,31 @@ __Hudata_bank15 0 0 ABS 0
 __Ludata_bank15 0 0 ABS 0
 __Hudata_bank3 0 0 ABS 0
 __Ludata_bank3 0 0 ABS 0
-total_input 0 0 COMRAM 1
+total_input 9 0 COMRAM 1
 __Hudata_bank9 0 0 ABS 0
 __Ludata_bank9 0 0 ABS 0
 __Hkeypad_code 0 0 ABS 0
 __Lkeypad_code 0 0 ABS 0
 %segments
-udata_acs 0 1 COMRAM 0 1
+udata_acs 0 A COMRAM 0 1
 keypad_code 1FFD6 1FFFF CODE 1FFD6 0
-main_code 1FFC4 1FFD5 CODE 1FFC4 0
+long_code 1FFBA 1FFD5 CODE 1FFBA 0
 %locals
 build/default/debug/main.o
 main.s
 8 0 0 CODE 0
-main.s
-15 1FFC4 0 CODE 0
-16 1FFC8 0 CODE 0
-17 1FFCA 0 CODE 0
-21 1FFCC 0 CODE 0
-22 1FFD0 0 CODE 0
-23 1FFD4 0 CODE 0
+13 100 0 CODE 0
+14 102 0 CODE 0
+15 104 0 CODE 0
+16 106 0 CODE 0
+20 108 0 CODE 0
+21 10A 0 CODE 0
+22 10C 0 CODE 0
+23 10E 0 CODE 0
+24 112 0 CODE 0
+25 116 0 CODE 0
+26 11A 0 CODE 0
+27 11E 0 CODE 0
 build/default/debug/keypad.o
 keypad.s
 13 1FFD6 0 CODE 0
@@ -100,3 +109,19 @@ keypad.s
 36 1FFFA 0 CODE 0
 37 1FFFC 0 CODE 0
 38 1FFFE 0 CODE 0
+build/default/debug/longs.o
+longs.s
+19 1FFBA 0 CODE 0
+20 1FFBC 0 CODE 0
+21 1FFBE 0 CODE 0
+24 1FFC0 0 CODE 0
+25 1FFC2 0 CODE 0
+26 1FFC4 0 CODE 0
+27 1FFC6 0 CODE 0
+28 1FFC8 0 CODE 0
+31 1FFCA 0 CODE 0
+32 1FFCC 0 CODE 0
+33 1FFCE 0 CODE 0
+34 1FFD0 0 CODE 0
+35 1FFD2 0 CODE 0
+37 1FFD4 0 CODE 0

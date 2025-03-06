@@ -9,8 +9,6 @@ main:
 	
 	org 0x100		    ; Main code starts here at address 0x100
 
-
-psect	main_code, class=CODE
 setup:	
 	movlw	0x0
 	movwf	TRISC, A
@@ -20,9 +18,12 @@ setup:
 	
 read:
 	movlw	0x01
-	movwf	NUM1, A
-	movwf	NUM2, A
+	movwf	NUM1+2, A
+	movwf	NUM2+2, A
 	call	long_add
-	movf	RESULT, PORTC, A
-	movf	RESULT+1, PORTD, A
-	movf	RESULT+2, PORTE, A
+	movff	RESULT, PORTC, A
+	movff	RESULT+1, PORTD, A
+	movff	RESULT+2, PORTE, A
+	goto	$
+	
+	end	main
