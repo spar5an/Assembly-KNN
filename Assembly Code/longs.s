@@ -94,6 +94,6 @@ compare_done:
     ; Result is stored in STATUS register:
     ; - C (Carry) = 1 if NUM1 >= NUM2
     ; - C (Carry) = 0 if NUM1 < NUM2
-    ; - Z (Zero)  = 1 if NUM1 == NUM2
+    ; - Z (Zero)  = 1 if NUM1 == NUM2 and also C = 1
     return
     

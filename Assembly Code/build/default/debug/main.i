@@ -10990,7 +10990,7 @@ read:
  movlw 0x2
  btfss STATUS, 0
  movlw 0x3
- ; if equal, will display 3
+ ; if equal, will display 1, as both z and c are set
  ; if n1>n2 will display 2
  ; if n1<n2 will display 3
 
