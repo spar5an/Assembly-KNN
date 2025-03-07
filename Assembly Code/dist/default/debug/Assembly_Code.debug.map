@@ -6,7 +6,7 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cs -h+dist/default/debug\Assembly_Code.debug.sym \
   --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
@@ -31,22 +31,22 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      122        0       0
+                code                                  0        0      132        0       0
                 config                           300000   300000        E        0       4
 build/default/debug/config.o
                 config                           300000   300000        E        0       4
 build/default/debug/keypad.o
-                keypad_code                       1FFD6    1FFD6       2A    1FFD6       0
+                keypad_code                       1FF82    1FF82       2A    1FF82       0
                 udata_acs                             9        9        2        0       1
 build/default/debug/longs.o
-                long_code                         1FFBA    1FFBA       1C    1FFBA       0
+                long_code                         1FFAC    1FFAC       54    1FFAC       0
                 udata_acs                             0        0        9        0       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      122         0
-                keypad_code                       1FFD6    1FFD6       2A         0
-                long_code                         1FFBA    1FFBA       1C         0
+                code                                  0        0      132         0
+                keypad_code                       1FF82    1FF82       2A         0
+                long_code                         1FFAC    1FFAC       54         0
 
         CLASS   CONST          
 
@@ -112,8 +112,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 udata_acs                      000000  00000B  00000B         0       1  COMRAM  
-                long_code                      01FFBA  00001C  01FFD6     1FFBA       0  CODE    
-                keypad_code                    01FFD6  00002A  020000     1FFD6       0  CODE    
+                keypad_code                    01FF82  00002A  01FFAC     1FF82       0  CODE    
+                long_code                      01FFAC  000054  020000     1FFAC       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -135,22 +135,22 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000122-000F15              DF4
+        BIGRAM           000132-000F15              DE4
         BIGSFR           000F16-000FFF               EA
-        CODE             000122-01FFB9            1FE98
+        CODE             000132-01FF81            1FE50
         COMRAM           00000B-00005F               55
-        CONST            000122-01FFB9            1FE98
+        CONST            000132-01FF81            1FE50
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
-                         011000-01FFB9             EFBA
+                         011000-01FF81             EF82
         RAM              000060-000F15              100
         SFR              000F16-000FFF               4A
-        SMALLCONST       001000-01FFB9              100
+        SMALLCONST       001000-01FF81              100
 
                                   Symbol Table
 
-KEYPAD_Read     keypad_code  01FFE0  KEYPAD_Setup    keypad_code  01FFD6
+KEYPAD_Read     keypad_code  01FF8C  KEYPAD_Setup    keypad_code  01FF82
 NUM1            udata_acs    000000  NUM2            udata_acs    000003
 RESULT          udata_acs    000006  __H__absolute__ __absolute__ 000000
 __Hcode         code         000000  __Hconfig       config       30000E
@@ -183,6 +183,7 @@ __Ludata_bank5  udata_bank5  000000  __Ludata_bank6  udata_bank6  000000
 __Ludata_bank7  udata_bank7  000000  __Ludata_bank8  udata_bank8  000000
 __Ludata_bank9  udata_bank9  000000  __S0            (abs)        020000
 __S1            (abs)        00000B  __S3            (abs)        000000
-delay           keypad_code  01FFFA  isa$std         (abs)        000001
-isa$xinst       (abs)        000000  long_add        long_code    01FFBA
-total_input     udata_acs    000009  
+delay           keypad_code  01FFA6  isa$std         (abs)        000001
+isa$xinst       (abs)        000000  long_add        long_code    01FFC2
+long_compare    long_code    01FFEA  long_reset      long_code    01FFAC
+long_subtract   long_code    01FFD6  total_input     udata_acs    000009

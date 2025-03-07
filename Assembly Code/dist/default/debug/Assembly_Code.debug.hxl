@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o
+ C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o
  -Odist/default/debug\Assembly_Code.debug.hex
  -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
@@ -9,21 +9,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
-  100h - 121h		(C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
-  1FFBAh - 1FFFFh		(C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
-  300000h - 300006h		(C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
-  300008h - 30000Dh		(C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
+  100h - 131h		(C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
+  1FF82h - 1FFFFh		(C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
-  122h - 1FFB9h
+  132h - 1FF81h
   20000h - 2FFFFFh
   300007h - 300007h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\jc5322\AppData\Local\Temp\xcAss98.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\jc5322\AppData\Local\Temp\xcAsiek.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -31,9 +31,13 @@
 ----------------------------------------------------------
 00000100 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000110 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000120 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+00000120 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000130 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001FFB0 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+0001FF80 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FF90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FFA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FFB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FFC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FFD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FFE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
