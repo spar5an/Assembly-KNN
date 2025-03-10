@@ -5,7 +5,7 @@ global	setup_data, load_data, load_labels, data_loc, label_loc
 ;this is a temporary solution to load some data in to begin coding the KNN
 ;20 binary data points with 3 parameters each
 
-psect	udata_acs
+psect UDATA_SHR
 data_loc:   ds	60
 label_loc:  ds	20
 counter:    ds	1

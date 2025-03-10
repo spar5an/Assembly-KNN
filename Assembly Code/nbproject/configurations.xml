@@ -17,6 +17,7 @@
       <itemPath>keypad.s</itemPath>
       <itemPath>longs.s</itemPath>
       <itemPath>data_loader.s</itemPath>
+      <itemPath>KNN.s</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

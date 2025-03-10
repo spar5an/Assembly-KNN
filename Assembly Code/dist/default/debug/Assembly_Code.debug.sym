@@ -1,8 +1,8 @@
 long_compare 1FF5C 0 CODE 0
-NUM1 51 0 COMRAM 1
-NUM2 54 0 COMRAM 1
+NUM1 C 0 COMRAM 1
+NUM2 F 0 COMRAM 1
 __S0 20000 0 ABS 0
-__S1 5C 0 ABS 0
+__S1 1A 0 ABS 0
 __S3 0 0 ABS 0
 __Hudata_bank10 0 0 ABS 0
 __Ludata_bank10 0 0 ABS 0
@@ -12,8 +12,8 @@ __Ludata_bank4 0 0 ABS 0
 load_data 1FFC8 0 CODE 0
 __Hudata_bank13 0 0 ABS 0
 __Ludata_bank13 0 0 ABS 0
-label_loc 3C 0 COMRAM 1
-RESULT 57 0 COMRAM 1
+label_loc 3C 0 ABS 0
+RESULT 12 0 COMRAM 1
 __Hconfig 30000E 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 __Hudata_acs 0 0 ABS 0
@@ -28,6 +28,8 @@ __Lcode 0 0 ABS 0
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
 isa$std 1 0 ABS 0
+__HKNN_code 0 0 ABS 0
+__LKNN_code 0 0 ABS 0
 long_reset 1FF1E 0 CODE 0
 __Hudata_bank0 0 0 ABS 0
 __Ludata_bank0 0 0 ABS 0
@@ -44,13 +46,13 @@ __Hedata 0 0 ABS 0
 __Ledata 0 0 ABS 0
 __Hudata 0 0 ABS 0
 __Ludata 0 0 ABS 0
-data_loc 0 0 COMRAM 1
+data_loc 0 0 ABS 0
 __Hudata_bank1 0 0 ABS 0
 __Ludata_bank1 0 0 ABS 0
 KEYPAD_Setup 1FEF4 0 CODE 0
 __Hspace_0 20000 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__Hspace_1 5C 0 ABS 0
+__Hspace_1 1A 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hudata_bank7 0 0 ABS 0
 __Ludata_bank7 0 0 ABS 0
@@ -72,26 +74,29 @@ __Hudata_bank8 0 0 ABS 0
 __Ludata_bank8 0 0 ABS 0
 __Hudata_bank15 0 0 ABS 0
 __Ludata_bank15 0 0 ABS 0
+__HUDATA_SHR 0 0 ABS 0
+__LUDATA_SHR 0 0 ABS 0
 __Hudata_bank3 0 0 ABS 0
 __Ludata_bank3 0 0 ABS 0
-total_input 5A 0 COMRAM 1
+total_input 18 0 COMRAM 1
 __Hudata_bank9 0 0 ABS 0
 __Ludata_bank9 0 0 ABS 0
 __Hkeypad_code 0 0 ABS 0
 __Lkeypad_code 0 0 ABS 0
 %segments
-udata_acs 0 5B COMRAM 0 1
+udata_acs 0 19 COMRAM 0 1
 data_code 1FF72 1FFFF CODE 1FF72 0
 long_code 1FF1E 1FF71 CODE 1FF1E 0
 keypad_code 1FEF4 1FF1D CODE 1FEF4 0
+KNN_code 1FEEC 1FEF3 CODE 1FEEC 0
 %locals
 build/default/debug/main.o
 main.s
-8 0 0 CODE 0
-13 100 0 CODE 0
-16 104 0 CODE 0
-17 108 0 CODE 0
-18 10C 0 CODE 0
+12 0 0 CODE 0
+17 100 0 CODE 0
+20 104 0 CODE 0
+21 108 0 CODE 0
+24 10C 0 CODE 0
 build/default/debug/keypad.o
 keypad.s
 13 1FEF4 0 CODE 0
@@ -158,6 +163,7 @@ longs.s
 98 1FF70 0 CODE 0
 build/default/debug/data_loader.o
 data_loader.s
+data_loader.s
 15 1FF72 0 CODE 0
 18 1FFAE 0 CODE 0
 21 1FFC2 0 CODE 0
@@ -188,3 +194,9 @@ data_loader.s
 54 1FFFA 0 CODE 0
 55 1FFFC 0 CODE 0
 57 1FFFE 0 CODE 0
+build/default/debug/KNN.o
+KNN.s
+22 1FEEC 0 CODE 0
+23 1FEEE 0 CODE 0
+24 1FEF0 0 CODE 0
+25 1FEF2 0 CODE 0

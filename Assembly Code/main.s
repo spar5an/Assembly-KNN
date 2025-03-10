@@ -1,6 +1,10 @@
 	#include <xc.inc>
 
 extrn	setup_data, load_data, load_labels
+
+psect	udata_acs
+predict_point:	ds  3; this is going to  be an example point to classify
+	
 	
 psect	code, abs
 main:
@@ -15,6 +19,8 @@ setup:
 read:
 	call	load_data
 	call	load_labels
+	
+
 	goto	$
 	
 	end	main

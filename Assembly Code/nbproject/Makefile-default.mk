@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.s config.s keypad.s longs.s data_loader.s
+SOURCEFILES_QUOTED_IF_SPACED=main.s config.s keypad.s longs.s data_loader.s KNN.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/keypad.o.d ${OBJECTDIR}/longs.o.d ${OBJECTDIR}/data_loader.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/keypad.o.d ${OBJECTDIR}/longs.o.d ${OBJECTDIR}/data_loader.o.d ${OBJECTDIR}/KNN.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/keypad.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN.o
 
 # Source Files
-SOURCEFILES=main.s config.s keypad.s longs.s data_loader.s
+SOURCEFILES=main.s config.s keypad.s longs.s data_loader.s KNN.s
 
 
 
@@ -129,6 +129,14 @@ ${OBJECTDIR}/data_loader.o: data_loader.s  nbproject/Makefile-${CND_CONF}.mk
 	data_loader.s \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
+${OBJECTDIR}/KNN.o: KNN.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/KNN.o 
+	${MP_AS} -mcpu=PIC18F87K22 -c \
+	-o ${OBJECTDIR}/KNN.o \
+	KNN.s \
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
 else
 ${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -168,6 +176,14 @@ ${OBJECTDIR}/data_loader.o: data_loader.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC18F87K22 -c \
 	-o ${OBJECTDIR}/data_loader.o \
 	data_loader.s \
+	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
+${OBJECTDIR}/KNN.o: KNN.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/KNN.o 
+	${MP_AS} -mcpu=PIC18F87K22 -c \
+	-o ${OBJECTDIR}/KNN.o \
+	KNN.s \
 	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif

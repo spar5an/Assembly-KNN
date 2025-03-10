@@ -13,17 +13,20 @@
 %PSECTS
 $build/default/debug/config.o
 config CONFIG 4 300000 300000 E 1 1
+$build/default/debug/KNN.o
+udata_acs COMRAM 1 0 0 C 1 1
+KNN_code CODE 0 1FEEC 1FEEC 8 1 1
 $build/default/debug/longs.o
 long_code CODE 0 1FF1E 1FF1E 54 1 1
-udata_acs COMRAM 1 51 51 9 1 1
+udata_acs COMRAM 1 C C 9 1 1
 $build/default/debug/main.o
 code CODE 0 0 0 110 1 2
+udata_acs COMRAM 1 15 15 3 1 1
 config CONFIG 4 300000 300000 E 1 1
 $build/default/debug/keypad.o
-udata_acs COMRAM 1 5A 5A 2 1 1
+udata_acs COMRAM 1 18 18 2 1 1
 keypad_code CODE 0 1FEF4 1FEF4 2A 1 1
 $build/default/debug/data_loader.o
-udata_acs COMRAM 1 0 0 51 1 1
 data_code CODE 0 1FF72 1FF72 8E 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -43,10 +46,10 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 110-1FEF3 1
+CONST 110-1FEEB 1
 IDLOC 200000-200007 1
-SMALLCONST 1000-1FEF3 1
-CODE 110-1FEF3 1
+SMALLCONST 1000-1FEEB 1
+CODE 110-1FEEB 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -55,10 +58,10 @@ BANK14 E00-EFF 1
 BANK15 F00-F15 1
 BIGRAM 110-F15 1
 BIGSFR F16-FFF 1
-COMRAM 5C-5F 1
+COMRAM 1A-5F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFFF 1
-MEDIUMCONST 11000-1FEF3 1
+MEDIUMCONST 11000-1FEEB 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -72,6 +75,11 @@ MEDIUMCONST 11000-1FEF3 1
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
+$build/default/debug/KNN.o
+1FEEC KNN_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN.s
+1FEEE KNN_code CODE >23:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN.s
+1FEF0 KNN_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN.s
+1FEF2 KNN_code CODE >25:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN.s
 $build/default/debug/longs.o
 1FF1E long_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
 1FF20 long_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
@@ -116,11 +124,11 @@ $build/default/debug/longs.o
 1FF6E long_code CODE >91:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
 1FF70 long_code CODE >98:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
 $build/default/debug/main.o
-0 code CODE >8:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-100 code CODE >13:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-104 code CODE >16:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-108 code CODE >17:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-10C code CODE >18:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+0 code CODE >12:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+100 code CODE >17:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+104 code CODE >20:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+108 code CODE >21:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+10C code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 $build/default/debug/keypad.o
 1FEF4 keypad_code CODE >13:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
 1FEF6 keypad_code CODE >14:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
@@ -184,12 +192,12 @@ $build/default/debug/data_loader.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Hspace_0 20000 0 ABS 0 - -
-__Hspace_1 5C 0 ABS 0 - -
+__Hspace_1 1A 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 60000E 0 ABS 0 - -
 __Ldata_code 0 0 ABS 0 data_code -
-data_loc 0 0 COMRAM 1 udata_acs build/default/debug/data_loader.o
-label_loc 3C 0 COMRAM 1 udata_acs build/default/debug/data_loader.o
+data_loc 0 0 ABS 0 UDATA_SHR build/default/debug/data_loader.o
+label_loc 3C 0 ABS 0 UDATA_SHR build/default/debug/data_loader.o
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
 __Hudata_bank1 0 0 ABS 0 udata_bank1 -
 __Hudata_bank2 0 0 ABS 0 udata_bank2 -
@@ -202,6 +210,7 @@ __Hudata_bank8 0 0 ABS 0 udata_bank8 -
 __Hudata_bank9 0 0 ABS 0 udata_bank9 -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 delay 1FF18 0 CODE 0 keypad_code build/default/debug/keypad.o
+__HKNN_code 0 0 ABS 0 KNN_code -
 __Hkeypad_code 0 0 ABS 0 keypad_code -
 setup_data 1FFC2 0 CODE 0 data_code build/default/debug/data_loader.o
 __Hudata_bank10 0 0 ABS 0 udata_bank10 -
@@ -220,10 +229,10 @@ __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
-NUM1 51 0 COMRAM 1 udata_acs build/default/debug/longs.o
-NUM2 54 0 COMRAM 1 udata_acs build/default/debug/longs.o
+NUM1 C 0 COMRAM 1 udata_acs build/default/debug/longs.o
+NUM2 F 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __S0 20000 0 ABS 0 - -
-__S1 5C 0 ABS 0 - -
+__S1 1A 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Ludata_bank10 0 0 ABS 0 udata_bank10 -
 __Ludata_bank11 0 0 ABS 0 udata_bank11 -
@@ -243,8 +252,8 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __Hlong_code 0 0 ABS 0 long_code -
 KEYPAD_Setup 1FEF4 0 CODE 0 keypad_code build/default/debug/keypad.o
-total_input 5A 0 COMRAM 1 udata_acs build/default/debug/keypad.o
-RESULT 57 0 COMRAM 1 udata_acs build/default/debug/longs.o
+total_input 18 0 COMRAM 1 udata_acs build/default/debug/keypad.o
+RESULT 12 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __Ludata_bank0 0 0 ABS 0 udata_bank0 -
 __Ludata_bank1 0 0 ABS 0 udata_bank1 -
 __Ludata_bank2 0 0 ABS 0 udata_bank2 -
@@ -259,10 +268,13 @@ __H__absolute__ 0 0 ABS 0 __absolute__ -
 long_reset 1FF1E 0 CODE 0 long_code build/default/debug/longs.o
 __Llong_code 0 0 ABS 0 long_code -
 __Lkeypad_code 0 0 ABS 0 keypad_code -
+__LKNN_code 0 0 ABS 0 KNN_code -
+__HUDATA_SHR 0 0 ABS 0 UDATA_SHR -
 long_compare 1FF5C 0 CODE 0 long_code build/default/debug/longs.o
 __Hudata_acs 0 0 ABS 0 udata_acs -
 load_labels 1FFDE 0 CODE 0 data_code build/default/debug/data_loader.o
 __Hdata_code 0 0 ABS 0 data_code -
+__LUDATA_SHR 0 0 ABS 0 UDATA_SHR -
 __Ludata_acs 0 0 ABS 0 udata_acs -
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -289,9 +301,10 @@ __Ludata_acs 0 0 ABS 0 udata_acs -
 # All other numeric quantities are in decimal.
 %SEGMENTS
 long_code 0 1FF1E 1FF1E 54 1
-udata_acs 1 0 0 5C 1
+udata_acs 1 0 0 1A 1
 data_code 0 1FF72 1FF72 8E 1
 keypad_code 0 1FEF4 1FEF4 2A 1
+KNN_code 0 1FEEC 1FEEC 8 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
