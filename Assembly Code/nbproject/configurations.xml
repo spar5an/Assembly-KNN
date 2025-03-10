@@ -17,7 +17,7 @@
       <itemPath>keypad.s</itemPath>
       <itemPath>longs.s</itemPath>
       <itemPath>data_loader.s</itemPath>
-      <itemPath>KNN.s</itemPath>
+      <itemPath>KNN_tools.s</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -36,7 +36,7 @@
         <targetDevice>PIC18F87K22</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>pic-as</languageToolchain>
         <languageToolchainVersion>2.45</languageToolchainVersion>
         <platform>3</platform>
