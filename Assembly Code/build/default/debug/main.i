@@ -10961,18 +10961,16 @@ ENDM
 # 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
 # 2 "main.s" 2
 
-extrn setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance, long_reset, data_loc, label_loc
+extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc
 
 psect udata_acs
 k: ds 1
 predict_point: ds 3; this is going to be an example point to classify
 data_pointer: ds 1
-label_pointer: ds 1
 counter: ds 1
 
 psect udata_bank1
-distance_storage: ds 9;make sure this value is 3 times k
-label_storage: ds 3;the same as k
+distance_storage: ds 12;make sure this value is 4 times k
 
 
 
@@ -10992,7 +10990,6 @@ setup:
 
 read_data:
  call load_data
- call load_labels
  call long_reset
 
 load_predict_point:
@@ -11014,7 +11011,7 @@ predict:
  lfsr 0, distance_storage;INDF0 stores distance location
  lfsr 1, data_loc;INDF1 stores data_location
 
-load_first_distances:
+load_first_points:
  ;load dp into p2
  movff POSTINC1, point_2
  movff POSTINC1, point_2+1
@@ -11026,10 +11023,15 @@ load_first_distances:
  movff distance+1, POSTINC0
  movff distance+2, POSTINC0
 
- decfsz counter, A
- bra load_first_distances
+ ;with new data structure (as of 11/03/) label stored directly after point
+ ;so both pointers should now be looking at labels
 
-load_first_class:
+ ;copying labels
+ movff POSTINC1, POSTINC0
+
+ decfsz counter, A
+ bra load_first_points
+
 
  goto $
 

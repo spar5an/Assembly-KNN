@@ -14,23 +14,23 @@
 $build/default/debug/config.o
 config CONFIG 4 300000 300000 E 1 1
 $build/default/debug/longs.o
-long_code CODE 0 1FE4C 1FE4C 54 1 1
+long_code CODE 0 1FE66 1FE66 54 1 1
 udata_acs COMRAM 1 D D 9 1 1
 $build/default/debug/main.o
 code CODE 0 0 0 162 1 2
 udata_bank1 BANK1 1 100 100 C 1 1
-udata_acs COMRAM 1 16 16 7 1 1
+udata_acs COMRAM 1 16 16 6 1 1
 config CONFIG 4 300000 300000 E 1 1
 $build/default/debug/KNN_tools.o
 udata_acs COMRAM 1 0 0 D 1 1
 KNN_code CODE 0 1FF36 1FF36 CA 1 1
 $build/default/debug/keypad.o
-udata_acs COMRAM 1 1F 1F 2 1 1
-keypad_code CODE 0 1FE22 1FE22 2A 1 1
+udata_acs COMRAM 1 1E 1E 2 1 1
+keypad_code CODE 0 1FE3C 1FE3C 2A 1 1
 $build/default/debug/data_loader.o
-udata_bank2 BANK2 1 200 200 51 1 1
-udata_acs COMRAM 1 1D 1D 2 1 1
-data_code CODE 0 1FEA0 1FEA0 96 1 1
+udata_bank2 BANK2 1 200 200 50 1 1
+udata_acs COMRAM 1 1C 1C 2 1 1
+data_code CODE 0 1FEBA 1FEBA 7C 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -39,11 +39,11 @@ data_code CODE 0 1FEA0 1FEA0 96 1 1
 %UNUSED
 RAM 60-FF 1
 RAM 10C-1FF 1
-RAM 251-F15 1
+RAM 250-F15 1
 SFR F16-FFF 1
 BANK0 60-FF 1
 BANK1 10C-1FF 1
-BANK2 251-2FF 1
+BANK2 250-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
 BANK5 500-5FF 1
@@ -51,11 +51,11 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 162-1FE21 1
+CONST 162-1FE3B 1
 IDLOC 200000-200007 1
 SMALLCONST 1000-FFFF 1
-SMALLCONST 11000-1FE21 1
-CODE 162-1FE21 1
+SMALLCONST 11000-1FE3B 1
+CODE 162-1FE3B 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -64,10 +64,10 @@ BANK14 E00-EFF 1
 BANK15 F00-F15 1
 BIGRAM 162-F15 1
 BIGSFR F16-FFF 1
-COMRAM 21-5F 1
+COMRAM 20-5F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFFF 1
-MEDIUMCONST 11000-1FE21 1
+MEDIUMCONST 11000-1FE3B 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -82,80 +82,80 @@ MEDIUMCONST 11000-1FE21 1
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/debug/longs.o
-1FE4C long_code CODE >22:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE4E long_code CODE >24:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE50 long_code CODE >25:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE52 long_code CODE >26:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE54 long_code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE56 long_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE58 long_code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE5A long_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE5C long_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE5E long_code CODE >34:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE60 long_code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE62 long_code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE64 long_code CODE >41:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE66 long_code CODE >42:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE68 long_code CODE >45:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE6A long_code CODE >46:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE6C long_code CODE >47:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE6E long_code CODE >50:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE70 long_code CODE >51:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE72 long_code CODE >52:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE74 long_code CODE >54:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE76 long_code CODE >58:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE78 long_code CODE >59:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE7A long_code CODE >60:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE7C long_code CODE >63:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE7E long_code CODE >64:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE80 long_code CODE >65:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE82 long_code CODE >68:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE84 long_code CODE >69:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE86 long_code CODE >70:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE88 long_code CODE >72:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE8A long_code CODE >78:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE8C long_code CODE >79:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE8E long_code CODE >80:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE90 long_code CODE >81:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE92 long_code CODE >84:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE94 long_code CODE >85:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE96 long_code CODE >86:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE98 long_code CODE >87:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE9A long_code CODE >90:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE9C long_code CODE >91:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FE9E long_code CODE >98:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE66 long_code CODE >22:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE68 long_code CODE >24:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE6A long_code CODE >25:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE6C long_code CODE >26:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE6E long_code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE70 long_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE72 long_code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE74 long_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE76 long_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE78 long_code CODE >34:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE7A long_code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE7C long_code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE7E long_code CODE >41:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE80 long_code CODE >42:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE82 long_code CODE >45:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE84 long_code CODE >46:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE86 long_code CODE >47:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE88 long_code CODE >50:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE8A long_code CODE >51:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE8C long_code CODE >52:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE8E long_code CODE >54:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE90 long_code CODE >58:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE92 long_code CODE >59:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE94 long_code CODE >60:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE96 long_code CODE >63:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE98 long_code CODE >64:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE9A long_code CODE >65:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE9C long_code CODE >68:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FE9E long_code CODE >69:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEA0 long_code CODE >70:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEA2 long_code CODE >72:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEA4 long_code CODE >78:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEA6 long_code CODE >79:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEA8 long_code CODE >80:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEAA long_code CODE >81:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEAC long_code CODE >84:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEAE long_code CODE >85:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEB0 long_code CODE >86:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEB2 long_code CODE >87:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEB4 long_code CODE >90:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEB6 long_code CODE >91:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FEB8 long_code CODE >98:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
 $build/default/debug/main.o
-0 code CODE >21:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-100 code CODE >27:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-102 code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-104 code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-108 code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-10C code CODE >34:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+0 code CODE >19:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+100 code CODE >25:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+102 code CODE >26:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+104 code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+108 code CODE >31:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+10C code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 110 code CODE >35:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-114 code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-116 code CODE >39:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-118 code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-11A code CODE >41:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-11C code CODE >42:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-11E code CODE >43:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-120 code CODE >49:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+112 code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+114 code CODE >37:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+116 code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+118 code CODE >39:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+11A code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+11C code CODE >46:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+120 code CODE >47:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 124 code CODE >50:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-128 code CODE >53:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-12C code CODE >54:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-130 code CODE >58:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-134 code CODE >59:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+128 code CODE >51:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+12C code CODE >55:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+130 code CODE >56:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+134 code CODE >57:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 138 code CODE >60:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-13C code CODE >63:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-140 code CODE >64:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-144 code CODE >65:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-148 code CODE >66:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-14C code CODE >68:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-14E code CODE >69:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-150 code CODE >73:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-154 code CODE >78:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-158 code CODE >79:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-15C code CODE >80:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-160 code CODE >81:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+13C code CODE >61:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+140 code CODE >62:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+144 code CODE >63:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+148 code CODE >69:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+14C code CODE >71:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+14E code CODE >72:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+150 code CODE >75:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+154 code CODE >80:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+158 code CODE >81:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+15C code CODE >82:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
+160 code CODE >83:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 $build/default/debug/KNN_tools.o
 1FF36 KNN_code CODE >21:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
 1FF38 KNN_code CODE >22:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
@@ -222,59 +222,46 @@ $build/default/debug/KNN_tools.o
 1FFFA KNN_code CODE >114:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
 1FFFE KNN_code CODE >118:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
 $build/default/debug/keypad.o
-1FE22 keypad_code CODE >13:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE24 keypad_code CODE >14:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE26 keypad_code CODE >15:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE28 keypad_code CODE >16:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE2A keypad_code CODE >17:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE2C keypad_code CODE >21:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE2E keypad_code CODE >22:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE30 keypad_code CODE >23:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE34 keypad_code CODE >24:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE38 keypad_code CODE >27:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE3A keypad_code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE3C keypad_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE40 keypad_code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE42 keypad_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE44 keypad_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE46 keypad_code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE48 keypad_code CODE >37:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
-1FE4A keypad_code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE3C keypad_code CODE >13:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE3E keypad_code CODE >14:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE40 keypad_code CODE >15:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE42 keypad_code CODE >16:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE44 keypad_code CODE >17:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE46 keypad_code CODE >21:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE48 keypad_code CODE >22:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE4A keypad_code CODE >23:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE4E keypad_code CODE >24:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE52 keypad_code CODE >27:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE54 keypad_code CODE >28:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE56 keypad_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE5A keypad_code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE5C keypad_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE5E keypad_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE60 keypad_code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE62 keypad_code CODE >37:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
+1FE64 keypad_code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\keypad.s
 $build/default/debug/data_loader.o
-1FEA0 data_code CODE >20:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEDC data_code CODE >23:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEF0 data_code CODE >26:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEF2 data_code CODE >27:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEF4 data_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEF6 data_code CODE >30:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEF8 data_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEFA data_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEFC data_code CODE >35:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FEFE data_code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF02 data_code CODE >39:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF04 data_code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF06 data_code CODE >41:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF08 data_code CODE >42:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF0A data_code CODE >43:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF0C data_code CODE >44:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF0E data_code CODE >45:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF10 data_code CODE >46:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF12 data_code CODE >48:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF14 data_code CODE >51:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF18 data_code CODE >52:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF1A data_code CODE >53:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF1C data_code CODE >54:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF1E data_code CODE >55:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF20 data_code CODE >56:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF22 data_code CODE >57:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF24 data_code CODE >58:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF26 data_code CODE >59:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF28 data_code CODE >61:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF2A data_code CODE >63:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF2C data_code CODE >64:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF30 data_code CODE >65:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF32 data_code CODE >66:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
-1FF34 data_code CODE >68:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FEBA data_code CODE >19:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF0A data_code CODE >23:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF0C data_code CODE >24:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF0E data_code CODE >26:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF10 data_code CODE >27:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF12 data_code CODE >29:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF14 data_code CODE >32:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF18 data_code CODE >33:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF1A data_code CODE >34:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF1C data_code CODE >35:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF1E data_code CODE >36:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF20 data_code CODE >37:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF22 data_code CODE >38:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF24 data_code CODE >39:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF26 data_code CODE >40:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF28 data_code CODE >42:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF2A data_code CODE >45:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF2C data_code CODE >46:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF30 data_code CODE >47:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF32 data_code CODE >48:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
+1FF34 data_code CODE >50:C:\Users\johnd\OneDrive\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -288,12 +275,11 @@ $build/default/debug/data_loader.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Hspace_0 20000 0 ABS 0 - -
-__Hspace_1 251 0 ABS 0 - -
+__Hspace_1 250 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 60000E 0 ABS 0 - -
 __Ldata_code 0 0 ABS 0 data_code -
 data_loc 200 0 BANK2 1 udata_bank2 build/default/debug/data_loader.o
-label_loc 23C 0 BANK2 1 udata_bank2 build/default/debug/data_loader.o
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
 __Hudata_bank1 0 0 ABS 0 udata_bank1 -
 __Hudata_bank2 0 0 ABS 0 udata_bank2 -
@@ -305,10 +291,10 @@ __Hudata_bank7 0 0 ABS 0 udata_bank7 -
 __Hudata_bank8 0 0 ABS 0 udata_bank8 -
 __Hudata_bank9 0 0 ABS 0 udata_bank9 -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
-delay 1FE46 0 CODE 0 keypad_code build/default/debug/keypad.o
+delay 1FE60 0 CODE 0 keypad_code build/default/debug/keypad.o
 __HKNN_code 0 0 ABS 0 KNN_code -
 __Hkeypad_code 0 0 ABS 0 keypad_code -
-setup_data 1FEF0 0 CODE 0 data_code build/default/debug/data_loader.o
+setup_data 1FF0A 0 CODE 0 data_code build/default/debug/data_loader.o
 __Hudata_bank10 0 0 ABS 0 udata_bank10 -
 __Hudata_bank11 0 0 ABS 0 udata_bank11 -
 __Hudata_bank12 0 0 ABS 0 udata_bank12 -
@@ -329,7 +315,7 @@ __Ldata 0 0 ABS 0 data -
 NUM1 D 0 COMRAM 1 udata_acs build/default/debug/longs.o
 NUM2 10 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __S0 20000 0 ABS 0 - -
-__S1 251 0 ABS 0 - -
+__S1 250 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Ludata_bank10 0 0 ABS 0 udata_bank10 -
 __Ludata_bank11 0 0 ABS 0 udata_bank11 -
@@ -337,11 +323,11 @@ __Ludata_bank12 0 0 ABS 0 udata_bank12 -
 __Ludata_bank13 0 0 ABS 0 udata_bank13 -
 __Ludata_bank14 0 0 ABS 0 udata_bank14 -
 __Ludata_bank15 0 0 ABS 0 udata_bank15 -
-long_subtract 1FE76 0 CODE 0 long_code build/default/debug/longs.o
-long_add 1FE62 0 CODE 0 long_code build/default/debug/longs.o
-KEYPAD_Read 1FE2C 0 CODE 0 keypad_code build/default/debug/keypad.o
+long_subtract 1FE90 0 CODE 0 long_code build/default/debug/longs.o
+long_add 1FE7C 0 CODE 0 long_code build/default/debug/longs.o
+KEYPAD_Read 1FE46 0 CODE 0 keypad_code build/default/debug/keypad.o
 __Lconfig 0 0 CONFIG 4 config -
-load_data 1FEFE 0 CODE 0 data_code build/default/debug/data_loader.o
+load_data 1FF14 0 CODE 0 data_code build/default/debug/data_loader.o
 isa$std 1 0 ABS 0 - build/default/debug/main.o
 calculate_distance 1FF4E 0 CODE 0 KNN_code build/default/debug/KNN_tools.o
 __Lspace_0 0 0 ABS 0 - -
@@ -351,8 +337,8 @@ __Lspace_4 0 0 ABS 0 - -
 point_1 0 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 point_2 3 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 __Hlong_code 0 0 ABS 0 long_code -
-KEYPAD_Setup 1FE22 0 CODE 0 keypad_code build/default/debug/keypad.o
-total_input 1F 0 COMRAM 1 udata_acs build/default/debug/keypad.o
+KEYPAD_Setup 1FE3C 0 CODE 0 keypad_code build/default/debug/keypad.o
+total_input 1E 0 COMRAM 1 udata_acs build/default/debug/keypad.o
 RESULT 13 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __Ludata_bank0 0 0 ABS 0 udata_bank0 -
 __Ludata_bank1 0 0 ABS 0 udata_bank1 -
@@ -365,15 +351,14 @@ __Ludata_bank7 0 0 ABS 0 udata_bank7 -
 __Ludata_bank8 0 0 ABS 0 udata_bank8 -
 __Ludata_bank9 0 0 ABS 0 udata_bank9 -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
-long_reset 1FE4C 0 CODE 0 long_code build/default/debug/longs.o
+long_reset 1FE66 0 CODE 0 long_code build/default/debug/longs.o
 __Llong_code 0 0 ABS 0 long_code -
 __Lkeypad_code 0 0 ABS 0 keypad_code -
 __LKNN_code 0 0 ABS 0 KNN_code -
-long_compare 1FE8A 0 CODE 0 long_code build/default/debug/longs.o
+long_compare 1FEA4 0 CODE 0 long_code build/default/debug/longs.o
 __Hudata_acs 0 0 ABS 0 udata_acs -
 parameter_1 6 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 parameter_2 7 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-load_labels 1FF14 0 CODE 0 data_code build/default/debug/data_loader.o
 __Hdata_code 0 0 ABS 0 data_code -
 __Ludata_acs 0 0 ABS 0 udata_acs -
 # %SPLITSTAB Section
@@ -400,12 +385,12 @@ __Ludata_acs 0 0 ABS 0 udata_acs -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-long_code 0 1FE4C 1FE4C 54 1
+long_code 0 1FE66 1FE66 54 1
 udata_bank1 1 100 100 C 1
-udata_bank2 1 200 200 51 1
-udata_acs 1 0 0 21 1
-data_code 0 1FEA0 1FEA0 96 1
-keypad_code 0 1FE22 1FE22 2A 1
+udata_bank2 1 200 200 50 1
+udata_acs 1 0 0 20 1
+data_code 0 1FEBA 1FEBA 7C 1
+keypad_code 0 1FE3C 1FE3C 2A 1
 KNN_code 0 1FF36 1FF36 CA 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

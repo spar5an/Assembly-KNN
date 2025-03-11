@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o
+ C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o
  -Odist/default/debug\Assembly_Code.debug.hex
  -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
@@ -9,21 +9,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
-  100h - 161h		(C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
-  1FE22h - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
-  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
-  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
+  100h - 161h		(C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
+  1FE3Ch - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
-  162h - 1FE21h
+  162h - 1FE3Bh
   20000h - 2FFFFFh
   300007h - 300007h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAs494.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAs820.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -37,8 +37,7 @@
 00000150 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000160 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001FE20 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001FE30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FE30 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
 0001FE40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FE50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FE60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
