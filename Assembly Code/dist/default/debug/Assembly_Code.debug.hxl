@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o
+ C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o
  -Odist/default/debug\Assembly_Code.debug.hex
  -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
@@ -9,11 +9,11 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
-  100h - 159h		(C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
-  1FE8Eh - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
-  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
-  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
+  100h - 159h		(C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
+  1FE8Eh - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
   15Ah - 1FE8Dh
@@ -23,7 +23,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAs630.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAsahg.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
