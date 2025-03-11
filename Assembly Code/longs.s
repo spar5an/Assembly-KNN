@@ -48,7 +48,7 @@ long_add:
     
     ;highest
     movf    NUM1, W
-    addwfc  NUM2+1, W
+    addwfc  NUM2, W
     movwf   RESULT
 
     return

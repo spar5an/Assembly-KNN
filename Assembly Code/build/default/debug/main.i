@@ -1,21 +1,25 @@
 # 1 "main.s"
 # 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 286 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
 # 1 "main.s" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
-# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 1 3
+# 349 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10866,7 +10870,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10889,8 +10893,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 2 3
 
 
 
@@ -10954,14 +10958,18 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
-# 1 "main.s" 2
+# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
+# 2 "main.s" 2
 
-
-extrn setup_data, load_data, load_labels
+extrn setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance, long_reset
 
 psect udata_acs
+k: ds 1
 predict_point: ds 3; this is going to be an example point to classify
+distance1: ds 3;testing only
+distance2: ds 3;testing only
+distance3: ds 3;testing only
+
 
 
 psect code, abs
@@ -10977,7 +10985,56 @@ setup:
 read:
  call load_data
  call load_labels
+ call long_reset
 
+;test for tools
+; movlw 0x96
+; movwf predict_point
+; movlw 0xfa
+; movwf predict_point+1
+; movlw 0x1e
+; movwf predict_point+2
+; ;this is a point that should be classified as zero, not being used atm
+
+ ;test1
+ movlw 0x00
+ movwf point_1
+ movwf point_1+1
+ movwf point_1+2
+
+ movlw 0xff
+ movwf point_2
+ movwf point_2+1
+ movwf point_2+2
+
+ call calculate_distance
+ movff distance, distance1
+
+ movlw 0x00
+ movwf point_1
+ movwf point_1+1
+ movwf point_1+2
+
+ movwf point_2
+ movwf point_2+1
+ movwf point_2+2
+
+ call calculate_distance
+ movff distance, distance2
+
+ movlw 0x00
+ movwf point_1
+ movwf point_1+1
+ movwf point_1+2
+
+
+ movwf point_2
+ movwf point_2+1
+ movlw 0xff
+ movwf point_2+2
+
+ call calculate_distance
+ movff distance, distance1
 
  goto $
 

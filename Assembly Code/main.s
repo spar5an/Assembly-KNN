@@ -1,6 +1,6 @@
 	#include <xc.inc>
 
-extrn	setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance
+extrn	setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance, long_reset
 
 psect	udata_acs
 k:  ds	1
@@ -24,6 +24,7 @@ setup:
 read:
 	call	load_data
 	call	load_labels
+	call	long_reset
 	
 ;test for tools
 ;	movlw	0x96
@@ -36,40 +37,40 @@ read:
 	
 	;test1
 	movlw	0x00
-	movwf	point1
-	movwf	point1+1
-	movwf	point1+2
+	movwf	point_1
+	movwf	point_1+1
+	movwf	point_1+2
 	
 	movlw	0xff
-	movwf	point2
-	movwf	point2+1
-	movwf	point2+2
+	movwf	point_2
+	movwf	point_2+1
+	movwf	point_2+2
 	
 	call	calculate_distance
 	movff	distance, distance1
 	
 	movlw	0x00
-	movwf	point1
-	movwf	point1+1
-	movwf	point1+2
+	movwf	point_1
+	movwf	point_1+1
+	movwf	point_1+2
 	
-	movwf	point2
-	movwf	point2+1
-	movwf	point2+2
+	movwf	point_2
+	movwf	point_2+1
+	movwf	point_2+2
 	
 	call	calculate_distance
 	movff	distance, distance2
 	
 	movlw	0x00
-	movwf	point1
-	movwf	point1+1
-	movwf	point1+2
+	movwf	point_1
+	movwf	point_1+1
+	movwf	point_1+2
 	
 	
-	movwf	point2
-	movwf	point2+1
+	movwf	point_2
+	movwf	point_2+1
 	movlw	0xff
-	movwf	point2+2
+	movwf	point_2+2
 	
 	call	calculate_distance
 	movff	distance, distance1
