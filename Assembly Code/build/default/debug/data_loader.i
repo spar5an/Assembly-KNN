@@ -10963,10 +10963,15 @@ global setup_data, load_data, load_labels, data_loc, label_loc
 ;this is a temporary solution to load some data in to begin coding the KNN
 ;20 binary data points with 3 parameters each
 
-psect UDATA_SHR; this is wrong as data is writing over it but is not needed atm
+PSECT udata_bank2; this is wrong as data is writing over it but is not needed atm
 data_loc: ds 60
 label_loc: ds 20
 counter: ds 1
+
+psect udata_acs
+data_length: ds 1
+label_length: ds 1
+
 
 psect data_code, class=CODE
 data:
@@ -10979,6 +10984,12 @@ setup_data:
  bcf ((EECON1) and 0FFh), 6, a
  bsf ((EECON1) and 0FFh), 7, a
 
+ movlw 0x3C;60 in hex
+ movwf data_length
+
+ movlw 0x14;20 in hex
+ movwf label_length
+
  return
 
 load_data:
@@ -10989,7 +11000,7 @@ load_data:
  movwf TBLPTRH, A ; load high byte to TBLPTRH
  movlw low(data) ; address of data in PM
  movwf TBLPTRL, A ; load low byte to TBLPTRL
- movlw 60
+ movf data_length, W
  movwf counter, A ; our counter register
 
  bra loop
@@ -11002,7 +11013,7 @@ load_labels:
  movwf TBLPTRH, A ; load high byte to TBLPTRH
  movlw low(labels) ; address of data in PM
  movwf TBLPTRL, A ; load low byte to TBLPTRL
- movlw 20
+ movf label_length, W
  movwf counter, A ; our counter register
 
  bra loop

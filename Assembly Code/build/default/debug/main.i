@@ -10958,14 +10958,17 @@ ENDM
 # 1 "main.s" 2
 
 
-extrn setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance, long_reset
+extrn setup_data, load_data, load_labels, point_1, point_2, calculate_distance, distance, long_reset, data_loc, label_loc
 
 psect udata_acs
 k: ds 1
 predict_point: ds 3; this is going to be an example point to classify
-distance1: ds 3;testing only
-distance2: ds 3;testing only
-distance3: ds 3;testing only
+displacement: ds 1
+counter: ds 1
+
+psect udata_bank1
+distance_storage: ds 9;make sure this value is 3 times k
+label_storage: ds 3;the same as k
 
 
 
@@ -10977,62 +10980,57 @@ main:
  org 0x100 ; Main code starts here at address 0x100
 
 setup:
+ ;;;;;;;;;; HERE IS K ;;;;;;;;;;
+ movlw 0x03;will have a hard limit of like 30
+ movwf k
+
  call setup_data
 
-read:
+read_data:
  call load_data
  call load_labels
  call long_reset
 
-;test for tools
-; movlw 0x96
-; movwf predict_point
-; movlw 0xfa
-; movwf predict_point+1
-; movlw 0x1e
-; movwf predict_point+2
-; ;this is a point that should be classified as zero, not being used atm
+load_predict_point:
+     movlw 0x96
+ movwf predict_point
+ movlw 0xfa
+ movwf predict_point+1
+ movlw 0x1e
+ movwf predict_point+2
+ ;this is a point that should be classified as zero, not being used atm
 
- ;test1
- movlw 0x00
- movwf point_1
- movwf point_1+1
- movwf point_1+2
 
- movlw 0xff
- movwf point_2
- movwf point_2+1
- movwf point_2+2
+predict:
+ ;load first K distances
+ movff k, counter, A
+ call load_pp_p1
 
+load_first_ks_loop:
+ ;load dp into p2
+ movff data_loc, point_2
+ movff data_loc+1, point_2+1
+ movff data_loc+2, point_2+2
+
+ ;caculate and store distance
  call calculate_distance
- movff distance, distance1
+ movff distance, distance_storage
+ movff distance+1, distance_storage+1
+ movff distance+2, distance_storage+2
 
- movlw 0x00
- movwf point_1
- movwf point_1+1
- movwf point_1+2
-
- movwf point_2
- movwf point_2+1
- movwf point_2+2
-
- call calculate_distance
- movff distance, distance2
-
- movlw 0x00
- movwf point_1
- movwf point_1+1
- movwf point_1+2
+ ;store classification
+ movff label_loc, label_storage
 
 
- movwf point_2
- movwf point_2+1
- movlw 0xff
- movwf point_2+2
-
- call calculate_distance
- movff distance, distance1
+ decfsz counter, A
+ bra load_first_ks_loop
 
  goto $
 
- end main
+
+
+load_pp_p1:
+ movff predict_point, point_1
+ movff predict_point+1, point_1+1
+ movff predict_point+2, point_1+2
+ return
