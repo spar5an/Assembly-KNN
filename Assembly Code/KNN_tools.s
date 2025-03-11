@@ -12,15 +12,18 @@ point_2:    ds	3
 parameter_1:	ds  1
 parameter_2:	ds  1
 distance: ds  3
-temp:	ds  1;this is useful for flipping w and squaring
+temp:	ds  1;these are useful for flipping w and squaring
+temp2:	ds  1
 param_counter:	ds  1
 
     
 psect	KNN_code, class=CODE
-flip_w:
+flip_w:;this might be replacable with an xor
     movwf   temp, A
-    movlw   0xff
-    subwf   temp, A
+    movlw   0x00
+    movwf   temp2, A
+    movf    temp, W
+    subwf   temp2, W, A
     return
     
 calculate_difference:

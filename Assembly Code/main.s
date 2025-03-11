@@ -36,12 +36,12 @@ read:
 ;	;this is a point that should be classified as zero, not being used atm
 	
 	;test1
-	movlw	0x02
+	movlw	0x00
 	movwf	point_1
 	movwf	point_1+1
 	movwf	point_1+2
 	
-	movlw	0x01
+	movlw	0xff
 	movwf	point_2
 	movwf	point_2+1
 	movwf	point_2+2
