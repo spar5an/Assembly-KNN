@@ -50,31 +50,25 @@ predict:
 	call	load_pp_p1
 	
 	;create pointers
-	lfsr	0,  data_loc;INDF0 stores data location
-	lfsr	1,  label_loc;INDF1 stores label location
+	lfsr	0,  distance_storage;INDF0 stores distance location
+	lfsr	1,  data_loc;INDF1 stores data_location
 	
-load_first_ks_loop:	
+load_first_distances:	
 	;load dp into p2
-	movff	INDF0, point_2
-	movff	INDF0+1, point_2+1
-	movff	INDF0+2, point_2+2
+	movff	POSTINC1, point_2
+	movff	POSTINC1, point_2+1
+	movff	POSTINC1, point_2+2
 	
 	;caculate and store distance
 	call	calculate_distance
-	movff	distance, distance_storage
-	movff	distance+1, distance_storage+1
-	movff	distance+2, distance_storage+2
-	
-	;store classification
-	movff	INDF1, label_storage
-	
-	;iterate pointers
-	movlw	0x03
-	addwf	INDF0
-	incf	INDF1
+	movff	distance, POSTINC0
+	movff	distance+1, POSTINC0
+	movff	distance+2, POSTINC0
     
 	decfsz	counter, A
-	bra	load_first_ks_loop
+	bra	load_first_distances
+	
+load_first_class:
 
 	goto	$
 	

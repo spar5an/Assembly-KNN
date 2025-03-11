@@ -14,7 +14,6 @@ parameter_2:	ds  1
 distance: ds  3
 temp:	ds  1;these are useful for flipping w and squaring
 temp2:	ds  1
-param_counter:	ds  1
 
     
 psect	KNN_code, class=CODE
@@ -40,16 +39,13 @@ calculate_distance:
     movwf   distance+1, A
     movwf   distance+2, A
     
-    movlw   0x03
-    movwf   param_counter, A
-    
-    ;going to load point_1 into fsr1, point_2 to fsr2
-    lfsr    1, point_1
-    lfsr    2, point_2
-    
-distance_loop:
-    movff   POSTINC1, parameter_1
-    movff   POSTINC2, parameter_2
+    ;this was written before with a loop and pointers
+    ;pointers are too valuable to waste on this task
+    ;i only have 3
+    ;enjoy man made horrors beyond my creation
+   
+    movff   point_1, parameter_1
+    movff   point_2, parameter_2
     call    calculate_difference
     
     movwf   temp, A
@@ -71,9 +67,53 @@ distance_loop:
     movff   RESULT+1, distance+1
     movff   RESULT+2, distance+2
     
-
-    decfsz  param_counter, f
-    bra	    distance_loop
+    movff   point_1+1, parameter_1
+    movff   point_2+1, parameter_2
+    call    calculate_difference
+    
+    movwf   temp, A
+    mulwf   temp
+    
+    movff   distance, NUM1
+    movff   distance+1, NUM1+1
+    movff   distance+2, NUM1+2
+    
+    movlw   0x00
+    movwf   NUM2
+    
+    movff   PRODH, NUM2+1
+    movff   PRODL, NUM2+2
+    
+    call    long_add
+    
+    movff   RESULT, distance
+    movff   RESULT+1, distance+1
+    movff   RESULT+2, distance+2
+    
+    movff   point_1+2, parameter_1
+    movff   point_2+2, parameter_2
+    call    calculate_difference
+    
+    movwf   temp, A
+    mulwf   temp
+    
+    movff   distance, NUM1
+    movff   distance+1, NUM1+1
+    movff   distance+2, NUM1+2
+    
+    movlw   0x00
+    movwf   NUM2
+    
+    movff   PRODH, NUM2+1
+    movff   PRODL, NUM2+2
+    
+    call    long_add
+    
+    movff   RESULT, distance
+    movff   RESULT+1, distance+1
+    movff   RESULT+2, distance+2
+    
+    ;i hate this
     
     return
     

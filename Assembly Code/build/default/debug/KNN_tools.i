@@ -1,21 +1,25 @@
 # 1 "KNN_tools.s"
 # 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 286 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
 # 1 "KNN_tools.s" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
-# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 1 3
+# 349 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10866,7 +10870,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10889,8 +10893,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 2 3
 
 
 
@@ -10954,9 +10958,8 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
-# 1 "KNN_tools.s" 2
-
+# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
+# 2 "KNN_tools.s" 2
 ;this file will contain all the tools needed for KNN
 
 extrn long_reset, long_add, long_subtract, long_compare, NUM1, NUM2, RESULT
@@ -10972,7 +10975,6 @@ parameter_2: ds 1
 distance: ds 3
 temp: ds 1;these are useful for flipping w and squaring
 temp2: ds 1
-param_counter: ds 1
 
 
 psect KNN_code, class=CODE
@@ -10998,16 +11000,13 @@ calculate_distance:
     movwf distance+1, A
     movwf distance+2, A
 
-    movlw 0x03
-    movwf param_counter, A
+    ;this was written before with a loop and pointers
+    ;pointers are too valuable to waste on this task
+    ;i only have 3
+    ;enjoy man made horrors beyond my creation
 
-    ;going to load point_1 into fsr1, point_2 to fsr2
-    lfsr 1, point_1
-    lfsr 2, point_2
-
-distance_loop:
-    movff POSTINC1, parameter_1
-    movff POSTINC2, parameter_2
+    movff point_1, parameter_1
+    movff point_2, parameter_2
     call calculate_difference
 
     movwf temp, A
@@ -11029,8 +11028,52 @@ distance_loop:
     movff RESULT+1, distance+1
     movff RESULT+2, distance+2
 
+    movff point_1+1, parameter_1
+    movff point_2+1, parameter_2
+    call calculate_difference
 
-    decfsz param_counter, f
-    bra distance_loop
+    movwf temp, A
+    mulwf temp
+
+    movff distance, NUM1
+    movff distance+1, NUM1+1
+    movff distance+2, NUM1+2
+
+    movlw 0x00
+    movwf NUM2
+
+    movff PRODH, NUM2+1
+    movff PRODL, NUM2+2
+
+    call long_add
+
+    movff RESULT, distance
+    movff RESULT+1, distance+1
+    movff RESULT+2, distance+2
+
+    movff point_1+2, parameter_1
+    movff point_2+2, parameter_2
+    call calculate_difference
+
+    movwf temp, A
+    mulwf temp
+
+    movff distance, NUM1
+    movff distance+1, NUM1+1
+    movff distance+2, NUM1+2
+
+    movlw 0x00
+    movwf NUM2
+
+    movff PRODH, NUM2+1
+    movff PRODL, NUM2+2
+
+    call long_add
+
+    movff RESULT, distance
+    movff RESULT+1, distance+1
+    movff RESULT+2, distance+2
+
+    ;i hate this
 
     return
