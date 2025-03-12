@@ -5,21 +5,21 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "bubble_sort.s" 2
-# 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
 
 
 
 
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 1 3
 
 
 
 
 
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 1 3
-# 349 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 3
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 1 3
-# 47 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 1 3
+# 349 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10870,7 +10870,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10893,8 +10893,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 350 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 2 3
-# 7 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 2 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 2 3
 
 
 
@@ -10958,14 +10958,14 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
 # 2 "bubble_sort.s" 2
 
     ;this will sort the data in bank 1
     ;which holds distances
 
 
-extrn long_compare
+extrn long_compare, NUM1, NUM2
 
 global bubble_sort
 
@@ -10978,23 +10978,43 @@ storage: ds 4
 
 psect bubble_code, class=CODE
 bubble_sort:
-    lfsr 0, 0x100
     ;first location loaded into INDF0
     ;just goint to swap first 2 to test
+    lfsr 2, 0x100
 
-    movlw 0x01
-    movwf swap_loc
-    movlw 0x00
-    movwf swap_loc+1
 
-    movf low swap_loc, W
-    movwf FSR0H
+    movff POSTINC2, NUM1
+    movff POSTINC2, NUM1+1
+    movff POSTINC2, NUM1+2
 
-    movf swap_loc+1, W
-    movwf FSR0L
+    incf FSR2
+
+    movff POSTINC2, NUM2
+    movff POSTINC2, NUM2+1
+    movff POSTINC2, NUM2+2
+
+    call long_compare
+    btfss STATUS, 2
+    call check_hl;have to use this as it only skips 1 instruction
+
+    return
+
+check_hl:
+    btfss STATUS, 0
+    call swap
+    return
 
 
 swap:
+    ;fsr2 should be 7 above swap start
+    movlw 0x07
+    subwf FSR2 ;this is unsafe, 8bit maths on 12bit number, but it should work
+    movff FSR2H, swap_loc
+    movff FSR2L, swap_loc+1
+    addwf FSR2
+
+
+    call load_beginning
     lfsr 1, storage;using this for elegance, can be swapped later
 
     ;load first distance+label into storage
@@ -11004,9 +11024,13 @@ swap:
     movff POSTINC0, POSTINC1
 
     ;reset INDFO and point INDF1 at second d+l
-    lfsr 0, 0x100
+    call load_beginning
 
-    lfsr 1, 0x100+0x004
+    movff FSR0H, FSR1H
+    movff FSR0L, FSR1L
+    movlw 0x04
+    addwf FSR1
+
 
     ;mov 2nd d+l to first position
     movff POSTINC1, POSTINC0
@@ -11023,5 +11047,15 @@ swap:
     movff POSTINC1, POSTINC0
     movff POSTINC1, POSTINC0
     movff POSTINC1, POSTINC0
+
+    return
+
+load_beginning:
+    ;loads the begining of the swap location into INDF0
+    movf low swap_loc, W
+    movwf FSR0H
+
+    movf swap_loc+1, W
+    movwf FSR0L
 
     return

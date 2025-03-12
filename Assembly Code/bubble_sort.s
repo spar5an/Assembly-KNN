@@ -4,7 +4,7 @@
     ;which holds distances
     
     
-extrn	long_compare
+extrn	long_compare, NUM1, NUM2
     
 global	bubble_sort
     
@@ -17,19 +17,43 @@ storage:    ds	4
     
 psect	bubble_code, class=CODE
 bubble_sort:
-    lfsr    0, 0x100
     ;first location loaded into INDF0
     ;just goint to swap first 2 to test
+    lfsr    2, 0x100
     
-    movlw   0x01
-    movwf   swap_loc
-    movlw   0x00
-    movwf   swap_loc+1
     
-    call load_beggining
+    movff   POSTINC2, NUM1
+    movff   POSTINC2, NUM1+1
+    movff   POSTINC2, NUM1+2
+    
+    incf    FSR2
+    
+    movff   POSTINC2, NUM2
+    movff   POSTINC2, NUM2+1
+    movff   POSTINC2, NUM2+2
+    
+    call    long_compare
+    btfss   STATUS, 2
+    call    check_hl;have to use this as it only skips 1 instruction
+    
+    return
+    
+check_hl:
+    btfss   STATUS, 0
+    call    swap
+    return
     
 
 swap:
+    ;fsr2 should be 7 above swap start
+    movlw   0x07
+    subwf   FSR2 ;this is unsafe, 8bit maths on 12bit number, but it should work
+    movff   FSR2H, swap_loc
+    movff   FSR2L, swap_loc+1
+    addwf   FSR2
+    
+    
+    call load_beginning
     lfsr    1, storage;using this for elegance, can be swapped later
     
     ;load first distance+label into storage
@@ -39,9 +63,13 @@ swap:
     movff   POSTINC0, POSTINC1
     
     ;reset INDFO and point INDF1 at second d+l
-    lfsr    0,	0x100
+    call    load_beginning
     
-    lfsr    1,	0x100+0x004
+    movff   FSR0H, FSR1H
+    movff   FSR0L, FSR1L
+    movlw   0x04
+    addwf   FSR1
+    
     
     ;mov 2nd d+l to first position
     movff   POSTINC1, POSTINC0

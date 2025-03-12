@@ -2,11 +2,12 @@ Microchip MPLAB XC8 PIC(R) Assembler V3.0
 
 Linker command line:
 
--W-3 --edf=/opt/microchip/xc8/v3.00/pic/dat/20241204225717_en.msgs -cs \
-  -h+dist/default/debug/Assembly_Code.debug.sym \
-  --cmf=dist/default/debug/Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -o/tmp/xcXAJEfCm/driver_tmp_3.o --fixupoverflow=error \
-  -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
+-W-3 \
+  --edf=C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\pic\dat\20241213203129_en.msgs \
+  -cs -h+dist/default/debug\Assembly_Code.debug.sym \
+  --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
+  -oC:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o \
+  --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 -ACODE=00h-01FFFFh \
   -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=00h-05Fh \
@@ -39,30 +40,30 @@ build/default/debug/main.o
 build/default/debug/config.o
                 config                           300000   300000        E        0       4
 build/default/debug/keypad.o
-                keypad_code                       1FDE6    1FDE6       2A    1FDE6       0
+                keypad_code                       1FDA4    1FDA4       2A    1FDA4       0
                 udata_acs                            27       27        2        0       1
 build/default/debug/longs.o
-                long_code                         1FE10    1FE10       54    1FE10       0
+                long_code                         1FDCE    1FDCE       54    1FDCE       0
                 udata_acs                            16       16        9        0       1
 build/default/debug/data_loader.o
-                data_code                         1FEBA    1FEBA       7C    1FEBA       0
+                data_code                         1FE22    1FE22       7C    1FE22       0
                 udata_bank2                         200      200       50      200       1
                 udata_acs                            25       25        2        0       1
 build/default/debug/KNN_tools.o
                 KNN_code                          1FF36    1FF36       CA    1FF36       0
                 udata_acs                             0        0        D        0       1
 build/default/debug/bubble_sort.o
-                bubble_code                       1FE64    1FE64       56    1FE64       0
+                bubble_code                       1FE9E    1FE9E       98    1FE9E       0
                 udata_acs                             D        D        9        0       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 code                                  0        0      166         0
-                keypad_code                       1FDE6    1FDE6       2A         0
-                long_code                         1FE10    1FE10       54         0
-                data_code                         1FEBA    1FEBA       7C         0
+                keypad_code                       1FDA4    1FDA4       2A         0
+                long_code                         1FDCE    1FDCE       54         0
+                data_code                         1FE22    1FE22       7C         0
                 KNN_code                          1FF36    1FF36       CA         0
-                bubble_code                       1FE64    1FE64       56         0
+                bubble_code                       1FE9E    1FE9E       98         0
 
         CLASS   CONST          
 
@@ -133,14 +134,14 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                data_code                      01FEBA  00007C  01FF36     1FEBA       0  CODE    
-                bubble_code                    01FE64  000056  01FEBA     1FE64       0  CODE    
                 udata_acs                      000000  000029  000029         0       1  COMRAM  
-                KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
-                long_code                      01FE10  000054  01FE64     1FE10       0  CODE    
-                keypad_code                    01FDE6  00002A  01FE10     1FDE6       0  CODE    
-                udata_bank2                    000200  000050  000250       200       1  BANK2   
                 udata_bank1                    000100  00000C  00010C       100       1  BANK1   
+                udata_bank2                    000200  000050  000250       200       1  BANK2   
+                keypad_code                    01FDA4  00002A  01FDCE     1FDA4       0  CODE    
+                long_code                      01FDCE  000054  01FE22     1FDCE       0  CODE    
+                data_code                      01FE22  00007C  01FE9E     1FE22       0  CODE    
+                bubble_code                    01FE9E  000098  01FF36     1FE9E       0  CODE    
+                KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -164,23 +165,23 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF              100
         BIGRAM           000166-000F15              DB0
         BIGSFR           000F16-000FFF               EA
-        CODE             000166-01FDE5            1FC80
+        CODE             000166-01FDA3            1FC3E
         COMRAM           000029-00005F               37
-        CONST            000166-01FDE5            1FC80
+        CONST            000166-01FDA3            1FC3E
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
-                         011000-01FDE5             EDE6
+                         011000-01FDA3             EDA4
         RAM              000060-0000FF               A0
                          00010C-0001FF               F4
                          000250-000F15              100
         SFR              000F16-000FFF               4A
         SMALLCONST       001000-00FFFF              100
-                         011000-01FDE5              100
+                         011000-01FDA3              100
 
                                   Symbol Table
 
-KEYPAD_Read        keypad_code  01FDF0  KEYPAD_Setup       keypad_code  01FDE6
+KEYPAD_Read        keypad_code  01FDAE  KEYPAD_Setup       keypad_code  01FDA4
 NUM1               udata_acs    000016  NUM2               udata_acs    000019
 RESULT             udata_acs    00001C  __HKNN_code        KNN_code     000000
 __H__absolute__    __absolute__ 000000  __Hbubble_code     bubble_code  000000
@@ -216,12 +217,12 @@ __Ludata_bank5     udata_bank5  000000  __Ludata_bank6     udata_bank6  000000
 __Ludata_bank7     udata_bank7  000000  __Ludata_bank8     udata_bank8  000000
 __Ludata_bank9     udata_bank9  000000  __S0               (abs)        020000
 __S1               (abs)        000250  __S3               (abs)        000000
-bubble_sort        bubble_code  01FE64  calculate_distance KNN_code     01FF4E
-data_loc           udata_bank2  000200  delay              keypad_code  01FE0A
+bubble_sort        bubble_code  01FE9E  calculate_distance KNN_code     01FF4E
+data_loc           udata_bank2  000200  delay              keypad_code  01FDC8
 distance           udata_acs    000008  isa$std            (abs)        000001
-isa$xinst          (abs)        000000  load_data          data_code    01FF14
-long_add           long_code    01FE26  long_compare       long_code    01FE4E
-long_reset         long_code    01FE10  long_subtract      long_code    01FE3A
+isa$xinst          (abs)        000000  load_data          data_code    01FE7C
+long_add           long_code    01FDE4  long_compare       long_code    01FE0C
+long_reset         long_code    01FDCE  long_subtract      long_code    01FDF8
 parameter_1        udata_acs    000006  parameter_2        udata_acs    000007
 point_1            udata_acs    000000  point_2            udata_acs    000003
-setup_data         data_code    01FF0A  total_input        udata_acs    000027
+setup_data         data_code    01FE72  total_input        udata_acs    000027
