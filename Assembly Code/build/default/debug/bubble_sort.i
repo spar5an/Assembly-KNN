@@ -1,10 +1,10 @@
-# 1 "main.s"
+# 1 "bubble_sort.s"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 286 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "main.s" 2
+# 1 "bubble_sort.s" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
@@ -10959,86 +10959,69 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
-# 2 "main.s" 2
+# 2 "bubble_sort.s" 2
 
-extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+    ;this will sort the data in bank 1
+    ;which holds distances
+
+
+extrn long_compare
+
+global bubble_sort
 
 psect udata_acs
-k: ds 1
-predict_point: ds 3; this is going to be an example point to classify
-data_pointer: ds 1
+length: ds 1
+swap_loc: ds 2
 counter: ds 1
+sorted: ds 1
+storage: ds 4
 
-psect udata_bank1
-distance_storage: ds 12;make sure this value is 4 times k
+psect bubble_code, class=CODE
+bubble_sort:
+    lfsr 0, 0x100
+    ;first location loaded into INDF0
+    ;just goint to swap first 2 to test
 
+    movlw 0x01
+    movwf swap_loc
+    movlw 0x00
+    movwf swap_loc+1
 
+    movf low swap_loc, W
+    movwf FSR0H
 
-psect code, abs
-main:
- org 0x0
- goto setup
-
- org 0x100 ; Main code starts here at address 0x100
-
-setup:
- ;;;;;;;;;; HERE IS K ;;;;;;;;;;
- movlw 0x03;will have a hard limit of like 30
- movwf k
-
- call setup_data
-
-read_data:
- call load_data
- call long_reset
-
-load_predict_point:
-     movlw 0x96
- movwf predict_point
- movlw 0xfa
- movwf predict_point+1
- movlw 0x1e
- movwf predict_point+2
- ;this is a point that should be classified as zero, not being used atm
+    movf swap_loc+1, W
+    movwf FSR0L
 
 
-predict:
- ;load first K distances
- movff k, counter, A
- call load_pp_p1
+swap:
+    lfsr 1, storage;using this for elegance, can be swapped later
 
- ;create pointers
- lfsr 0, distance_storage;INDF0 stores distance location
- lfsr 1, data_loc;INDF1 stores data_location
+    ;load first distance+label into storage
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
 
-load_first_points:
- ;load dp into p2
- movff POSTINC1, point_2
- movff POSTINC1, point_2+1
- movff POSTINC1, point_2+2
+    ;reset INDFO and point INDF1 at second d+l
+    lfsr 0, 0x100
 
- ;caculate and store distance
- call calculate_distance
- movff distance, POSTINC0
- movff distance+1, POSTINC0
- movff distance+2, POSTINC0
+    lfsr 1, 0x100+0x004
 
- ;with new data structure (as of 11/03/) label stored directly after point
- ;so both pointers should now be looking at labels
+    ;mov 2nd d+l to first position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
 
- ;copying labels
- movff POSTINC1, POSTINC0
+    ;point INDF1 at storage
+    ;INDF0 is already pointing at 2nd d+l
+    lfsr 1, storage
 
- decfsz counter, A
- bra load_first_points
+    ;mov 1st d+l from storage to 2nd position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
 
- call bubble_sort
- goto $
-
-
-
-load_pp_p1:
- movff predict_point, point_1
- movff predict_point+1, point_1+1
- movff predict_point+2, point_1+2
- return
+    return

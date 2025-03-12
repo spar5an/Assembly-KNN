@@ -1,1 +1,1 @@
-build/default/debug\config.i: config.s
+build/default/debug/config.i: config.s
