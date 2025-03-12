@@ -1,6 +1,6 @@
 	#include <xc.inc>
 
-extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc
+extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 
 psect	udata_acs
 k:  ds	1
@@ -71,7 +71,7 @@ load_first_points:
 	decfsz	counter, A
 	bra	load_first_points
 	
-
+	call	bubble_sort
 	goto	$
 	
 	
