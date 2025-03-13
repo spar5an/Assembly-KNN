@@ -1,1 +1,1 @@
-build/default/debug\keypad.i: keypad.s
+build/default/debug/keypad.i: keypad.s

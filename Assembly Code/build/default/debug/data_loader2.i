@@ -1,29 +1,21 @@
-# 1 "config.s"
+# 1 "data_loader2.s"
 # 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 286 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
-# 1 "config.s" 2
-; PIC18F87K22 Configuration Bit Settings
-
-; Assembly source line config statements
-
-# 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
+# 1 "data_loader2.s" 2
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
 
 
 
 
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
 
 
 
 
 
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 1 3
-# 349 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 3
-# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 1 3
-# 47 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10874,7 +10866,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10897,8 +10889,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 350 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 2 3
-# 7 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 2 3
+# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
 
 
 
@@ -10962,88 +10954,46 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
-# 6 "config.s" 2
+# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
+# 2 "data_loader2.s" 2
 
-; CONFIG1L
-  CONFIG RETEN = ON ; VREG Sleep Enable bit (Enabled)
-  CONFIG INTOSCSEL = HIGH ; LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
-  CONFIG SOSCSEL = DIG ; SOSC Power Selection and mode Configuration bits (Digital IO selected)
-  CONFIG XINST = OFF ; Extended Instruction Set (Disabled)
 
-; CONFIG1H
-  CONFIG FOSC = HS1 ; Oscillator (HS oscillator (Medium power, 4 MHz - 16 MHz))
-  CONFIG PLLCFG = ON ; PLL x4 Enable bit (Enabled)
-  CONFIG FCMEN = OFF ; Fail-Safe Clock Monitor (Disabled)
-  CONFIG IESO = OFF ; Internal External Oscillator Switch Over Mode (Disabled)
+global setup_data, load_data, data_loc, label_loc
+;this is a temporary solution to load some data in to begin coding the KNN
+;20 binary data points with 3 parameters each
 
-; CONFIG2L
-  CONFIG PWRTEN = OFF ; Power Up Timer (Disabled)
-  CONFIG BOREN = SBORDIS ; Brown Out Detect (Enabled in hardware, ((RCON) and 0FFh), 6, a disabled)
-  CONFIG BORV = 3 ; Brown-out Reset Voltage bits (1.8V)
-  CONFIG BORPWR = ZPBORMV ; BORMV Power level (ZPBORMV instead of BORMV is selected)
+psect udata_acs
+data_loc: ds 60
+label_loc: ds 20
+counter: ds 1
 
-; CONFIG2H
-  CONFIG WDTEN = OFF ; Watchdog Timer (WDT disabled in hardware and software)
-  CONFIG WDTPS = 1048576 ; Watchdog Postscaler (1:1048576)
+psect data_code, class=CODE
+data:
+ db 0xb1, 0x16, 0xbf, 0xff, 0xcc, 0x23, 0xc, 0x5, 0x73, 0x0, 0x7, 0xff, 0x88, 0xe1, 0x50, 0x46, 0xe, 0x57, 0x66, 0x24, 0xac, 0x69, 0x6, 0xe5, 0x7b, 0xf4, 0x63, 0x34, 0x0, 0xa8, 0xda, 0xf0, 0x5, 0x37, 0x9, 0xa6, 0x20, 0x10, 0xbd, 0x42, 0xda, 0x16, 0xcf, 0xdc, 0x84, 0xb5, 0xcf, 0x1d, 0xdb, 0xd4, 0x16, 0x34, 0xff, 0x0, 0x97, 0x21, 0x8f, 0x9d, 0xcd, 0x61
+ align 2
+labels:
+ db 0x1, 0x0, 0x1, 0x1, 0x0, 0x1, 0x1, 0x1, 0x0, 0x1, 0x0, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1, 0x0
+ align 2
+setup_data:
+ bcf ((EECON1) and 0FFh), 6, a
+ bsf ((EECON1) and 0FFh), 7, a
 
-; CONFIG3L
-  CONFIG RTCOSC = SOSCREF ; ((PORTG) and 0FFh), 4, a Clock Select (((PORTG) and 0FFh), 4, a uses SOSC)
-  CONFIG EASHFT = ON ; External Address Shift bit (Address Shifting enabled)
-  CONFIG ABW = MM ; Address Bus Width Select bits (8-bit address bus)
-  CONFIG BW = 16 ; Data Bus Width (16-bit external bus mode)
-  CONFIG WAIT = OFF ; External Bus Wait (Disabled)
+ return
 
-; CONFIG3H
-  CONFIG CCP2MX = PORTC ; ((PORTC) and 0FFh), 1, a Mux (((PORTC) and 0FFh), 1, a)
-  CONFIG ECCPMX = PORTE ; ECCP Mux (Enhanced ((PORTC) and 0FFh), 2, a/3 [((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a] muxed with ((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a)
-  CONFIG MSSPMSK = 1 ; MSSP address masking (7 Bit address masking mode)
-  CONFIG MCLRE = ON ; Master Clear Enable (MCLR Enabled, ((PORTG) and 0FFh), 5, a Disabled)
+load_data:
+     lfsr 0, data_loc ; Load FSR0 with address in RAM
+ movlw low highword(data) ; address of data in PM
+ movwf TBLPTRU, A ; load upper bits to TBLPTRU
+ movlw high(data) ; address of data in PM
+ movwf TBLPTRH, A ; load high byte to TBLPTRH
+ movlw low(data) ; address of data in PM
+ movwf TBLPTRL, A ; load low byte to TBLPTRL
+ movlw 60
+ movwf counter, A ; our counter register
+loop:
+        tblrd*+ ; move one byte from PM to TABLAT, increment TBLPRT
+ movff TABLAT, POSTINC0 ; move read data from TABLAT to (FSR0), increment FSR0
+ decfsz counter, A ; count down to zero
+ bra loop ; keep going until finished
 
-; CONFIG4L
-  CONFIG STVREN = ON ; Stack Overflow Reset (Enabled)
-  CONFIG BBSIZ = BB2K ; Boot Block Size (2K word Boot Block size)
-
-; CONFIG5L
-  CONFIG CP0 = OFF ; Code Protect 00800-03FFF (Disabled)
-  CONFIG CP1 = OFF ; Code Protect 04000-07FFF (Disabled)
-  CONFIG CP2 = OFF ; Code Protect 08000-0BFFF (Disabled)
-  CONFIG CP3 = OFF ; Code Protect 0C000-0FFFF (Disabled)
-  CONFIG CP4 = OFF ; Code Protect 10000-13FFF (Disabled)
-  CONFIG CP5 = OFF ; Code Protect 14000-17FFF (Disabled)
-  CONFIG CP6 = OFF ; Code Protect 18000-1BFFF (Disabled)
-  CONFIG CP7 = OFF ; Code Protect 1C000-1FFFF (Disabled)
-
-; CONFIG5H
-  CONFIG CPB = OFF ; Code Protect Boot (Disabled)
-  CONFIG CPD = OFF ; Data EE Read Protect (Disabled)
-
-; CONFIG6L
-  CONFIG WRT0 = OFF ; Table Write Protect 00800-03FFF (Disabled)
-  CONFIG WRT1 = OFF ; Table Write Protect 04000-07FFF (Disabled)
-  CONFIG WRT2 = OFF ; Table Write Protect 08000-0BFFF (Disabled)
-  CONFIG WRT3 = OFF ; Table Write Protect 0C000-0FFFF (Disabled)
-  CONFIG WRT4 = OFF ; Table Write Protect 10000-13FFF (Disabled)
-  CONFIG WRT5 = OFF ; Table Write Protect 14000-17FFF (Disabled)
-  CONFIG WRT6 = OFF ; Table Write Protect 18000-1BFFF (Disabled)
-  CONFIG WRT7 = OFF ; Table Write Protect 1C000-1FFFF (Disabled)
-
-; CONFIG6H
-  CONFIG WRTC = OFF ; Config. Write Protect (Disabled)
-  CONFIG WRTB = OFF ; Table Write Protect Boot (Disabled)
-  CONFIG WRTD = OFF ; Data EE Write Protect (Disabled)
-
-; CONFIG7L
-  CONFIG EBRT0 = OFF ; Table Read Protect 00800-03FFF (Disabled)
-  CONFIG EBRT1 = OFF ; Table Read Protect 04000-07FFF (Disabled)
-  CONFIG EBRT2 = OFF ; Table Read Protect 08000-0BFFF (Disabled)
-  CONFIG EBRT3 = OFF ; Table Read Protect 0C000-0FFFF (Disabled)
-  CONFIG EBRT4 = OFF ; Table Read Protect 10000-13FFF (Disabled)
-  CONFIG EBRT5 = OFF ; Table Read Protect 14000-17FFF (Disabled)
-  CONFIG EBRT6 = OFF ; Table Read Protect 18000-1BFFF (Disabled)
-  CONFIG EBRT7 = OFF ; Table Read Protect 1C000-1FFFF (Disabled)
-
-; CONFIG7H
-  CONFIG EBRTB = OFF ; Table Read Protect Boot (Disabled)
-
-  end
+ return

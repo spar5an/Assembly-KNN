@@ -1,14 +1,10 @@
-# 1 "config.s"
+# 1 "bubble_sort.s"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 286 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "config.s" 2
-; PIC18F87K22 Configuration Bit Settings
-
-; Assembly source line config statements
-
+# 1 "bubble_sort.s" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
@@ -10963,87 +10959,128 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
-# 6 "config.s" 2
+# 2 "bubble_sort.s" 2
 
-; CONFIG1L
-  CONFIG RETEN = ON ; VREG Sleep Enable bit (Enabled)
-  CONFIG INTOSCSEL = HIGH ; LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
-  CONFIG SOSCSEL = DIG ; SOSC Power Selection and mode Configuration bits (Digital IO selected)
-  CONFIG XINST = OFF ; Extended Instruction Set (Disabled)
+    ;this will sort the data in bank 1
+    ;which holds distances
 
-; CONFIG1H
-  CONFIG FOSC = HS1 ; Oscillator (HS oscillator (Medium power, 4 MHz - 16 MHz))
-  CONFIG PLLCFG = ON ; PLL x4 Enable bit (Enabled)
-  CONFIG FCMEN = OFF ; Fail-Safe Clock Monitor (Disabled)
-  CONFIG IESO = OFF ; Internal External Oscillator Switch Over Mode (Disabled)
 
-; CONFIG2L
-  CONFIG PWRTEN = OFF ; Power Up Timer (Disabled)
-  CONFIG BOREN = SBORDIS ; Brown Out Detect (Enabled in hardware, ((RCON) and 0FFh), 6, a disabled)
-  CONFIG BORV = 3 ; Brown-out Reset Voltage bits (1.8V)
-  CONFIG BORPWR = ZPBORMV ; BORMV Power level (ZPBORMV instead of BORMV is selected)
+extrn long_compare, NUM1, NUM2, k
 
-; CONFIG2H
-  CONFIG WDTEN = OFF ; Watchdog Timer (WDT disabled in hardware and software)
-  CONFIG WDTPS = 1048576 ; Watchdog Postscaler (1:1048576)
+global bubble_sort
 
-; CONFIG3L
-  CONFIG RTCOSC = SOSCREF ; ((PORTG) and 0FFh), 4, a Clock Select (((PORTG) and 0FFh), 4, a uses SOSC)
-  CONFIG EASHFT = ON ; External Address Shift bit (Address Shifting enabled)
-  CONFIG ABW = MM ; Address Bus Width Select bits (8-bit address bus)
-  CONFIG BW = 16 ; Data Bus Width (16-bit external bus mode)
-  CONFIG WAIT = OFF ; External Bus Wait (Disabled)
+psect udata_acs
+length: ds 1 ;really this will hold length minus one
+swap_loc: ds 2
+counter: ds 1
+swap_performed: ds 1
+storage: ds 4
 
-; CONFIG3H
-  CONFIG CCP2MX = PORTC ; ((PORTC) and 0FFh), 1, a Mux (((PORTC) and 0FFh), 1, a)
-  CONFIG ECCPMX = PORTE ; ECCP Mux (Enhanced ((PORTC) and 0FFh), 2, a/3 [((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a] muxed with ((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a)
-  CONFIG MSSPMSK = 1 ; MSSP address masking (7 Bit address masking mode)
-  CONFIG MCLRE = ON ; Master Clear Enable (MCLR Enabled, ((PORTG) and 0FFh), 5, a Disabled)
+psect bubble_code, class=CODE
+bubble_sort:
+    ;going to predict how far the end of the data should be from 0x100, then minus one
+    ;FSR2 should be there and swap_performed clear
 
-; CONFIG4L
-  CONFIG STVREN = ON ; Stack Overflow Reset (Enabled)
-  CONFIG BBSIZ = BB2K ; Boot Block Size (2K word Boot Block size)
+    movf k, W
+    mullw 0x04
+    ;only going to worry about lower, as there shouldnt be a higher
+    movff PRODL, length
+    decf length
 
-; CONFIG5L
-  CONFIG CP0 = OFF ; Code Protect 00800-03FFF (Disabled)
-  CONFIG CP1 = OFF ; Code Protect 04000-07FFF (Disabled)
-  CONFIG CP2 = OFF ; Code Protect 08000-0BFFF (Disabled)
-  CONFIG CP3 = OFF ; Code Protect 0C000-0FFFF (Disabled)
-  CONFIG CP4 = OFF ; Code Protect 10000-13FFF (Disabled)
-  CONFIG CP5 = OFF ; Code Protect 14000-17FFF (Disabled)
-  CONFIG CP6 = OFF ; Code Protect 18000-1BFFF (Disabled)
-  CONFIG CP7 = OFF ; Code Protect 1C000-1FFFF (Disabled)
 
-; CONFIG5H
-  CONFIG CPB = OFF ; Code Protect Boot (Disabled)
-  CONFIG CPD = OFF ; Data EE Read Protect (Disabled)
+start_one:
+    lfsr 2, 0x100
 
-; CONFIG6L
-  CONFIG WRT0 = OFF ; Table Write Protect 00800-03FFF (Disabled)
-  CONFIG WRT1 = OFF ; Table Write Protect 04000-07FFF (Disabled)
-  CONFIG WRT2 = OFF ; Table Write Protect 08000-0BFFF (Disabled)
-  CONFIG WRT3 = OFF ; Table Write Protect 0C000-0FFFF (Disabled)
-  CONFIG WRT4 = OFF ; Table Write Protect 10000-13FFF (Disabled)
-  CONFIG WRT5 = OFF ; Table Write Protect 14000-17FFF (Disabled)
-  CONFIG WRT6 = OFF ; Table Write Protect 18000-1BFFF (Disabled)
-  CONFIG WRT7 = OFF ; Table Write Protect 1C000-1FFFF (Disabled)
+start_two:
+    bcf swap_performed, 0
 
-; CONFIG6H
-  CONFIG WRTC = OFF ; Config. Write Protect (Disabled)
-  CONFIG WRTB = OFF ; Table Write Protect Boot (Disabled)
-  CONFIG WRTD = OFF ; Data EE Write Protect (Disabled)
+    movff POSTINC2, NUM1
+    movff POSTINC2, NUM1+1
+    movff POSTINC2, NUM1+2
 
-; CONFIG7L
-  CONFIG EBRT0 = OFF ; Table Read Protect 00800-03FFF (Disabled)
-  CONFIG EBRT1 = OFF ; Table Read Protect 04000-07FFF (Disabled)
-  CONFIG EBRT2 = OFF ; Table Read Protect 08000-0BFFF (Disabled)
-  CONFIG EBRT3 = OFF ; Table Read Protect 0C000-0FFFF (Disabled)
-  CONFIG EBRT4 = OFF ; Table Read Protect 10000-13FFF (Disabled)
-  CONFIG EBRT5 = OFF ; Table Read Protect 14000-17FFF (Disabled)
-  CONFIG EBRT6 = OFF ; Table Read Protect 18000-1BFFF (Disabled)
-  CONFIG EBRT7 = OFF ; Table Read Protect 1C000-1FFFF (Disabled)
+    incf FSR2
 
-; CONFIG7H
-  CONFIG EBRTB = OFF ; Table Read Protect Boot (Disabled)
+    movff POSTINC2, NUM2
+    movff POSTINC2, NUM2+1
+    movff POSTINC2, NUM2+2
 
-  end
+    call long_compare
+    btfss STATUS, 2
+    call check_hl;have to use this as it only skips 1 instruction
+
+    btfsc swap_performed, 0
+    bra start_one
+
+    movf length, W
+    subwf FSR2L, W
+    btfsc STATUS, 2
+    return
+
+
+    movlw 0x03
+    subwf FSR2
+    bra start_two
+
+
+check_hl:
+    btfss STATUS, 0
+    call swap
+    return
+
+
+swap:
+    bsf swap_performed, 0
+
+    ;fsr2 should be 7 above swap start
+    movlw 0x07
+    subwf FSR2 ;this is unsafe, 8bit maths on 12bit number, but it should work
+    movff FSR2H, swap_loc
+    movff FSR2L, swap_loc+1
+    addwf FSR2
+
+
+    call load_beginning
+    lfsr 1, storage;using this for elegance, can be swapped later
+
+    ;load first distance+label into storage
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+
+    ;reset INDFO and point INDF1 at second d+l
+    call load_beginning
+
+    movff FSR0H, FSR1H
+    movff FSR0L, FSR1L
+    movlw 0x04
+    addwf FSR1
+
+
+    ;mov 2nd d+l to first position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+
+    ;point INDF1 at storage
+    ;INDF0 is already pointing at 2nd d+l
+    lfsr 1, storage
+
+    ;mov 1st d+l from storage to 2nd position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+
+    return
+
+load_beginning:
+    ;loads the begining of the swap location into INDF0
+    movf low swap_loc, W
+    movwf FSR0H
+
+    movf swap_loc+1, W
+    movwf FSR0L
+
+    return

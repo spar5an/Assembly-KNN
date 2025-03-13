@@ -1,14 +1,10 @@
-# 1 "config.s"
+# 1 "data_loader.s"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 286 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "config.s" 2
-; PIC18F87K22 Configuration Bit Settings
-
-; Assembly source line config statements
-
+# 1 "data_loader.s" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
@@ -10963,87 +10959,53 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
-# 6 "config.s" 2
+# 2 "data_loader.s" 2
 
-; CONFIG1L
-  CONFIG RETEN = ON ; VREG Sleep Enable bit (Enabled)
-  CONFIG INTOSCSEL = HIGH ; LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
-  CONFIG SOSCSEL = DIG ; SOSC Power Selection and mode Configuration bits (Digital IO selected)
-  CONFIG XINST = OFF ; Extended Instruction Set (Disabled)
 
-; CONFIG1H
-  CONFIG FOSC = HS1 ; Oscillator (HS oscillator (Medium power, 4 MHz - 16 MHz))
-  CONFIG PLLCFG = ON ; PLL x4 Enable bit (Enabled)
-  CONFIG FCMEN = OFF ; Fail-Safe Clock Monitor (Disabled)
-  CONFIG IESO = OFF ; Internal External Oscillator Switch Over Mode (Disabled)
+global setup_data, load_data, data_loc
+;this is a temporary solution to load some data in to begin coding the KNN
+;20 binary data points with 3 parameters each
 
-; CONFIG2L
-  CONFIG PWRTEN = OFF ; Power Up Timer (Disabled)
-  CONFIG BOREN = SBORDIS ; Brown Out Detect (Enabled in hardware, ((RCON) and 0FFh), 6, a disabled)
-  CONFIG BORV = 3 ; Brown-out Reset Voltage bits (1.8V)
-  CONFIG BORPWR = ZPBORMV ; BORMV Power level (ZPBORMV instead of BORMV is selected)
+PSECT udata_bank2
+data_loc: ds 80
 
-; CONFIG2H
-  CONFIG WDTEN = OFF ; Watchdog Timer (WDT disabled in hardware and software)
-  CONFIG WDTPS = 1048576 ; Watchdog Postscaler (1:1048576)
 
-; CONFIG3L
-  CONFIG RTCOSC = SOSCREF ; ((PORTG) and 0FFh), 4, a Clock Select (((PORTG) and 0FFh), 4, a uses SOSC)
-  CONFIG EASHFT = ON ; External Address Shift bit (Address Shifting enabled)
-  CONFIG ABW = MM ; Address Bus Width Select bits (8-bit address bus)
-  CONFIG BW = 16 ; Data Bus Width (16-bit external bus mode)
-  CONFIG WAIT = OFF ; External Bus Wait (Disabled)
+psect udata_acs
+data_length: ds 1
+counter: ds 1
 
-; CONFIG3H
-  CONFIG CCP2MX = PORTC ; ((PORTC) and 0FFh), 1, a Mux (((PORTC) and 0FFh), 1, a)
-  CONFIG ECCPMX = PORTE ; ECCP Mux (Enhanced ((PORTC) and 0FFh), 2, a/3 [((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a] muxed with ((PORTE) and 0FFh), 6, a/((PORTE) and 0FFh), 5, a/((PORTE) and 0FFh), 4, a/((PORTE) and 0FFh), 3, a)
-  CONFIG MSSPMSK = 1 ; MSSP address masking (7 Bit address masking mode)
-  CONFIG MCLRE = ON ; Master Clear Enable (MCLR Enabled, ((PORTG) and 0FFh), 5, a Disabled)
 
-; CONFIG4L
-  CONFIG STVREN = ON ; Stack Overflow Reset (Enabled)
-  CONFIG BBSIZ = BB2K ; Boot Block Size (2K word Boot Block size)
+psect data_code, class=CODE
+data:
+ db 0xb1, 0x16, 0xbf, 0x1, 0xff, 0xcc, 0x23, 0x0, 0xc, 0x5, 0x73, 0x1, 0x0, 0x7, 0xff, 0x1, 0x88, 0xe1, 0x50, 0x0, 0x46, 0xe, 0x57, 0x1, 0x66, 0x24, 0xac, 0x1, 0x69, 0x6, 0xe5, 0x1, 0x7b, 0xf4, 0x63, 0x0, 0x34, 0x0, 0xa8, 0x1, 0xda, 0xf0, 0x5, 0x0, 0x37, 0x9, 0xa6, 0x1, 0x20, 0x10, 0xbd, 0x1, 0x42, 0xda, 0x16, 0x0, 0xcf, 0xdc, 0x84, 0x0, 0xb5, 0xcf, 0x1d, 0x0, 0xdb, 0xd4, 0x16, 0x0, 0x34, 0xff, 0x0, 0x0, 0x97, 0x21, 0x8f, 0x1, 0x9d, 0xcd, 0x61, 0x0
+ align 2
 
-; CONFIG5L
-  CONFIG CP0 = OFF ; Code Protect 00800-03FFF (Disabled)
-  CONFIG CP1 = OFF ; Code Protect 04000-07FFF (Disabled)
-  CONFIG CP2 = OFF ; Code Protect 08000-0BFFF (Disabled)
-  CONFIG CP3 = OFF ; Code Protect 0C000-0FFFF (Disabled)
-  CONFIG CP4 = OFF ; Code Protect 10000-13FFF (Disabled)
-  CONFIG CP5 = OFF ; Code Protect 14000-17FFF (Disabled)
-  CONFIG CP6 = OFF ; Code Protect 18000-1BFFF (Disabled)
-  CONFIG CP7 = OFF ; Code Protect 1C000-1FFFF (Disabled)
+setup_data:
+ bcf ((EECON1) and 0FFh), 6, a
+ bsf ((EECON1) and 0FFh), 7, a
 
-; CONFIG5H
-  CONFIG CPB = OFF ; Code Protect Boot (Disabled)
-  CONFIG CPD = OFF ; Data EE Read Protect (Disabled)
+ movlw 0x50;60 in hex
+ movwf data_length
 
-; CONFIG6L
-  CONFIG WRT0 = OFF ; Table Write Protect 00800-03FFF (Disabled)
-  CONFIG WRT1 = OFF ; Table Write Protect 04000-07FFF (Disabled)
-  CONFIG WRT2 = OFF ; Table Write Protect 08000-0BFFF (Disabled)
-  CONFIG WRT3 = OFF ; Table Write Protect 0C000-0FFFF (Disabled)
-  CONFIG WRT4 = OFF ; Table Write Protect 10000-13FFF (Disabled)
-  CONFIG WRT5 = OFF ; Table Write Protect 14000-17FFF (Disabled)
-  CONFIG WRT6 = OFF ; Table Write Protect 18000-1BFFF (Disabled)
-  CONFIG WRT7 = OFF ; Table Write Protect 1C000-1FFFF (Disabled)
+ return
 
-; CONFIG6H
-  CONFIG WRTC = OFF ; Config. Write Protect (Disabled)
-  CONFIG WRTB = OFF ; Table Write Protect Boot (Disabled)
-  CONFIG WRTD = OFF ; Data EE Write Protect (Disabled)
+load_data:
+     lfsr 0, data_loc ; Load FSR0 with address in RAM
+ movlw low highword(data) ; address of data in PM
+ movwf TBLPTRU, A ; load upper bits to TBLPTRU
+ movlw high(data) ; address of data in PM
+ movwf TBLPTRH, A ; load high byte to TBLPTRH
+ movlw low(data) ; address of data in PM
+ movwf TBLPTRL, A ; load low byte to TBLPTRL
+ movf data_length, W
+ movwf counter, A ; our counter register
 
-; CONFIG7L
-  CONFIG EBRT0 = OFF ; Table Read Protect 00800-03FFF (Disabled)
-  CONFIG EBRT1 = OFF ; Table Read Protect 04000-07FFF (Disabled)
-  CONFIG EBRT2 = OFF ; Table Read Protect 08000-0BFFF (Disabled)
-  CONFIG EBRT3 = OFF ; Table Read Protect 0C000-0FFFF (Disabled)
-  CONFIG EBRT4 = OFF ; Table Read Protect 10000-13FFF (Disabled)
-  CONFIG EBRT5 = OFF ; Table Read Protect 14000-17FFF (Disabled)
-  CONFIG EBRT6 = OFF ; Table Read Protect 18000-1BFFF (Disabled)
-  CONFIG EBRT7 = OFF ; Table Read Protect 1C000-1FFFF (Disabled)
+ bra loop
 
-; CONFIG7H
-  CONFIG EBRTB = OFF ; Table Read Protect Boot (Disabled)
+loop:
+        tblrd*+ ; move one byte from PM to TABLAT, increment TBLPRT
+ movff TABLAT, POSTINC0 ; move read data from TABLAT to (FSR0), increment FSR0
+ decfsz counter, A ; count down to zero
+ bra loop ; keep going until finished
 
-  end
+ return
