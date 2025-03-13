@@ -1,21 +1,25 @@
 # 1 "main.s"
 # 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 286 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
 # 1 "main.s" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
+# 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
-# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 1 3
+# 349 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 1 3
+# 47 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10866,7 +10870,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 12496 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10889,8 +10893,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
+# 350 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 2 3
+# 7 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 2 3
 
 
 
@@ -10954,11 +10958,11 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
-# 1 "main.s" 2
-
+# 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
+# 2 "main.s" 2
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+extrn NUM1, NUM2, RESULT, long_compare
 
 global k
 
@@ -11058,7 +11062,35 @@ predict:
  movff distance+1, point_dl+1
  movff distance+2, point_dl+2
  movff POSTINC1, point_dl+3
-# 115 "main.s"
+
+ ;loop compare distances
+ ;loading dl into num1
+ movff point_dl, NUM1
+ movff point_dl+1, NUM1+1
+ movff point_dl+2, NUM1+2
+
+ lfsr 2, 0x100;point fsr2 at beginning of k points
+
+ movf k, W
+ movwf counter
+compare_loop:
+
+
+ movff POSTINC2, NUM2
+ movff POSTINC2, NUM2+1
+ movff POSTINC2, NUM2+2
+
+ incf FSR2 ;move it past the label
+
+ call long_compare
+
+ decfsz counter
+ bra compare_loop
+
+
+
+
+
  goto $
 
 

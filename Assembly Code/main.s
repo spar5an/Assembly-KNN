@@ -1,6 +1,7 @@
 	#include <xc.inc>
 
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+extrn	NUM1, NUM2, RESULT, long_compare
 
 global k
 	
@@ -101,20 +102,34 @@ predict:
 	movff	distance+2, point_dl+2
 	movff	POSTINC1,   point_dl+3
 	
-	;loop check distances
+	;loop compare distances
+	;loading dl into num1
+	movff	point_dl, NUM1
+	movff	point_dl+1, NUM1+1
+	movff	point_dl+2, NUM1+2
 	
+	lfsr	2, 0x100;point fsr2 at beginning of k points
 	
+	movf	k, W
+	movwf	counter
+compare_loop:
+
 	
+	movff	POSTINC2, NUM2
+	movff	POSTINC2, NUM2+1
+	movff	POSTINC2, NUM2+2
 	
+	incf	FSR2 ;move it past the label
 	
+	call	long_compare
+	btfsc	STATUS, 2
 	
+	decfsz	counter
+	bra	compare_loop
 	
-	
-	
-	
-	
-    
 	goto	$
+	
+check_hl:
 	
 	
 
