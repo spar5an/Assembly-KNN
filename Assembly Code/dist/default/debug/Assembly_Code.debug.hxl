@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o
+ C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o
  -Odist/default/debug\Assembly_Code.debug.hex
  -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
@@ -9,21 +9,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
-  100h - 165h		(C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
-  1FDA4h - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
-  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
-  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
+  100h - 165h		(C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
+  1FD86h - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
-  166h - 1FDA3h
+  166h - 1FD85h
   20000h - 2FFFFFh
   300007h - 300007h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAs4pk.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAs1358.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -37,7 +37,9 @@
 00000150 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000160 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001FDA0 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FD80 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FD90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FDA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FDB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FDC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FDD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

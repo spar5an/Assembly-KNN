@@ -10965,23 +10965,34 @@ ENDM
     ;which holds distances
 
 
-extrn long_compare, NUM1, NUM2
+extrn long_compare, NUM1, NUM2, k
 
 global bubble_sort
 
 psect udata_acs
-length: ds 1
+length: ds 1 ;really this will hold length minus one
 swap_loc: ds 2
 counter: ds 1
-sorted: ds 1
+swap_performed: ds 1
 storage: ds 4
 
 psect bubble_code, class=CODE
 bubble_sort:
-    ;first location loaded into INDF0
-    ;just goint to swap first 2 to test
+    ;going to predict how far the end of the data should be from 0x100, then minus one
+    ;FSR2 should be there and swap_performed clear
+
+    movf k, W
+    mullw 0x04
+    ;only going to worry about lower, as there shouldnt be a higher
+    movff PRODL, length
+    decf length
+
+
+start_one:
     lfsr 2, 0x100
 
+start_two:
+    bcf swap_performed, 0
 
     movff POSTINC2, NUM1
     movff POSTINC2, NUM1+1
@@ -10997,7 +11008,21 @@ bubble_sort:
     btfss STATUS, 2
     call check_hl;have to use this as it only skips 1 instruction
 
+    btfsc swap_performed, 0
+    bra start_one
+
+    movf length, W
+    subwf FSR2L, W
+    btfsc STATUS, 2
     return
+
+
+    movlw 0x03
+    subwf FSR2
+    bra start_two
+
+end_check:
+
 
 check_hl:
     btfss STATUS, 0
@@ -11006,6 +11031,8 @@ check_hl:
 
 
 swap:
+    bsf swap_performed, 0
+
     ;fsr2 should be 7 above swap start
     movlw 0x07
     subwf FSR2 ;this is unsafe, 8bit maths on 12bit number, but it should work

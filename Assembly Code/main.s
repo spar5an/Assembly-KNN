@@ -2,6 +2,8 @@
 
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 
+global k
+	
 psect	udata_acs
 k:  ds	1
 predict_point:	ds  3; this is going to  be an example point to classify
