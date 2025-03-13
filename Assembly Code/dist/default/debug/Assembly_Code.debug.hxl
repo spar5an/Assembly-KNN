@@ -1,29 +1,29 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXgImkjc/driver_tmp_3.o
- -Odist/default/debug/Assembly_Code.debug.hex
- -logfile=dist/default/debug/Assembly_Code.debug.hxl
+ C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o
+ -Odist/default/debug\Assembly_Code.debug.hex
+ -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
  -break=300000
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXgImkjc/driver_tmp_3.o)
-  100h - 1EBh		(/tmp/xcXgImkjc/driver_tmp_3.o)
-  1FD86h - 1FFFFh		(/tmp/xcXgImkjc/driver_tmp_3.o)
-  300000h - 300006h		(/tmp/xcXgImkjc/driver_tmp_3.o)
-  300008h - 30000Dh		(/tmp/xcXgImkjc/driver_tmp_3.o)
+  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
+  100h - 207h		(C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
+  1FD86h - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
-  1ECh - 1FD85h
+  208h - 1FD85h
   20000h - 2FFFFFh
   300007h - 300007h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXgImkjc/driver_tmp_3.o)
+  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -43,7 +43,9 @@
 000001B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000001C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000001D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000001E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+000001E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000001F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000200 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 0001FD80 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FD90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

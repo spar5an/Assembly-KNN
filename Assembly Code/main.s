@@ -11,8 +11,7 @@ predict_point:	ds  3; this is going to  be an example point to classify
 data_pointer:	ds  1
 counter:  ds	1
 storage_dl:  ds	4;this stores the distance to and the label of the point we are testing
-swap_storage1:	ds  4
-swap_storage2:	ds  4
+endpoint:   ds	1
 
 psect	udata_bank1
 distance_storage:  ds	12;make sure this value is 4 times k
@@ -141,15 +140,36 @@ cascading_push:
 	;aiming to insert the new point into the k d+l storage
 	;and in the process delete the last entry
 	
+	;calculate endpoint
+	movf	counter, W
+	subwf	k, W
+	mullw	0x04
+	movff	PRODL, endpoint
+	
+	
+	
 	;start backwards, copy second last element into last storage
 	movf	k, W
-	mullw	0x04, W
-	sublw	0x04
+	mullw	0x04
 	
 	
+push_loop:	
+	movlw	0x04
+	subwf	PRODL, W
 	
-	
+	movwf	FSR0L
+	movlw	0x08
+	subwf	PRODL, W
+	movwf	FSR2L
+	;fsr2 looking at 2nd last point, fsr0 looking at last
 	call	copy_push
+	;check if fsr2 is at the correct address
+	movf	endpoint, W
+	subwf	FSR2L, W
+	btfss	STATUS, 2
+	bra	push_loop
+	
+	
 	return
 
 	
@@ -160,11 +180,7 @@ copy_push:
 	movff	POSTINC2, POSTINC0
 	movff	POSTINC2, POSTINC0
 	movff	POSTINC2, POSTINC0
-	
-	movlw	0x04
-	subwf	fsr2
-	movff	
-	
+
 	return
 
 load_pp_p1:
