@@ -1,10 +1,10 @@
-# 1 "main.s"
+# 1 "bubble_sort.s"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 286 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "main.s" 2
+# 1 "bubble_sort.s" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
 
 
@@ -10959,88 +10959,130 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
-# 2 "main.s" 2
+# 2 "bubble_sort.s" 2
 
-extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+    ;this will sort the data in bank 1
+    ;which holds distances
 
-global k
+
+extrn long_compare, NUM1, NUM2, k
+
+global bubble_sort
 
 psect udata_acs
-k: ds 1
-predict_point: ds 3; this is going to be an example point to classify
-data_pointer: ds 1
+length: ds 1 ;really this will hold length minus one
+swap_loc: ds 2
 counter: ds 1
+swap_performed: ds 1
+storage: ds 4
 
-psect udata_bank1
-distance_storage: ds 12;make sure this value is 4 times k
+psect bubble_code, class=CODE
+bubble_sort:
+    ;going to predict how far the end of the data should be from 0x100, then minus one
+    ;FSR2 should be there and swap_performed clear
 
-
-
-psect code, abs
-main:
- org 0x0
- goto setup
-
- org 0x100 ; Main code starts here at address 0x100
-
-setup:
- ;;;;;;;;;; HERE IS K ;;;;;;;;;;
- movlw 0x03;will have a hard limit of like 30
- movwf k
-
- call setup_data
-
-read_data:
- call load_data
- call long_reset
-
-load_predict_point:
-     movlw 0x96
- movwf predict_point
- movlw 0xfa
- movwf predict_point+1
- movlw 0x1e
- movwf predict_point+2
- ;this is a point that should be classified as zero, not being used atm
+    movf k, W
+    mullw 0x04
+    ;only going to worry about lower, as there shouldnt be a higher
+    movff PRODL, length
+    decf length
 
 
-predict:
- ;load first K distances
- movff k, counter, A
- call load_pp_p1
+start_one:
+    lfsr 2, 0x100
 
- ;create pointers
- lfsr 0, distance_storage;INDF0 stores distance location
- lfsr 1, data_loc;INDF1 stores data_location
+start_two:
+    bcf swap_performed, 0
 
-load_first_points:
- ;load dp into p2
- movff POSTINC1, point_2
- movff POSTINC1, point_2+1
- movff POSTINC1, point_2+2
+    movff POSTINC2, NUM1
+    movff POSTINC2, NUM1+1
+    movff POSTINC2, NUM1+2
 
- ;caculate and store distance
- call calculate_distance
- movff distance, POSTINC0
- movff distance+1, POSTINC0
- movff distance+2, POSTINC0
+    incf FSR2
 
- ;with new data structure (as of 11/03/) label stored directly after point
- ;so both pointers should now be looking at labels
+    movff POSTINC2, NUM2
+    movff POSTINC2, NUM2+1
+    movff POSTINC2, NUM2+2
 
- ;copying labels
- movff POSTINC1, POSTINC0
+    call long_compare
+    btfss STATUS, 2
+    call check_hl;have to use this as it only skips 1 instruction
 
- decfsz counter, A
- bra load_first_points
+    btfsc swap_performed, 0
+    bra start_one
 
- call bubble_sort
- goto $
+    movf length, W
+    subwf FSR2L, W
+    btfsc STATUS, 2
+    return
 
 
+    movlw 0x03
+    subwf FSR2
+    bra start_two
 
-load_pp_p1:
- movff predict_point, point_1
- movff predict_point+1, point_1+1
- movff predict_point+2, point_1+2
- return
+end_check:
+
+
+check_hl:
+    btfss STATUS, 0
+    call swap
+    return
+
+
+swap:
+    bsf swap_performed, 0
+
+    ;fsr2 should be 7 above swap start
+    movlw 0x07
+    subwf FSR2 ;this is unsafe, 8bit maths on 12bit number, but it should work
+    movff FSR2H, swap_loc
+    movff FSR2L, swap_loc+1
+    addwf FSR2
+
+
+    call load_beginning
+    lfsr 1, storage;using this for elegance, can be swapped later
+
+    ;load first distance+label into storage
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+    movff POSTINC0, POSTINC1
+
+    ;reset INDFO and point INDF1 at second d+l
+    call load_beginning
+
+    movff FSR0H, FSR1H
+    movff FSR0L, FSR1L
+    movlw 0x04
+    addwf FSR1
+
+
+    ;mov 2nd d+l to first position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+
+    ;point INDF1 at storage
+    ;INDF0 is already pointing at 2nd d+l
+    lfsr 1, storage
+
+    ;mov 1st d+l from storage to 2nd position
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+    movff POSTINC1, POSTINC0
+
+    return
+
+load_beginning:
+    ;loads the begining of the swap location into INDF0
+    movf low swap_loc, W
+    movwf FSR0H
+
+    movf swap_loc+1, W
+    movwf FSR0L
+
+    return

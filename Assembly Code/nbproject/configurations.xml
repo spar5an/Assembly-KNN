@@ -23,6 +23,7 @@
       <itemPath>longs.s</itemPath>
       <itemPath>data_loader.s</itemPath>
       <itemPath>KNN_tools.s</itemPath>
+      <itemPath>bubble_sort.s</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

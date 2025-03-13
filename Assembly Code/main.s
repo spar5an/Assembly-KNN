@@ -1,7 +1,9 @@
 	#include <xc.inc>
 
-extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc
+extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 
+global k
+	
 psect	udata_acs
 k:  ds	1
 predict_point:	ds  3; this is going to  be an example point to classify
@@ -71,7 +73,7 @@ load_first_points:
 	decfsz	counter, A
 	bra	load_first_points
 	
-
+	call	bubble_sort
 	goto	$
 	
 	
