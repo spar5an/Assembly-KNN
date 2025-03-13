@@ -76,24 +76,24 @@ long_compare:
     ;only changed the gotos to bras to make them quicker
     ;Compare Most Significant Byte (MSB)
     movf    NUM1, W         ; Load NUM1 MSB into WREG
-    subwf   NUM2, W         ; WREG = NUM1 - NUM2
+    subwf   NUM2, W         ; WREG = NUM2 - NUM1
     btfss   STATUS, 2       ; If Z=1 (NUM1 MSB == NUM2 MSB), skip next instruction
     bra    compare_done    ; If MSB is different, we are done (C or N decides result)
 
     ; Compare Middle Byte
     movf    NUM1+1, W       ; Load NUM1 middle byte
-    subwf   NUM2+1, W       ; WREG = NUM1+1 - NUM2+1
+    subwf   NUM2+1, W       ; WREG = NUM2+1 - NUM1+1
     btfss   STATUS, 2       ; If Z=1 (bytes are equal), skip next instruction
     bra    compare_done    ; If different, we are done
 
     ; Compare Least Significant Byte (LSB)
     movf    NUM1+2, W       ; Load NUM1 LSB
-    subwf   NUM2+2, W       ; WREG = NUM1+2 - NUM2+2
+    subwf   NUM2+2, W       ; WREG = NUM2+2 - NUM1+2
 
 compare_done:
-    ; Result is stored in STATUS register:
-    ; - C (Carry) = 1 if NUM1 >= NUM2
-    ; - C (Carry) = 0 if NUM1 < NUM2
-    ; - Z (Zero)  = 1 if NUM1 == NUM2 and also C = 1
+    ; Result in STATUS register:
+    ; - C = 1 if NUM2 >= NUM1 (No borrow ? NUM1 <= NUM2)
+    ; - C = 0 if NUM2 < NUM1 (Borrow ? NUM1 > NUM2)
+    ; - Z = 1 if NUM1 == NUM2
     return
     

@@ -118,33 +118,53 @@ compare_loop:
 	movff	POSTINC2, NUM2
 	movff	POSTINC2, NUM2+1
 	movff	POSTINC2, NUM2+2
-
-	call	long_compare
-	btfss	STATUS, 0
-	bra	cascading_push
 	
 	incf	FSR2 ;move it past the label
+
+	call	long_compare
+	btfsc	STATUS, 0
+	call	check_eq
+	
 	decfsz	counter
 	bra	compare_loop
 	
 	goto	$
 	
 	
+check_eq:
+	btfss	STATUS, 2
+	call	cascading_push
+	return
+	
 cascading_push:
 	;this is going to be the most difficult task in the whole project
 	;aiming to insert the new point into the k d+l storage
 	;and in the process delete the last entry
+	
+	;start backwards, copy second last element into last storage
+	movf	k, W
+	mullw	0x04, W
+	sublw	0x04
+	
+	
+	
+	
 	call	copy_push
-	
-	
-	
+	return
+
 	
 copy_push:
-	;take where fsr2 and copy it to the next point
-	movff	POSTINC2, FSR2+4
-	movff	POSTINC2, FSR2+4
-	movff	POSTINC2, FSR2+4
-	movff	POSTINC2, FSR2+4
+	;take where fsr2 and move to fsr0
+	;this will be possible without 2 pointers but they make it easier
+	movff	POSTINC2, POSTINC0
+	movff	POSTINC2, POSTINC0
+	movff	POSTINC2, POSTINC0
+	movff	POSTINC2, POSTINC0
+	
+	movlw	0x04
+	subwf	fsr2
+	movff	
+	
 	return
 
 load_pp_p1:
