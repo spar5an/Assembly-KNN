@@ -10,7 +10,9 @@ k:  ds	1
 predict_point:	ds  3; this is going to  be an example point to classify
 data_pointer:	ds  1
 counter:  ds	1
-point_dl:  ds	4;this stores the distance to and the label of the point we are testing
+storage_dl:  ds	4;this stores the distance to and the label of the point we are testing
+swap_storage1:	ds  4
+swap_storage2:	ds  4
 
 psect	udata_bank1
 distance_storage:  ds	12;make sure this value is 4 times k
@@ -93,45 +95,57 @@ predict:
 	call	load_pp_p1;loads prediction point into p1 in knn_tools
 	movff	POSTINC1, point_2
 	movff	POSTINC1, point_2+1
-	movff	POSTINC1, point_2+1
+	movff	POSTINC1, point_2+2
 	
 	call	calculate_distance
 	
-	movff	distance, point_dl;this can be optimised
-	movff	distance+1, point_dl+1
-	movff	distance+2, point_dl+2
-	movff	POSTINC1,   point_dl+3
+	movff	distance, storage_dl;this can be optimised
+	movff	distance+1, storage_dl+1
+	movff	distance+2, storage_dl+2
+	movff	POSTINC1,   storage_dl+3
 	
 	;loop compare distances
 	;loading dl into num1
-	movff	point_dl, NUM1
-	movff	point_dl+1, NUM1+1
-	movff	point_dl+2, NUM1+2
+	movff	storage_dl, NUM1
+	movff	storage_dl+1, NUM1+1
+	movff	storage_dl+2, NUM1+2
 	
 	lfsr	2, 0x100;point fsr2 at beginning of k points
 	
 	movf	k, W
 	movwf	counter
 compare_loop:
-
-	
 	movff	POSTINC2, NUM2
 	movff	POSTINC2, NUM2+1
 	movff	POSTINC2, NUM2+2
+
+	call	long_compare
+	btfss	STATUS, 0
+	bra	cascading_push
 	
 	incf	FSR2 ;move it past the label
-	
-	call	long_compare
-	btfsc	STATUS, 2
-	
 	decfsz	counter
 	bra	compare_loop
 	
 	goto	$
 	
-check_hl:
+	
+cascading_push:
+	;this is going to be the most difficult task in the whole project
+	;aiming to insert the new point into the k d+l storage
+	;and in the process delete the last entry
+	call	copy_push
 	
 	
+	
+	
+copy_push:
+	;take where fsr2 and copy it to the next point
+	movff	POSTINC2, FSR2+4
+	movff	POSTINC2, FSR2+4
+	movff	POSTINC2, FSR2+4
+	movff	POSTINC2, FSR2+4
+	return
 
 load_pp_p1:
 	movff	predict_point, point_1
