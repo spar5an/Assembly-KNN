@@ -1,25 +1,21 @@
 # 1 "main.s"
 # 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 286 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
 # 1 "main.s" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 1 3
-# 349 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10870,7 +10866,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10893,8 +10889,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 350 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 2 3
+# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
 
 
 
@@ -10958,8 +10954,9 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
-# 2 "main.s" 2
+# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
+# 1 "main.s" 2
+
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 
@@ -10970,6 +10967,7 @@ k: ds 1
 predict_point: ds 3; this is going to be an example point to classify
 data_pointer: ds 1
 counter: ds 1
+point_dl: ds 4;this stores the distance to and the label of the point we are testing
 
 psect udata_bank1
 distance_storage: ds 12;make sure this value is 4 times k
@@ -11004,7 +11002,7 @@ load_predict_point:
  ;this is a point that should be classified as zero, not being used atm
 
 
-predict:
+train:
  ;load first K distances
  movff k, counter, A
  call load_pp_p1
@@ -11035,6 +11033,32 @@ load_first_points:
  bra load_first_points
 
  call bubble_sort
+
+
+predict:
+ ;point fsr1 at 0x200
+ lfsr 1, 0x200
+
+ ;calculate distance to points
+ movlw 0x04
+ mulwf k
+
+ movf PRODL, W;technically unsafe but if multiplation goes baove 255 then it deserves to break anyway
+ addwf FSR1, f;should now be pointing at new point
+
+ ;perform distance calculation
+ call load_pp_p1;loads prediction point into p1 in knn_tools
+ movff POSTINC1, point_2
+ movff POSTINC1, point_2+1
+ movff POSTINC1, point_2+1
+
+ call calculate_distance
+
+ movff distance, point_dl;this can be optimised
+ movff distance+1, point_dl+1
+ movff distance+2, point_dl+2
+ movff POSTINC1, point_dl+3
+# 115 "main.s"
  goto $
 
 

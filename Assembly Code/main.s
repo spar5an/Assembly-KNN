@@ -9,6 +9,7 @@ k:  ds	1
 predict_point:	ds  3; this is going to  be an example point to classify
 data_pointer:	ds  1
 counter:  ds	1
+point_dl:  ds	4;this stores the distance to and the label of the point we are testing
 
 psect	udata_bank1
 distance_storage:  ds	12;make sure this value is 4 times k
@@ -43,7 +44,7 @@ load_predict_point:
 	;this is a point that should be classified as zero, not being used atm
 	
 
-predict:
+train:
 	;load first K distances
 	movff	k, counter, A
 	call	load_pp_p1
@@ -74,6 +75,45 @@ load_first_points:
 	bra	load_first_points
 	
 	call	bubble_sort
+	
+	
+predict:
+	;point fsr1 at 0x200
+	lfsr	1, 0x200
+	
+	;calculate distance to points
+	movlw	0x04
+	mulwf	k
+	
+	movf	PRODL, W;technically unsafe but if multiplation goes baove 255 then it deserves  to break anyway
+	addwf	FSR1, f;should now be pointing at new point
+	
+	;perform distance calculation
+	call	load_pp_p1;loads prediction point into p1 in knn_tools
+	movff	POSTINC1, point_2
+	movff	POSTINC1, point_2+1
+	movff	POSTINC1, point_2+1
+	
+	call	calculate_distance
+	
+	movff	distance, point_dl;this can be optimised
+	movff	distance+1, point_dl+1
+	movff	distance+2, point_dl+2
+	movff	POSTINC1,   point_dl+3
+	
+	;loop check distances
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
 	goto	$
 	
 	

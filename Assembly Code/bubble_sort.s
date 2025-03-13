@@ -59,9 +59,7 @@ start_two:
     movlw   0x03
     subwf   FSR2
     bra	    start_two
-    
-end_check:
-    
+        
     
 check_hl:
     btfss   STATUS, 0
