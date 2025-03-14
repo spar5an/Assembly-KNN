@@ -1,15 +1,15 @@
-Microchip MPLAB XC8 PIC(R) Assembler V3.0
+Microchip MPLAB XC8 PIC(R) Assembler V2.45
 
 Linker command line:
 
 -W-3 \
-  --edf=C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\pic\dat\20241213203129_en.msgs \
+  --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cs -h+dist/default/debug\Assembly_Code.debug.sym \
   --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\johnd\AppData\Local\Temp\xcAsdl4.\driver_tmp_3.o \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAskgc.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Assembly_Code.debug.map -E1 -ACODE=00h-01FFFFh \
-  -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
+  -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
+  -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=00h-05Fh \
   -AABS1=00h-0F15h -ABIGRAM=00h-0F15h \
   -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F15h -ABANK0=060h-0FFh \
@@ -33,7 +33,7 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      208        0       0
+                code                                  0        0      22E        0       0
                 udata_bank1                         100      100        C      100       1
                 udata_acs                             D        D        B        0       1
                 config                           300000   300000        E        0       4
@@ -58,7 +58,7 @@ build/default/debug/bubble_sort.o
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      208         0
+                code                                  0        0      22E         0
                 keypad_code                       1FD86    1FD86       2A         0
                 long_code                         1FDB0    1FDB0       54         0
                 data_code                         1FE04    1FE04       7C         0
@@ -163,11 +163,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000208-000F15              D0E
+        BIGRAM           00022E-000F15              CE8
         BIGSFR           000F16-000FFF               EA
-        CODE             000208-01FD85            1FB7E
+        CODE             00022E-01FD85            1FB58
         COMRAM           00002E-00005F               32
-        CONST            000208-01FD85            1FB7E
+        CONST            00022E-01FD85            1FB58
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -176,8 +176,7 @@ UNUSED ADDRESS RANGES
                          00010C-0001FF               F4
                          000250-000F15              100
         SFR              000F16-000FFF               4A
-        SMALLCONST       001000-00FFFF              100
-                         011000-01FD85              100
+        SMALLCONST       001000-01FD85              100
 
                                   Symbol Table
 

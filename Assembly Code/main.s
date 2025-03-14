@@ -145,15 +145,23 @@ cascading_push:
 	subwf	k, W
 	mullw	0x04
 	movff	PRODL, endpoint
+	movlw	0x04
+	addwf	endpoint, f
+	
+	;check if pushing the last point
+	movf	0x01
+	subwf	counter, w
+	btfss	STATUS, 2
+	bra	
 	
 	
 	
+	
+
 	;start backwards, copy second last element into last storage
 	movf	k, W
 	mullw	0x04
 	
-	
-push_loop:	
 	movlw	0x04
 	subwf	PRODL, W
 	
@@ -162,16 +170,37 @@ push_loop:
 	subwf	PRODL, W
 	movwf	FSR2L
 	;fsr2 looking at 2nd last point, fsr0 looking at last
+	
+push_loop:	
 	call	copy_push
 	;check if fsr2 is at the correct address
 	movf	endpoint, W
 	subwf	FSR2L, W
 	btfss	STATUS, 2
-	bra	push_loop
+	bra	sub8
+	
+inject:
+	;now to inject the new point
+	call	sub4;moves fsr2 into position
+	
+	movff	storage_dl, POSTINC2
+	movff	storage_dl+1, POSTINC2
+	movff	storage_dl+2, POSTINC2
+	movff	storage_dl+3, POSTINC2
 	
 	
 	return
 
+sub8:
+	movlw	0x08
+	subwf	FSR2L, f
+	subwf	FSR0L, f
+	bra	push_loop
+	
+sub4:
+	movlw	0x04
+	subwf	FSR2L, f
+	return
 	
 copy_push:
 	;take where fsr2 and move to fsr0

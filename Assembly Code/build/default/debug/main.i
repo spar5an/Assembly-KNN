@@ -1,25 +1,21 @@
 # 1 "main.s"
 # 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 286 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
 # 1 "main.s" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 1 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 1 3
-# 349 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
+# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10870,7 +10866,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include\\proc/pic18f87k22.inc" 3
+# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10893,8 +10889,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 350 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18F-K_DFP/1.14.301/xc8\\pic\\include/pic18.inc" 2 3
+# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
+# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
 
 
 
@@ -10958,8 +10954,9 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.inc" 2 3
-# 2 "main.s" 2
+# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
+# 1 "main.s" 2
+
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 extrn NUM1, NUM2, RESULT, long_compare
@@ -11106,15 +11103,13 @@ cascading_push:
  subwf k, W
  mullw 0x04
  movff PRODL, endpoint
-
-
+ movlw 0x04
+ addwf endpoint, f
 
  ;start backwards, copy second last element into last storage
  movf k, W
  mullw 0x04
 
-
-push_loop:
  movlw 0x04
  subwf PRODL, W
 
@@ -11123,16 +11118,37 @@ push_loop:
  subwf PRODL, W
  movwf FSR2L
  ;fsr2 looking at 2nd last point, fsr0 looking at last
+
+push_loop:
  call copy_push
  ;check if fsr2 is at the correct address
  movf endpoint, W
  subwf FSR2L, W
  btfss STATUS, 2
- bra push_loop
+ bra sub8
+
+inject:
+ ;now to inject the new point
+ call sub4;moves fsr2 into position
+
+ movff storage_dl, POSTINC2
+ movff storage_dl+1, POSTINC2
+ movff storage_dl+2, POSTINC2
+ movff storage_dl+3, POSTINC2
 
 
  return
 
+sub8:
+ movlw 0x08
+ subwf FSR2L, f
+ subwf FSR0L, f
+ bra push_loop
+
+sub4:
+ movlw 0x04
+ subwf FSR2L, f
+ return
 
 copy_push:
  ;take where fsr2 and move to fsr0
