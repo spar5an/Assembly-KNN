@@ -17,9 +17,10 @@ pushed:	    ds	1
 classification_counter:	ds  1
 zero_counter:	ds  1
 one_counter:	ds  1
+classification:	ds  1
 
 psect	udata_bank1
-distance_storage:  ds	12;make sure this value is 4 times k
+distance_storage:  ds	20;make sure this value is 4 times k
 
 	
 	
@@ -32,7 +33,7 @@ main:
 
 setup:	
 	;;;;;;;;;; HERE IS K ;;;;;;;;;;
-	movlw	0x03;will have a hard limit of like 30
+	movlw	0x05;will have a hard limit of like 30
 	movwf	k
 	
 	call	setup_data
@@ -154,6 +155,24 @@ classification_loop_end:
 	decfsz	classification_counter
 	bra	classification_loop
 	
+classify:
+	movf	one_counter, W
+	subwf	zero_counter, W
+	
+	btfss	STATUS, 0
+	bra	classify_one
+	btfsc	STATUS, 0
+	bra	classify_zero
+	
+classify_one:
+	movlw	0x01
+	movwf	classification
+    
+	goto	$    
+    
+classify_zero:
+	movlw	0x01
+	movwf	classification
 	
     
 	goto	$

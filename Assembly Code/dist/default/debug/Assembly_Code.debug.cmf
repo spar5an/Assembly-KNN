@@ -15,24 +15,24 @@ $build/default/debug/config.o
 config CONFIG 4 300000 300000 E 1 1
 $build/default/debug/bubble_sort.o
 bubble_code CODE 0 1FE80 1FE80 B6 1 1
-udata_acs COMRAM 1 1D 1D 9 1 1
+udata_acs COMRAM 1 1E 1E 9 1 1
 $build/default/debug/longs.o
 long_code CODE 0 1FDB0 1FDB0 54 1 1
-udata_acs COMRAM 1 26 26 9 1 1
+udata_acs COMRAM 1 27 27 9 1 1
 $build/default/debug/main.o
-code CODE 0 0 0 274 1 2
-udata_bank1 BANK1 1 100 100 C 1 1
-udata_acs COMRAM 1 0 0 10 1 1
+code CODE 0 0 0 28C 1 2
+udata_bank1 BANK1 1 100 100 14 1 1
+udata_acs COMRAM 1 0 0 11 1 1
 config CONFIG 4 300000 300000 E 1 1
 $build/default/debug/KNN_tools.o
-udata_acs COMRAM 1 10 10 D 1 1
+udata_acs COMRAM 1 11 11 D 1 1
 KNN_code CODE 0 1FF36 1FF36 CA 1 1
 $build/default/debug/keypad.o
-udata_acs COMRAM 1 31 31 2 1 1
+udata_acs COMRAM 1 32 32 2 1 1
 keypad_code CODE 0 1FD86 1FD86 2A 1 1
 $build/default/debug/data_loader.o
 udata_bank2 BANK2 1 200 200 50 1 1
-udata_acs COMRAM 1 2F 2F 2 1 1
+udata_acs COMRAM 1 30 30 2 1 1
 data_code CODE 0 1FE04 1FE04 7C 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -41,11 +41,11 @@ data_code CODE 0 1FE04 1FE04 7C 1 1
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
 RAM 60-FF 1
-RAM 10C-1FF 1
+RAM 114-1FF 1
 RAM 250-F15 1
 SFR F16-FFF 1
 BANK0 60-FF 1
-BANK1 10C-1FF 1
+BANK1 114-1FF 1
 BANK2 250-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
@@ -54,20 +54,20 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 274-1FD85 1
+CONST 28C-1FD85 1
 IDLOC 200000-200007 1
 SMALLCONST 1000-FFFF 1
 SMALLCONST 11000-1FD85 1
-CODE 274-1FD85 1
+CODE 28C-1FD85 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F15 1
-BIGRAM 274-F15 1
+BIGRAM 28C-F15 1
 BIGSFR F16-FFF 1
-COMRAM 33-5F 1
+COMRAM 34-5F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFFF 1
 MEDIUMCONST 11000-1FD85 1
@@ -189,139 +189,150 @@ $build/default/debug/longs.o
 1FE00 long_code CODE >91:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/longs.s
 1FE02 long_code CODE >98:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/longs.s
 $build/default/debug/main.o
-0 code CODE >29:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-100 code CODE >35:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-102 code CODE >36:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-104 code CODE >38:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-108 code CODE >41:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-10C code CODE >42:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-110 code CODE >45:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-112 code CODE >46:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-114 code CODE >47:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-116 code CODE >48:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-118 code CODE >49:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-11A code CODE >50:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-11C code CODE >56:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-120 code CODE >57:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-124 code CODE >60:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-128 code CODE >61:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-12C code CODE >65:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-130 code CODE >66:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-134 code CODE >67:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-138 code CODE >70:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-13C code CODE >71:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-140 code CODE >72:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-144 code CODE >73:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-148 code CODE >79:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-14C code CODE >81:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-14E code CODE >82:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-150 code CODE >84:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-154 code CODE >89:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-158 code CODE >92:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-15A code CODE >93:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-15C code CODE >95:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-15E code CODE >96:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-160 code CODE >98:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-162 code CODE >99:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-164 code CODE >101:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-168 code CODE >106:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-16C code CODE >107:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-170 code CODE >108:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-174 code CODE >110:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-178 code CODE >112:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-17C code CODE >113:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-180 code CODE >114:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-184 code CODE >115:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-188 code CODE >119:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-18C code CODE >120:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-190 code CODE >121:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-194 code CODE >123:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-198 code CODE >125:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-19A code CODE >126:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-19C code CODE >128:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-19E code CODE >130:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1A2 code CODE >132:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1A4 code CODE >133:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1A6 code CODE >136:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1AA code CODE >138:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1AE code CODE >142:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1B0 code CODE >143:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1B2 code CODE >144:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1B4 code CODE >145:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1B6 code CODE >146:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1B8 code CODE >147:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1BA code CODE >151:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1BC code CODE >152:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1BE code CODE >154:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1C0 code CODE >155:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+0 code CODE >30:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+100 code CODE >36:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+102 code CODE >37:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+104 code CODE >39:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+108 code CODE >42:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+10C code CODE >43:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+110 code CODE >46:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+112 code CODE >47:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+114 code CODE >48:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+116 code CODE >49:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+118 code CODE >50:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+11A code CODE >51:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+11C code CODE >57:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+120 code CODE >58:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+124 code CODE >61:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+128 code CODE >62:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+12C code CODE >66:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+130 code CODE >67:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+134 code CODE >68:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+138 code CODE >71:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+13C code CODE >72:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+140 code CODE >73:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+144 code CODE >74:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+148 code CODE >80:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+14C code CODE >82:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+14E code CODE >83:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+150 code CODE >85:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+154 code CODE >90:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+158 code CODE >93:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+15A code CODE >94:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+15C code CODE >96:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+15E code CODE >97:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+160 code CODE >99:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+162 code CODE >100:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+164 code CODE >102:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+168 code CODE >107:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+16C code CODE >108:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+170 code CODE >109:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+174 code CODE >111:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+178 code CODE >113:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+17C code CODE >114:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+180 code CODE >115:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+184 code CODE >116:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+188 code CODE >120:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+18C code CODE >121:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+190 code CODE >122:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+194 code CODE >124:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+198 code CODE >126:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+19A code CODE >127:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+19C code CODE >129:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+19E code CODE >131:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1A2 code CODE >133:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1A4 code CODE >134:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1A6 code CODE >137:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1AA code CODE >139:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1AE code CODE >143:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1B0 code CODE >144:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1B2 code CODE >145:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1B4 code CODE >146:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1B6 code CODE >147:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1B8 code CODE >148:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1BA code CODE >152:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1BC code CODE >153:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1BE code CODE >155:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1C0 code CODE >156:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 1C2 code CODE >159:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1C6 code CODE >163:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1C8 code CODE >164:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1CA code CODE >165:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1CC code CODE >170:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1CE code CODE >171:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1D0 code CODE >172:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1D2 code CODE >177:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1D6 code CODE >178:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1DA code CODE >179:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1DE code CODE >181:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1C4 code CODE >160:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1C6 code CODE >162:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1C8 code CODE >163:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1CA code CODE >164:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1CC code CODE >165:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1CE code CODE >168:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1D0 code CODE >169:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1D2 code CODE >171:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1D6 code CODE >174:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1D8 code CODE >175:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1DA code CODE >178:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1DE code CODE >182:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 1E0 code CODE >183:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1E4 code CODE >184:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1E6 code CODE >185:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1EA code CODE >187:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1EC code CODE >188:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1EE code CODE >190:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1F0 code CODE >191:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1F2 code CODE >193:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1F4 code CODE >198:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1F6 code CODE >199:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1FA code CODE >200:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1FC code CODE >206:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-1FE code CODE >209:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-200 code CODE >210:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-202 code CODE >211:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-204 code CODE >212:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-208 code CODE >213:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-20A code CODE >214:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1E2 code CODE >184:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1E4 code CODE >189:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1E6 code CODE >190:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1E8 code CODE >191:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1EA code CODE >196:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1EE code CODE >197:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1F2 code CODE >198:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1F6 code CODE >200:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1F8 code CODE >202:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1FC code CODE >203:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+1FE code CODE >204:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+202 code CODE >206:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+204 code CODE >207:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+206 code CODE >209:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+208 code CODE >210:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+20A code CODE >212:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 20C code CODE >217:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 20E code CODE >218:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-210 code CODE >219:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-212 code CODE >220:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-214 code CODE >223:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-216 code CODE >224:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-218 code CODE >226:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-21A code CODE >227:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-21C code CODE >229:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-21E code CODE >230:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-220 code CODE >231:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-222 code CODE >232:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+212 code CODE >219:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+214 code CODE >225:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+216 code CODE >228:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+218 code CODE >229:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+21A code CODE >230:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+21C code CODE >231:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+220 code CODE >232:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+222 code CODE >233:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 224 code CODE >236:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+226 code CODE >237:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 228 code CODE >238:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 22A code CODE >239:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-22C code CODE >240:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-22E code CODE >241:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+22C code CODE >242:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+22E code CODE >243:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 230 code CODE >245:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-234 code CODE >247:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-238 code CODE >248:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-23C code CODE >249:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-240 code CODE >250:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-244 code CODE >253:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-246 code CODE >256:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-248 code CODE >257:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-24A code CODE >258:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-24C code CODE >259:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-24E code CODE >262:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-250 code CODE >263:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-252 code CODE >264:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-254 code CODE >269:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-258 code CODE >270:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-25C code CODE >271:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-260 code CODE >272:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-264 code CODE >274:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-266 code CODE >277:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-26A code CODE >278:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-26E code CODE >279:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
-272 code CODE >280:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+232 code CODE >246:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+234 code CODE >248:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+236 code CODE >249:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+238 code CODE >250:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+23A code CODE >251:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+23C code CODE >255:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+240 code CODE >257:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+242 code CODE >258:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+244 code CODE >259:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+246 code CODE >260:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+248 code CODE >264:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+24C code CODE >266:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+250 code CODE >267:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+254 code CODE >268:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+258 code CODE >269:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+25C code CODE >272:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+25E code CODE >275:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+260 code CODE >276:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+262 code CODE >277:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+264 code CODE >278:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+266 code CODE >281:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+268 code CODE >282:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+26A code CODE >283:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+26C code CODE >288:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+270 code CODE >289:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+274 code CODE >290:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+278 code CODE >291:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+27C code CODE >293:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+27E code CODE >296:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+282 code CODE >297:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+286 code CODE >298:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
+28A code CODE >299:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/main.s
 $build/default/debug/KNN_tools.o
 1FF36 KNN_code CODE >21:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/KNN_tools.s
 1FF38 KNN_code CODE >22:/home/john/Documents/MPP/Assembly-KNN/Assembly Code/KNN_tools.s
@@ -473,7 +484,7 @@ __Lbubble_code 0 0 ABS 0 bubble_code -
 isa$xinst 0 0 ABS 0 - build/default/debug/main.o
 __Hedata 0 0 ABS 0 edata -
 __Hudata 0 0 ABS 0 udata -
-distance 18 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+distance 19 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 __Hconfig 30000E 0 CONFIG 4 config -
 __Ledata 0 0 ABS 0 edata -
 __Ludata 0 0 ABS 0 udata -
@@ -481,8 +492,8 @@ __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
-NUM1 26 0 COMRAM 1 udata_acs build/default/debug/longs.o
-NUM2 29 0 COMRAM 1 udata_acs build/default/debug/longs.o
+NUM1 27 0 COMRAM 1 udata_acs build/default/debug/longs.o
+NUM2 2A 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __S0 20000 0 ABS 0 - -
 __S1 250 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
@@ -504,12 +515,12 @@ __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-point_1 10 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-point_2 13 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+point_1 11 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+point_2 14 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 __Hlong_code 0 0 ABS 0 long_code -
 KEYPAD_Setup 1FD86 0 CODE 0 keypad_code build/default/debug/keypad.o
-total_input 31 0 COMRAM 1 udata_acs build/default/debug/keypad.o
-RESULT 2C 0 COMRAM 1 udata_acs build/default/debug/longs.o
+total_input 32 0 COMRAM 1 udata_acs build/default/debug/keypad.o
+RESULT 2D 0 COMRAM 1 udata_acs build/default/debug/longs.o
 __Ludata_bank0 0 0 ABS 0 udata_bank0 -
 __Ludata_bank1 0 0 ABS 0 udata_bank1 -
 __Ludata_bank2 0 0 ABS 0 udata_bank2 -
@@ -527,8 +538,8 @@ __Lkeypad_code 0 0 ABS 0 keypad_code -
 __LKNN_code 0 0 ABS 0 KNN_code -
 long_compare 1FDEE 0 CODE 0 long_code build/default/debug/longs.o
 __Hudata_acs 0 0 ABS 0 udata_acs -
-parameter_1 16 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-parameter_2 17 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+parameter_1 17 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+parameter_2 18 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
 __Hdata_code 0 0 ABS 0 data_code -
 __Ludata_acs 0 0 ABS 0 udata_acs -
 # %SPLITSTAB Section
@@ -557,9 +568,9 @@ __Ludata_acs 0 0 ABS 0 udata_acs -
 %SEGMENTS
 bubble_code 0 1FE80 1FE80 B6 1
 long_code 0 1FDB0 1FDB0 54 1
-udata_bank1 1 100 100 C 1
+udata_bank1 1 100 100 14 1
 udata_bank2 1 200 200 50 1
-udata_acs 1 0 0 33 1
+udata_acs 1 0 0 34 1
 data_code 0 1FE04 1FE04 7C 1
 keypad_code 0 1FD86 1FD86 2A 1
 KNN_code 0 1FF36 1FF36 CA 1
