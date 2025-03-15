@@ -1,15 +1,14 @@
-Microchip MPLAB XC8 PIC(R) Assembler V2.45
+Microchip MPLAB XC8 PIC(R) Assembler V3.0
 
 Linker command line:
 
--W-3 \
-  --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
-  -cs -h+dist/default/debug\Assembly_Code.debug.sym \
-  --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAskgc.\driver_tmp_3.o \
-  --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
-  -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
+-W-3 --edf=/opt/microchip/xc8/v3.00/pic/dat/20241204225717_en.msgs -cs \
+  -h+dist/default/debug/Assembly_Code.debug.sym \
+  --cmf=dist/default/debug/Assembly_Code.debug.cmf -z -Q18F87K22 \
+  -o/tmp/xcXApCgAb/driver_tmp_3.o --fixupoverflow=error \
+  -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
+  -Mdist/default/debug/Assembly_Code.debug.map -E1 -ACODE=00h-01FFFFh \
+  -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=00h-05Fh \
   -AABS1=00h-0F15h -ABIGRAM=00h-0F15h \
   -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F15h -ABANK0=060h-0FFh \
@@ -33,32 +32,32 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      22E        0       0
+                code                                  0        0      24C        0       0
                 udata_bank1                         100      100        C      100       1
-                udata_acs                             D        D        B        0       1
+                udata_acs                             D        D        D        0       1
                 config                           300000   300000        E        0       4
 build/default/debug/config.o
                 config                           300000   300000        E        0       4
 build/default/debug/keypad.o
                 keypad_code                       1FD86    1FD86       2A    1FD86       0
-                udata_acs                            2C       2C        2        0       1
+                udata_acs                            2E       2E        2        0       1
 build/default/debug/longs.o
                 long_code                         1FDB0    1FDB0       54    1FDB0       0
-                udata_acs                            21       21        9        0       1
+                udata_acs                            23       23        9        0       1
 build/default/debug/data_loader.o
                 data_code                         1FE04    1FE04       7C    1FE04       0
                 udata_bank2                         200      200       50      200       1
-                udata_acs                            2A       2A        2        0       1
+                udata_acs                            2C       2C        2        0       1
 build/default/debug/KNN_tools.o
                 KNN_code                          1FF36    1FF36       CA    1FF36       0
                 udata_acs                             0        0        D        0       1
 build/default/debug/bubble_sort.o
                 bubble_code                       1FE80    1FE80       B6    1FE80       0
-                udata_acs                            18       18        9        0       1
+                udata_acs                            1A       1A        9        0       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      22E         0
+                code                                  0        0      24C         0
                 keypad_code                       1FD86    1FD86       2A         0
                 long_code                         1FDB0    1FDB0       54         0
                 data_code                         1FE04    1FE04       7C         0
@@ -72,12 +71,12 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                udata_acs                             D        D        B         1
+                udata_acs                             D        D        D         1
+                udata_acs                            2E       2E        2         1
+                udata_acs                            23       23        9         1
                 udata_acs                            2C       2C        2         1
-                udata_acs                            21       21        9         1
-                udata_acs                            2A       2A        2         1
                 udata_acs                             0        0        D         1
-                udata_acs                            18       18        9         1
+                udata_acs                            1A       1A        9         1
 
         CLASS   ABS1           
 
@@ -134,14 +133,14 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                udata_acs                      000000  00002E  00002E         0       1  COMRAM  
-                udata_bank1                    000100  00000C  00010C       100       1  BANK1   
-                udata_bank2                    000200  000050  000250       200       1  BANK2   
-                keypad_code                    01FD86  00002A  01FDB0     1FD86       0  CODE    
-                long_code                      01FDB0  000054  01FE04     1FDB0       0  CODE    
-                data_code                      01FE04  00007C  01FE80     1FE04       0  CODE    
                 bubble_code                    01FE80  0000B6  01FF36     1FE80       0  CODE    
+                data_code                      01FE04  00007C  01FE80     1FE04       0  CODE    
+                udata_acs                      000000  000030  000030         0       1  COMRAM  
                 KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
+                long_code                      01FDB0  000054  01FE04     1FDB0       0  CODE    
+                keypad_code                    01FD86  00002A  01FDB0     1FD86       0  CODE    
+                udata_bank2                    000200  000050  000250       200       1  BANK2   
+                udata_bank1                    000100  00000C  00010C       100       1  BANK1   
 
 
 UNUSED ADDRESS RANGES
@@ -163,11 +162,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00022E-000F15              CE8
+        BIGRAM           00024C-000F15              CCA
         BIGSFR           000F16-000FFF               EA
-        CODE             00022E-01FD85            1FB58
-        COMRAM           00002E-00005F               32
-        CONST            00022E-01FD85            1FB58
+        CODE             00024C-01FD85            1FB3A
+        COMRAM           000030-00005F               30
+        CONST            00024C-01FD85            1FB3A
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -176,13 +175,14 @@ UNUSED ADDRESS RANGES
                          00010C-0001FF               F4
                          000250-000F15              100
         SFR              000F16-000FFF               4A
-        SMALLCONST       001000-01FD85              100
+        SMALLCONST       001000-00FFFF              100
+                         011000-01FD85              100
 
                                   Symbol Table
 
 KEYPAD_Read        keypad_code  01FD90  KEYPAD_Setup       keypad_code  01FD86
-NUM1               udata_acs    000021  NUM2               udata_acs    000024
-RESULT             udata_acs    000027  __HKNN_code        KNN_code     000000
+NUM1               udata_acs    000023  NUM2               udata_acs    000026
+RESULT             udata_acs    000029  __HKNN_code        KNN_code     000000
 __H__absolute__    __absolute__ 000000  __Hbubble_code     bubble_code  000000
 __Hcode            code         000000  __Hconfig          config       30000E
 __Hdata            data         000000  __Hdata_code       data_code    000000
@@ -225,4 +225,4 @@ long_compare       long_code    01FDEE  long_reset         long_code    01FDB0
 long_subtract      long_code    01FDDA  parameter_1        udata_acs    000006
 parameter_2        udata_acs    000007  point_1            udata_acs    000000
 point_2            udata_acs    000003  setup_data         data_code    01FE54
-total_input        udata_acs    00002C  
+total_input        udata_acs    00002E  

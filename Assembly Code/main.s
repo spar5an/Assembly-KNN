@@ -9,9 +9,11 @@ psect	udata_acs
 k:  ds	1
 predict_point:	ds  3; this is going to  be an example point to classify
 data_pointer:	ds  1
-counter:  ds	1
+compare_counter:  ds	1
+point_counter:	ds  1;number of points to read in each bank
 storage_dl:  ds	4;this stores the distance to and the label of the point we are testing
 endpoint:   ds	1
+pushed:	    ds	1
 
 psect	udata_bank1
 distance_storage:  ds	12;make sure this value is 4 times k
@@ -48,7 +50,7 @@ load_predict_point:
 
 train:
 	;load first K distances
-	movff	k, counter, A
+	movff	k, compare_counter, A
 	call	load_pp_p1
 	
 	;create pointers
@@ -73,7 +75,7 @@ load_first_points:
 	;copying labels
 	movff	POSTINC1, POSTINC0
     
-	decfsz	counter, A
+	decfsz	compare_counter, A
 	bra	load_first_points
 	
 	call	bubble_sort
@@ -90,8 +92,14 @@ predict:
 	movf	PRODL, W;technically unsafe but if multiplation goes baove 255 then it deserves  to break anyway
 	addwf	FSR1, f;should now be pointing at new point
 	
-	;perform distance calculation
+	movlw	17;load counter for how many points we are going to search
+	movwf	point_counter
+	
 	call	load_pp_p1;loads prediction point into p1 in knn_tools
+
+point_loop:	
+	
+	;perform distance calculation
 	movff	POSTINC1, point_2
 	movff	POSTINC1, point_2+1
 	movff	POSTINC1, point_2+2
@@ -112,7 +120,18 @@ predict:
 	lfsr	2, 0x100;point fsr2 at beginning of k points
 	
 	movf	k, W
-	movwf	counter
+	movwf	compare_counter
+	
+	bcf	pushed, 1
+	
+	call	compare_loop
+	
+	decfsz	point_counter
+	bra	point_loop
+	goto	$
+	
+	
+	
 compare_loop:
 	movff	POSTINC2, NUM2
 	movff	POSTINC2, NUM2+1
@@ -124,10 +143,14 @@ compare_loop:
 	btfsc	STATUS, 0
 	call	check_eq
 	
-	decfsz	counter
+	btfsc	pushed, 1
+	return
+	
+	decfsz	compare_counter
 	bra	compare_loop
 	
-	goto	$
+	return
+	
 	
 	
 check_eq:
@@ -139,9 +162,10 @@ cascading_push:
 	;this is going to be the most difficult task in the whole project
 	;aiming to insert the new point into the k d+l storage
 	;and in the process delete the last entry
+	bsf	pushed, 1
 	
 	;calculate endpoint
-	movf	counter, W
+	movf	compare_counter, W
 	subwf	k, W
 	mullw	0x04
 	movff	PRODL, endpoint
@@ -149,15 +173,11 @@ cascading_push:
 	addwf	endpoint, f
 	
 	;check if pushing the last point
-	movf	0x01
-	subwf	counter, w
-	btfss	STATUS, 2
-	bra	
+	movlw	0x01
+	subwf	compare_counter, w
+	btfsc	STATUS, 2
+	bra	inject
 	
-	
-	
-	
-
 	;start backwards, copy second last element into last storage
 	movf	k, W
 	mullw	0x04
