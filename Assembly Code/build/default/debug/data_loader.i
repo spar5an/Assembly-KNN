@@ -1,10 +1,10 @@
-# 1 "main.s"
+# 1 "data_loader.s"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 286 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "main.s" 2
+# 1 "data_loader.s" 2
 # 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
@@ -10959,298 +10959,87 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
-# 2 "main.s" 2
+# 2 "data_loader.s" 2
 
-extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
-extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
 
-global k
+extrn k
+global setup_data, load_data, data_loc, first_points_loc, load_first_points_data
+;this is a temporary solution to load some data in to begin coding the KNN
+;20 binary data points with 3 parameters each
+
+PSECT udata_bank0
+first_points_loc: ds 20;this needs to be 4 times K
+
+
+
+PSECT udata_bank2
+data_loc: ds 256
+
 
 psect udata_acs
-k: ds 1
-predict_point: ds 3; this is going to be an example point to classify
-data_pointer: ds 1
-compare_counter: ds 1
-point_counter: ds 1;number of points to read in each bank
-storage_dl: ds 4;this stores the distance to and the label of the point we are testing
-endpoint: ds 1
-pushed: ds 1
-classification_counter: ds 1
-zero_counter: ds 1
-one_counter: ds 1
-classification: ds 1
+data_length: ds 1
+first_point_length: ds 1
+counter: ds 1
 
 
+psect data_code, class=CODE
+first_point_data:
+ db 0x5a, 0x16, 0x25, 0x1, 0x48, 0x1b, 0xc3, 0x1, 0xc6, 0xd4, 0x76, 0x0
+ align 2
+data:
+ db 0xe8, 0xee, 0x37, 0x0, 0x51, 0x19, 0xbb, 0x1, 0x9a, 0xd1, 0x34, 0x0, 0x5d, 0x25, 0x96, 0x1, 0x82, 0xd2, 0x22, 0x0, 0xd1, 0xf6, 0x47, 0x0, 0x4c, 0x3d, 0xc1, 0x1, 0xae, 0xbe, 0x32, 0x0, 0xb6, 0xf0, 0x21, 0x0, 0xfb, 0xe3, 0x5a, 0x0, 0xb7, 0xd5, 0x2e, 0x0, 0x69, 0x41, 0xa4, 0x1, 0x3d, 0x8, 0x79, 0x1, 0xb6, 0xdc, 0x55, 0x0, 0x7a, 0xe2, 0x59, 0x0, 0x20, 0x2b, 0xff, 0x1, 0xa3, 0xdb, 0x41, 0x0, 0x8f, 0xd6, 0x52, 0x0, 0x3b, 0xff, 0x1e, 0x0, 0x21, 0x25, 0x9b, 0x1, 0xa, 0x2a, 0x92, 0x1, 0x91, 0xdd, 0x59, 0x0, 0x45, 0x41, 0x3d, 0x1, 0x89, 0xcf, 0x65, 0x0, 0xb2, 0xe4, 0x45, 0x0, 0x46, 0xdb, 0x2e, 0x0, 0x76, 0x17, 0xae, 0x1, 0x8a, 0xe4, 0x66, 0x0, 0xd1, 0xce, 0x38, 0x0, 0x22, 0x7, 0xa8, 0x1, 0x21, 0x28, 0x7d, 0x1, 0x70, 0xf5, 0x67, 0x0, 0xff, 0xc9, 0x0, 0x0, 0x8, 0x2b, 0x88, 0x1, 0x5e, 0x11, 0xa7, 0x1, 0xad, 0xdb, 0xd, 0x0, 0x9c, 0xf4, 0x82, 0x0, 0x10, 0x20, 0x83, 0x1, 0x96, 0xde, 0x47, 0x0, 0x9f, 0xce, 0x4a, 0x0, 0xa2, 0xd6, 0x48, 0x0, 0x83, 0xe7, 0x45, 0x0, 0xc, 0x1f, 0xb1, 0x1, 0xae, 0xdd, 0x7f, 0x0, 0x16, 0x22, 0x57, 0x1, 0x3f, 0x26, 0x9a, 0x1, 0x4e, 0x1b, 0x6e, 0x1, 0xc4, 0xe5, 0x61, 0x0, 0x52, 0x32, 0x8b, 0x1, 0x34, 0x1a, 0xb6, 0x1, 0x37, 0x19, 0x8b, 0x1, 0x3a, 0x0, 0xc1, 0x1, 0x71, 0x23, 0xaa, 0x1, 0xc4, 0xf1, 0x4c, 0x0, 0x73, 0x3e, 0x3f, 0x1, 0x2e, 0x6, 0x9e, 0x1, 0x0, 0x21, 0xb5, 0x1, 0x31, 0x1d, 0x86, 0x1, 0x72, 0x38, 0x9f, 0x1, 0x79, 0xd4, 0x89, 0x0, 0x12, 0x17, 0x92, 0x1
+ align 2
 
-psect udata_bank1
-distance_storage: ds 20;make sure this value is 4 times k
+setup_data:
+ bcf ((EECON1) and 0FFh), 6, a
+ bsf ((EECON1) and 0FFh), 7, a
 
+ movlw 255
+ movwf data_length
 
-
-psect code, abs
-main:
- org 0x0
- goto setup
-
- org 0x100 ; Main code starts here at address 0x100
-
-setup:
- ;;;;;;;;;; HERE IS K ;;;;;;;;;;
- movlw 0x05;will have a hard limit of like 30
- movwf k
-
- call setup_data
-
-read_data:
- call load_data
- call load_first_points_data
- call long_reset
-
-load_predict_point:
-     movlw 0x96
- movwf predict_point
- movlw 0xfa
- movwf predict_point+1
- movlw 0x1e
- movwf predict_point+2
- ;this is a point that should be classified as zero, not being used atm
-
-
-train:
- ;load first K distances
- movff k, compare_counter, A
- call load_pp_p1
-
- ;create pointers
- lfsr 0, distance_storage;INDF0 stores distance location
- lfsr 1, first_points_loc;INDF1 stores data_location
-
-load_first_points:
- ;load dp into p2
- movff POSTINC1, point_2
- movff POSTINC1, point_2+1
- movff POSTINC1, point_2+2
-
- ;caculate and store distance
- call calculate_distance
- movff distance, POSTINC0
- movff distance+1, POSTINC0
- movff distance+2, POSTINC0
-
- ;with new data structure (as of 11/03/) label stored directly after point
- ;so both pointers should now be looking at labels
-
- ;copying labels
- movff POSTINC1, POSTINC0
-
- decfsz compare_counter, A
- bra load_first_points
-
- call bubble_sort
-
-
-predict:
- ;point fsr1 at 0x200
- lfsr 1, 0x200
-
- movlw 64;load counter for how many points we are going to search
- movwf point_counter
-
- call load_pp_p1;loads prediction point into p1 in knn_tools
-
-point_loop:
-
- ;perform distance calculation
- movff POSTINC1, point_2
- movff POSTINC1, point_2+1
- movff POSTINC1, point_2+2
-
- call calculate_distance
-
- movff distance, storage_dl
- movff distance+1, storage_dl+1
- movff distance+2, storage_dl+2
- movff POSTINC1, storage_dl+3
-
- ;loop compare distances
- ;loading dl into num1
- movff storage_dl, NUM1
- movff storage_dl+1, NUM1+1
- movff storage_dl+2, NUM1+2
-
- lfsr 2, 0x100;point fsr2 at beginning of k points
-
- movf k, W
- movwf compare_counter
-
- bcf pushed, 1
-
- call compare_loop
-
- decfsz point_counter
- bra point_loop
-
-count_classification:
- lfsr 1, 0x103
-
- movff k, classification_counter
-
-classification_loop:
-
- movlw 0x00
- subwf INDF1, w
- btfsc STATUS, 2
- bra add_zero
- btfss STATUS, 2
- bra add_one
-
-
-classification_loop_end:
- movlw 0x04
- addwf FSR1
-
- decfsz classification_counter
- bra classification_loop
-
-classify:
- movf one_counter, W
- subwf zero_counter, W
-
- btfss STATUS, 0
- bra classify_one
- btfsc STATUS, 0
- bra classify_zero
-
-classify_one:
- movlw 0x01
- movwf classification
-
- goto $
-
-classify_zero:
- movlw 0x01
- movwf classification
-
-
- goto $
-
-add_one:
-    ;function for incrementing the one_counter
- movlw 0x01
- addwf one_counter, f
- bra classification_loop_end
-
-
-add_zero:
-    ;function for incrementing the zero_counter
- movlw 0x01
- addwf zero_counter, f
- bra classification_loop_end
-
-
-
-compare_loop:
- movff POSTINC2, NUM2
- movff POSTINC2, NUM2+1
- movff POSTINC2, NUM2+2
-
- incf FSR2 ;move it past the label
-
- call long_compare
- btfsc STATUS, 0
- call check_eq
-
- btfsc pushed, 1
- return
-
- decfsz compare_counter
- bra compare_loop
+ movlw 20;this needs to be 4 times K
+ movwf first_point_length
 
  return
 
+load_data:
+     lfsr 0, data_loc ; Load FSR0 with address in RAM
+ movlw low highword(data) ; address of data in PM
+ movwf TBLPTRU, A ; load upper bits to TBLPTRU
+ movlw high(data) ; address of data in PM
+ movwf TBLPTRH, A ; load high byte to TBLPTRH
+ movlw low(data) ; address of data in PM
+ movwf TBLPTRL, A ; load low byte to TBLPTRL
+ movf data_length, W
+ movwf counter, A ; our counter register
 
+ bra loop
 
-check_eq:
- btfss STATUS, 2
- call cascading_push
- return
-
-cascading_push:
- ;this is going to be the most difficult task in the whole project
- ;aiming to insert the new point into the k d+l storage
- ;and in the process delete the last entry
- bsf pushed, 1
-
- ;calculate endpoint
- movf compare_counter, W
- subwf k, W
- mullw 0x04
- movff PRODL, endpoint
- movlw 0x04
- addwf endpoint, f
-
- ;check if pushing the last point
- movlw 0x01
- subwf compare_counter, w
- btfsc STATUS, 2
- bra inject
-
- ;start backwards, copy second last element into last storage
- movf k, W
- mullw 0x04
-
- movlw 0x04
- subwf PRODL, W
-
- movwf FSR0L
- movlw 0x08
- subwf PRODL, W
- movwf FSR2L
- ;fsr2 looking at 2nd last point, fsr0 looking at last
-
-push_loop:
- call copy_push
- ;check if fsr2 is at the correct address
- movf endpoint, W
- subwf FSR2L, W
- btfss STATUS, 2
- bra sub8
-
-inject:
- ;now to inject the new point
- call sub4;moves fsr2 into position
-
- movff storage_dl, POSTINC2
- movff storage_dl+1, POSTINC2
- movff storage_dl+2, POSTINC2
- movff storage_dl+3, POSTINC2
-
+loop:
+        tblrd*+ ; move one byte from PM to TABLAT, increment TBLPRT
+ movff TABLAT, POSTINC0 ; move read data from TABLAT to (FSR0), increment FSR0
+ decfsz counter, A ; count down to zero
+ bra loop ; keep going until finished
 
  return
 
-sub8:
- movlw 0x08
- subwf FSR2L, f
- subwf FSR0L, f
- bra push_loop
+load_first_points_data:
+        lfsr 0, first_points_loc ; Load FSR0 with address in RAM
+ movlw low highword(first_point_data) ; address of data in PM
+ movwf TBLPTRU, A ; load upper bits to TBLPTRU
+ movlw high(first_point_data) ; address of data in PM
+ movwf TBLPTRH, A ; load high byte to TBLPTRH
+ movlw low(first_point_data) ; address of data in PM
+ movwf TBLPTRL, A ; load low byte to TBLPTRL
+ movf first_point_length, W
+ movwf counter, A ; our counter register
 
-sub4:
- movlw 0x04
- subwf FSR2L, f
- return
+ bra loop
 
-copy_push:
- ;take where fsr2 and move to fsr0
- ;this will be possible without 2 pointers but they make it easier
- movff POSTINC2, POSTINC0
- movff POSTINC2, POSTINC0
- movff POSTINC2, POSTINC0
- movff POSTINC2, POSTINC0
+loop2:
+        tblrd*+ ; move one byte from PM to TABLAT, increment TBLPRT
+ movff TABLAT, POSTINC0 ; move read data from TABLAT to (FSR0), increment FSR0
+ decfsz counter, A ; count down to zero
+ bra loop2 ; keep going until finished
 
- return
-
-load_pp_p1:
- movff predict_point, point_1
- movff predict_point+1, point_1+1
- movff predict_point+2, point_1+2
  return

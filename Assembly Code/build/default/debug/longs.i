@@ -1,21 +1,25 @@
 # 1 "longs.s"
 # 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 286 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
 # 1 "longs.s" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 1 3
+# 1 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 1 3
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 1 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 1 3
 
 
 
 
 
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 1 3
-# 350 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 1 3
+# 349 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 3
+# 1 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 1 3
+# 47 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
 PMD3 equ 0F16h
 
 PMD3_TMR12MD_POSN equ 0000h
@@ -10866,7 +10870,7 @@ TOSH_TOSH_MASK equ 00FFh
 
 
 TOSU equ 0FFFh
-# 12496 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\proc\\pic18f87k22.inc" 3
+# 12496 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/proc/pic18f87k22.inc" 3
 psect udata_acs,class=COMRAM,space=1,noexec,lowdata
 
 psect udata_bank0,class=BANK0,space=1,noexec,lowdata
@@ -10889,8 +10893,8 @@ psect udata,class=RAM,space=1,noexec
 psect code,class=CODE,space=0,reloc=2
 psect data,class=CONST,space=0,reloc=2,noexec
 psect edata,class=EEDATA,space=3,delta=1,noexec
-# 351 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18_chip_select.inc" 2 3
-# 7 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\pic18.inc" 2 3
+# 350 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18_chip_select.inc" 2 3
+# 7 "/opt/microchip/mplabx/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8/pic/include/pic18.inc" 2 3
 
 
 
@@ -10954,7 +10958,7 @@ addwfc FSR1H,c
 stk_offset SET 0
 auto_size SET 0
 ENDM
-# 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.inc" 2 3
+# 6 "/opt/microchip/xc8/v3.00/pic/include/xc.inc" 2 3
 # 2 "longs.s" 2
 
 ;Library for mathematics involving 3 byte long numbers
@@ -11005,7 +11009,7 @@ long_add:
 
     ;highest
     movf NUM1, W
-    addwfc NUM2+1, W
+    addwfc NUM2, W
     movwf RESULT
 
     return
@@ -11033,23 +11037,23 @@ long_compare:
     ;only changed the gotos to bras to make them quicker
     ;Compare Most Significant Byte (MSB)
     movf NUM1, W ; Load NUM1 MSB into WREG
-    subwf NUM2, W ; WREG = NUM1 - NUM2
+    subwf NUM2, W ; WREG = NUM2 - NUM1
     btfss STATUS, 2 ; If Z=1 (NUM1 MSB == NUM2 MSB), skip next instruction
     bra compare_done ; If MSB is different, we are done (C or N decides result)
 
     ; Compare Middle Byte
     movf NUM1+1, W ; Load NUM1 middle byte
-    subwf NUM2+1, W ; WREG = NUM1+1 - NUM2+1
+    subwf NUM2+1, W ; WREG = NUM2+1 - NUM1+1
     btfss STATUS, 2 ; If Z=1 (bytes are equal), skip next instruction
     bra compare_done ; If different, we are done
 
     ; Compare Least Significant Byte (LSB)
     movf NUM1+2, W ; Load NUM1 LSB
-    subwf NUM2+2, W ; WREG = NUM1+2 - NUM2+2
+    subwf NUM2+2, W ; WREG = NUM2+2 - NUM1+2
 
 compare_done:
-    ; Result is stored in STATUS register:
-    ; - C (Carry) = 1 if NUM1 >= NUM2
-    ; - C (Carry) = 0 if NUM1 < NUM2
-    ; - Z (Zero) = 1 if NUM1 == NUM2
+    ; Result in STATUS register:
+    ; - C = 1 if NUM2 >= NUM1 (No borrow ? NUM1 <= NUM2)
+    ; - C = 0 if NUM2 < NUM1 (Borrow ? NUM1 > NUM2)
+    ; - Z = 1 if NUM1 == NUM2
     return
