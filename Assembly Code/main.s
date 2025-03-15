@@ -14,6 +14,9 @@ point_counter:	ds  1;number of points to read in each bank
 storage_dl:  ds	4;this stores the distance to and the label of the point we are testing
 endpoint:   ds	1
 pushed:	    ds	1
+classification_counter:	ds  1
+zero_counter:	ds  1
+one_counter:	ds  1
 
 psect	udata_bank1
 distance_storage:  ds	12;make sure this value is 4 times k
@@ -128,8 +131,46 @@ point_loop:
 	
 	decfsz	point_counter
 	bra	point_loop
+	
+count_classification:
+	lfsr	1, 0x103
+	
+	movff	k, classification_counter
+	
+classification_loop:
+    
+	movlw	0x00
+	subwf	INDF1, w
+	btfsc	STATUS, 2
+	bra	add_zero
+	btfss	STATUS, 2
+	bra	add_one
+	
+	
+classification_loop_end:
+	movlw	0x04
+	addwf	FSR1
+    
+	decfsz	classification_counter
+	bra	classification_loop
+	
+	
+    
 	goto	$
 	
+add_one:
+    ;function for incrementing the one_counter
+	movlw   0x01
+	addwf	one_counter, f
+	bra	classification_loop_end
+    
+    
+add_zero:
+    ;function for incrementing the zero_counter
+	movlw	0x01
+	addwf	zero_counter, f
+	bra	classification_loop_end
+
 	
 	
 compare_loop:
