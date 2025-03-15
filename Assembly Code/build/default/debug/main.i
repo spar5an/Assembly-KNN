@@ -10962,7 +10962,7 @@ ENDM
 # 2 "main.s" 2
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
-extrn NUM1, NUM2, RESULT, long_compare
+extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
 
 global k
 
@@ -10979,6 +10979,8 @@ classification_counter: ds 1
 zero_counter: ds 1
 one_counter: ds 1
 classification: ds 1
+
+
 
 psect udata_bank1
 distance_storage: ds 20;make sure this value is 4 times k
@@ -11001,6 +11003,7 @@ setup:
 
 read_data:
  call load_data
+ call load_first_points_data
  call long_reset
 
 load_predict_point:
@@ -11020,7 +11023,7 @@ train:
 
  ;create pointers
  lfsr 0, distance_storage;INDF0 stores distance location
- lfsr 1, data_loc;INDF1 stores data_location
+ lfsr 1, first_points_loc;INDF1 stores data_location
 
 load_first_points:
  ;load dp into p2
@@ -11050,14 +11053,7 @@ predict:
  ;point fsr1 at 0x200
  lfsr 1, 0x200
 
- ;calculate distance to points
- movlw 0x04
- mulwf k
-
- movf PRODL, W;technically unsafe but if multiplation goes baove 255 then it deserves to break anyway
- addwf FSR1, f;should now be pointing at new point
-
- movlw 17;load counter for how many points we are going to search
+ movlw 64;load counter for how many points we are going to search
  movwf point_counter
 
  call load_pp_p1;loads prediction point into p1 in knn_tools
@@ -11071,7 +11067,7 @@ point_loop:
 
  call calculate_distance
 
- movff distance, storage_dl;this can be optimised
+ movff distance, storage_dl
  movff distance+1, storage_dl+1
  movff distance+2, storage_dl+2
  movff POSTINC1, storage_dl+3

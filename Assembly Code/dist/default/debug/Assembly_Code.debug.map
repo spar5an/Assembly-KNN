@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v3.00/pic/dat/20241204225717_en.msgs -cs \
   -h+dist/default/debug/Assembly_Code.debug.sym \
   --cmf=dist/default/debug/Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -o/tmp/xcXFDjGnj/driver_tmp_3.o --fixupoverflow=error \
+  -o/tmp/xcXakBPep/driver_tmp_3.o --fixupoverflow=error \
   -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 -ACODE=00h-01FFFFh \
   -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
@@ -32,37 +32,38 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      28C        0       0
+                code                                  0        0      288        0       0
                 udata_bank1                         100      100       14      100       1
                 udata_acs                             0        0       11        0       1
                 config                           300000   300000        E        0       4
 build/default/debug/config.o
                 config                           300000   300000        E        0       4
 build/default/debug/keypad.o
-                keypad_code                       1FD86    1FD86       2A    1FD86       0
-                udata_acs                            32       32        2        0       1
+                keypad_code                       1FCB0    1FCB0       2A    1FCB0       0
+                udata_acs                            33       33        2        0       1
 build/default/debug/longs.o
-                long_code                         1FDB0    1FDB0       54    1FDB0       0
+                long_code                         1FCDA    1FCDA       54    1FCDA       0
                 udata_acs                            27       27        9        0       1
 build/default/debug/data_loader.o
-                data_code                         1FE04    1FE04       7C    1FE04       0
-                udata_bank2                         200      200       50      200       1
-                udata_acs                            30       30        2        0       1
+                data_code                         1FEAE    1FEAE      152    1FEAE       0
+                udata_bank2                         200      200      100      200       1
+                udata_bank0                          60       60       14       60       1
+                udata_acs                            30       30        3        0       1
 build/default/debug/KNN_tools.o
-                KNN_code                          1FF36    1FF36       CA    1FF36       0
+                KNN_code                          1FDE4    1FDE4       CA    1FDE4       0
                 udata_acs                            11       11        D        0       1
 build/default/debug/bubble_sort.o
-                bubble_code                       1FE80    1FE80       B6    1FE80       0
+                bubble_code                       1FD2E    1FD2E       B6    1FD2E       0
                 udata_acs                            1E       1E        9        0       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      28C         0
-                keypad_code                       1FD86    1FD86       2A         0
-                long_code                         1FDB0    1FDB0       54         0
-                data_code                         1FE04    1FE04       7C         0
-                KNN_code                          1FF36    1FF36       CA         0
-                bubble_code                       1FE80    1FE80       B6         0
+                code                                  0        0      288         0
+                keypad_code                       1FCB0    1FCB0       2A         0
+                long_code                         1FCDA    1FCDA       54         0
+                data_code                         1FEAE    1FEAE      152         0
+                KNN_code                          1FDE4    1FDE4       CA         0
+                bubble_code                       1FD2E    1FD2E       B6         0
 
         CLASS   CONST          
 
@@ -72,9 +73,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   COMRAM         
                 udata_acs                             0        0       11         1
-                udata_acs                            32       32        2         1
+                udata_acs                            33       33        2         1
                 udata_acs                            27       27        9         1
-                udata_acs                            30       30        2         1
+                udata_acs                            30       30        3         1
                 udata_acs                            11       11        D         1
                 udata_acs                            1E       1E        9         1
 
@@ -85,12 +86,13 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
+                udata_bank0                          60       60       14         1
 
         CLASS   BANK1          
                 udata_bank1                         100      100       14         1
 
         CLASS   BANK2          
-                udata_bank2                         200      200       50         1
+                udata_bank2                         200      200      100         1
 
         CLASS   BANK3          
 
@@ -133,20 +135,21 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                bubble_code                    01FE80  0000B6  01FF36     1FE80       0  CODE    
-                data_code                      01FE04  00007C  01FE80     1FE04       0  CODE    
-                udata_acs                      000000  000034  000034         0       1  COMRAM  
-                KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
-                long_code                      01FDB0  000054  01FE04     1FDB0       0  CODE    
-                keypad_code                    01FD86  00002A  01FDB0     1FD86       0  CODE    
-                udata_bank2                    000200  000050  000250       200       1  BANK2   
+                data_code                      01FEAE  000152  020000     1FEAE       0  CODE    
+                KNN_code                       01FDE4  0000CA  01FEAE     1FDE4       0  CODE    
+                udata_acs                      000000  000035  000035         0       1  COMRAM  
+                long_code                      01FCDA  000054  01FD2E     1FCDA       0  CODE    
+                bubble_code                    01FD2E  0000B6  01FDE4     1FD2E       0  CODE    
+                keypad_code                    01FCB0  00002A  01FCDA     1FCB0       0  CODE    
+                udata_bank2                    000200  000100  000300       200       1  BANK2   
+                udata_bank0                    000060  000014  000074        60       1  BANK0   
                 udata_bank1                    000100  000014  000114       100       1  BANK1   
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            000060-0000FF               A0
+        BANK0            000074-0000FF               8C
         BANK1            000114-0001FF               EC
         BANK10           000A00-000AFF              100
         BANK11           000B00-000BFF              100
@@ -154,7 +157,6 @@ UNUSED ADDRESS RANGES
         BANK13           000D00-000DFF              100
         BANK14           000E00-000EFF              100
         BANK15           000F00-000F15               16
-        BANK2            000250-0002FF               B0
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
@@ -162,67 +164,114 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00028C-000F15              C8A
+        BIGRAM           000288-000F15              C8E
         BIGSFR           000F16-000FFF               EA
-        CODE             00028C-01FD85            1FAFA
-        COMRAM           000034-00005F               2C
-        CONST            00028C-01FD85            1FAFA
+        CODE             000288-01FCAF            1FA28
+        COMRAM           000035-00005F               2B
+        CONST            000288-01FCAF            1FA28
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
-                         011000-01FD85             ED86
-        RAM              000060-0000FF               A0
+                         011000-01FCAF             ECB0
+        RAM              000074-0000FF               8C
                          000114-0001FF               EC
-                         000250-000F15              100
+                         000300-000F15              100
         SFR              000F16-000FFF               4A
         SMALLCONST       001000-00FFFF              100
-                         011000-01FD85              100
+                         011000-01FCAF              100
 
                                   Symbol Table
 
-KEYPAD_Read        keypad_code  01FD90  KEYPAD_Setup       keypad_code  01FD86
-NUM1               udata_acs    000027  NUM2               udata_acs    00002A
-RESULT             udata_acs    00002D  __HKNN_code        KNN_code     000000
-__H__absolute__    __absolute__ 000000  __Hbubble_code     bubble_code  000000
-__Hcode            code         000000  __Hconfig          config       30000E
-__Hdata            data         000000  __Hdata_code       data_code    000000
-__Hedata           edata        000000  __Hkeypad_code     keypad_code  000000
-__Hlong_code       long_code    000000  __Hspace_0         (abs)        020000
-__Hspace_1         (abs)        000250  __Hspace_3         (abs)        000000
-__Hspace_4         (abs)        60000E  __Hudata           udata        000000
-__Hudata_acs       udata_acs    000000  __Hudata_bank0     udata_bank0  000000
-__Hudata_bank1     udata_bank1  000000  __Hudata_bank10    udata_bank10 000000
-__Hudata_bank11    udata_bank11 000000  __Hudata_bank12    udata_bank12 000000
-__Hudata_bank13    udata_bank13 000000  __Hudata_bank14    udata_bank14 000000
-__Hudata_bank15    udata_bank15 000000  __Hudata_bank2     udata_bank2  000000
-__Hudata_bank3     udata_bank3  000000  __Hudata_bank4     udata_bank4  000000
-__Hudata_bank5     udata_bank5  000000  __Hudata_bank6     udata_bank6  000000
-__Hudata_bank7     udata_bank7  000000  __Hudata_bank8     udata_bank8  000000
-__Hudata_bank9     udata_bank9  000000  __LKNN_code        KNN_code     000000
-__L__absolute__    __absolute__ 000000  __Lbubble_code     bubble_code  000000
-__Lcode            code         000000  __Lconfig          config       000000
-__Ldata            data         000000  __Ldata_code       data_code    000000
-__Ledata           edata        000000  __Lkeypad_code     keypad_code  000000
-__Llong_code       long_code    000000  __Lspace_0         (abs)        000000
-__Lspace_1         (abs)        000000  __Lspace_3         (abs)        000000
-__Lspace_4         (abs)        000000  __Ludata           udata        000000
-__Ludata_acs       udata_acs    000000  __Ludata_bank0     udata_bank0  000000
-__Ludata_bank1     udata_bank1  000000  __Ludata_bank10    udata_bank10 000000
-__Ludata_bank11    udata_bank11 000000  __Ludata_bank12    udata_bank12 000000
-__Ludata_bank13    udata_bank13 000000  __Ludata_bank14    udata_bank14 000000
-__Ludata_bank15    udata_bank15 000000  __Ludata_bank2     udata_bank2  000000
-__Ludata_bank3     udata_bank3  000000  __Ludata_bank4     udata_bank4  000000
-__Ludata_bank5     udata_bank5  000000  __Ludata_bank6     udata_bank6  000000
-__Ludata_bank7     udata_bank7  000000  __Ludata_bank8     udata_bank8  000000
-__Ludata_bank9     udata_bank9  000000  __S0               (abs)        020000
-__S1               (abs)        000250  __S3               (abs)        000000
-bubble_sort        bubble_code  01FE80  calculate_distance KNN_code     01FF4E
-data_loc           udata_bank2  000200  delay              keypad_code  01FDAA
-distance           udata_acs    000019  isa$std            (abs)        000001
-isa$xinst          (abs)        000000  k                  udata_acs    000000
-load_data          data_code    01FE5E  long_add           long_code    01FDC6
-long_compare       long_code    01FDEE  long_reset         long_code    01FDB0
-long_subtract      long_code    01FDDA  parameter_1        udata_acs    000017
-parameter_2        udata_acs    000018  point_1            udata_acs    000011
-point_2            udata_acs    000014  setup_data         data_code    01FE54
-total_input        udata_acs    000032  
+KEYPAD_Read            keypad_code  01FCBA
+KEYPAD_Setup           keypad_code  01FCB0
+NUM1                   udata_acs    000027
+NUM2                   udata_acs    00002A
+RESULT                 udata_acs    00002D
+__HKNN_code            KNN_code     000000
+__H__absolute__        __absolute__ 000000
+__Hbubble_code         bubble_code  000000
+__Hcode                code         000000
+__Hconfig              config       30000E
+__Hdata                data         000000
+__Hdata_code           data_code    000000
+__Hedata               edata        000000
+__Hkeypad_code         keypad_code  000000
+__Hlong_code           long_code    000000
+__Hspace_0             (abs)        020000
+__Hspace_1             (abs)        000300
+__Hspace_3             (abs)        000000
+__Hspace_4             (abs)        60000E
+__Hudata               udata        000000
+__Hudata_acs           udata_acs    000000
+__Hudata_bank0         udata_bank0  000000
+__Hudata_bank1         udata_bank1  000000
+__Hudata_bank10        udata_bank10 000000
+__Hudata_bank11        udata_bank11 000000
+__Hudata_bank12        udata_bank12 000000
+__Hudata_bank13        udata_bank13 000000
+__Hudata_bank14        udata_bank14 000000
+__Hudata_bank15        udata_bank15 000000
+__Hudata_bank2         udata_bank2  000000
+__Hudata_bank3         udata_bank3  000000
+__Hudata_bank4         udata_bank4  000000
+__Hudata_bank5         udata_bank5  000000
+__Hudata_bank6         udata_bank6  000000
+__Hudata_bank7         udata_bank7  000000
+__Hudata_bank8         udata_bank8  000000
+__Hudata_bank9         udata_bank9  000000
+__LKNN_code            KNN_code     000000
+__L__absolute__        __absolute__ 000000
+__Lbubble_code         bubble_code  000000
+__Lcode                code         000000
+__Lconfig              config       000000
+__Ldata                data         000000
+__Ldata_code           data_code    000000
+__Ledata               edata        000000
+__Lkeypad_code         keypad_code  000000
+__Llong_code           long_code    000000
+__Lspace_0             (abs)        000000
+__Lspace_1             (abs)        000000
+__Lspace_3             (abs)        000000
+__Lspace_4             (abs)        000000
+__Ludata               udata        000000
+__Ludata_acs           udata_acs    000000
+__Ludata_bank0         udata_bank0  000000
+__Ludata_bank1         udata_bank1  000000
+__Ludata_bank10        udata_bank10 000000
+__Ludata_bank11        udata_bank11 000000
+__Ludata_bank12        udata_bank12 000000
+__Ludata_bank13        udata_bank13 000000
+__Ludata_bank14        udata_bank14 000000
+__Ludata_bank15        udata_bank15 000000
+__Ludata_bank2         udata_bank2  000000
+__Ludata_bank3         udata_bank3  000000
+__Ludata_bank4         udata_bank4  000000
+__Ludata_bank5         udata_bank5  000000
+__Ludata_bank6         udata_bank6  000000
+__Ludata_bank7         udata_bank7  000000
+__Ludata_bank8         udata_bank8  000000
+__Ludata_bank9         udata_bank9  000000
+__S0                   (abs)        020000
+__S1                   (abs)        000300
+__S3                   (abs)        000000
+bubble_sort            bubble_code  01FD2E
+calculate_distance     KNN_code     01FDFC
+data_loc               udata_bank2  000200
+delay                  keypad_code  01FCD4
+distance               udata_acs    000019
+first_points_loc       udata_bank0  000060
+isa$std                (abs)        000001
+isa$xinst              (abs)        000000
+k                      udata_acs    000000
+load_data              data_code    01FFBC
+load_first_points_data data_code    01FFDE
+long_add               long_code    01FCF0
+long_compare           long_code    01FD18
+long_reset             long_code    01FCDA
+long_subtract          long_code    01FD04
+parameter_1            udata_acs    000017
+parameter_2            udata_acs    000018
+point_1                udata_acs    000011
+point_2                udata_acs    000014
+setup_data             data_code    01FFAE
+total_input            udata_acs    000033
