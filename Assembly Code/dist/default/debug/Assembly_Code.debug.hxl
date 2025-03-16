@@ -1,29 +1,29 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXakBPep/driver_tmp_3.o
- -Odist/default/debug/Assembly_Code.debug.hex
- -logfile=dist/default/debug/Assembly_Code.debug.hxl
+ C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o
+ -Odist/default/debug\Assembly_Code.debug.hex
+ -logfile=dist/default/debug\Assembly_Code.debug.hxl
  -addressing=1
  -break=300000
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXakBPep/driver_tmp_3.o)
-  100h - 287h		(/tmp/xcXakBPep/driver_tmp_3.o)
-  1FCB0h - 1FFFFh		(/tmp/xcXakBPep/driver_tmp_3.o)
-  300000h - 300006h		(/tmp/xcXakBPep/driver_tmp_3.o)
-  300008h - 30000Dh		(/tmp/xcXakBPep/driver_tmp_3.o)
+  0h - 3h		(C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
+  100h - 287h		(C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
+  1FCC6h - 1FFFFh		(C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
+  300000h - 300006h		(C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
+  300008h - 30000Dh		(C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
  Unused ranges:
   4h - FFh
-  288h - 1FCAFh
+  288h - 1FCC5h
   20000h - 2FFFFFh
   300007h - 300007h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXakBPep/driver_tmp_3.o)
+  H1 = Input file             (C:\Users\johnd\AppData\Local\Temp\xcAsjso.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -55,8 +55,7 @@
 00000270 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000280 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001FCB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001FCC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FCC0 | -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FCD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FCE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FCF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

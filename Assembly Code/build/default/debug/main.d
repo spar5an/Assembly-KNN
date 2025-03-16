@@ -1,1 +1,1 @@
-build/default/debug/main.i: main.s
+build/default/debug\main.i: main.s

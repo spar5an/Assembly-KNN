@@ -55,7 +55,7 @@ load_predict_point:
 	;this is a point that should be classified as zero, not being used atm
 	
 
-train:
+predict:
 	;load first K distances
 	movff	k, compare_counter, A
 	call	load_pp_p1
@@ -88,7 +88,7 @@ load_first_points:
 	call	bubble_sort
 	
 	
-predict:
+prepare:
 	;point fsr1 at 0x200
 	lfsr	1, 0x200
 	
@@ -167,7 +167,7 @@ classify_one:
 	goto	$    
     
 classify_zero:
-	movlw	0x01
+	movlw	0x00
 	movwf	classification
 	
     
