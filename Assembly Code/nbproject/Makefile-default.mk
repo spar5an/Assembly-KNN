@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=gnumkdir -p
+MKDIR=mkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.s config.s longs.s data_loader.s KNN_tools.s bubble_sort.s UART.s
+SOURCEFILES_QUOTED_IF_SPACED=main.s config.s longs.s data_loader.s KNN_tools.s bubble_sort.s UART.s input_handler.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN_tools.o ${OBJECTDIR}/bubble_sort.o ${OBJECTDIR}/UART.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/longs.o.d ${OBJECTDIR}/data_loader.o.d ${OBJECTDIR}/KNN_tools.o.d ${OBJECTDIR}/bubble_sort.o.d ${OBJECTDIR}/UART.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN_tools.o ${OBJECTDIR}/bubble_sort.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/input_handler.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/longs.o.d ${OBJECTDIR}/data_loader.o.d ${OBJECTDIR}/KNN_tools.o.d ${OBJECTDIR}/bubble_sort.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/input_handler.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN_tools.o ${OBJECTDIR}/bubble_sort.o ${OBJECTDIR}/UART.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/config.o ${OBJECTDIR}/longs.o ${OBJECTDIR}/data_loader.o ${OBJECTDIR}/KNN_tools.o ${OBJECTDIR}/bubble_sort.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/input_handler.o
 
 # Source Files
-SOURCEFILES=main.s config.s longs.s data_loader.s KNN_tools.s bubble_sort.s UART.s
+SOURCEFILES=main.s config.s longs.s data_loader.s KNN_tools.s bubble_sort.s UART.s input_handler.s
 
 
 
@@ -145,6 +145,14 @@ ${OBJECTDIR}/UART.o: UART.s  nbproject/Makefile-${CND_CONF}.mk
 	UART.s \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
+${OBJECTDIR}/input_handler.o: input_handler.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/input_handler.o 
+	${MP_AS} -mcpu=PIC18F87K22 -c \
+	-o ${OBJECTDIR}/input_handler.o \
+	input_handler.s \
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
 else
 ${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -200,6 +208,14 @@ ${OBJECTDIR}/UART.o: UART.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC18F87K22 -c \
 	-o ${OBJECTDIR}/UART.o \
 	UART.s \
+	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	
+${OBJECTDIR}/input_handler.o: input_handler.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/input_handler.o 
+	${MP_AS} -mcpu=PIC18F87K22 -c \
+	-o ${OBJECTDIR}/input_handler.o \
+	input_handler.s \
 	  -mdfp="${DFP_DIR}/xc8"  -misa=std -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif

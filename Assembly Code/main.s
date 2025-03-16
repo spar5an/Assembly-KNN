@@ -2,8 +2,8 @@
 
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 extrn	NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-
-global k
+extrn	UART_Setup, input_setup, receive_input
+global	k, predict_point
 	
 psect	udata_acs
 k:  ds	1
@@ -43,6 +43,10 @@ setup:
 read_data:
 	call	load_data
 	call	load_first_points_data
+	call	UART_Setup
+	call	input_setup
+	movlw	0x0
+	movwf	TRISD
 	call	long_reset
 	
 load_predict_point:
@@ -53,6 +57,8 @@ load_predict_point:
 	movlw	0x1e
 	movwf	predict_point+2
 	;this is a point that should be classified as zero, not being used atm
+	;keeping this in for the time being but should be replaced with
+	;call	receive_input
 	
 
 predict:
@@ -164,15 +170,21 @@ classify_one:
 	movlw	0x01
 	movwf	classification
     
-	goto	$    
+	bra	output 
     
 classify_zero:
 	movlw	0x00
 	movwf	classification
 	
+	bra	output
+	
+	
+output:;outputting to port D for the time being, might switch later
+	movff	classification, PORTD
+	bsf	PORTD, 2
+	bcf	PORTD, 2
     
 	goto	$
-	
 add_one:
     ;function for incrementing the one_counter
 	movlw   0x01

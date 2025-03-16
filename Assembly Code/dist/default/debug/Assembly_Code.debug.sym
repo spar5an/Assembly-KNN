@@ -34,6 +34,7 @@ __LKNN_code 0 0 ABS 0
 long_reset 1FCC6 0 CODE 0
 __Hudata_bank0 0 0 ABS 0
 __Ludata_bank0 0 0 ABS 0
+UART_Setup 1FC9C 0 CODE 0
 __Hudata_bank11 0 0 ABS 0
 __Ludata_bank11 0 0 ABS 0
 __Hudata_bank6 0 0 ABS 0
@@ -53,6 +54,7 @@ __Hudata_bank1 0 0 ABS 0
 __Ludata_bank1 0 0 ABS 0
 __Hspace_0 20000 0 ABS 0
 __Lspace_0 0 0 ABS 0
+UART_Transmit_Message 1FCB0 0 CODE 0
 __Hspace_1 300 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hudata_bank7 0 0 ABS 0
@@ -74,6 +76,8 @@ __Hudata_bank12 0 0 ABS 0
 __Ludata_bank12 0 0 ABS 0
 __Hudata_bank8 0 0 ABS 0
 __Ludata_bank8 0 0 ABS 0
+__Huart_code 0 0 ABS 0
+__Luart_code 0 0 ABS 0
 __Hudata_bank15 0 0 ABS 0
 __Ludata_bank15 0 0 ABS 0
 first_points_loc 60 0 BANK0 1
@@ -85,7 +89,7 @@ __Ludata_bank9 0 0 ABS 0
 __Hbubble_code 0 0 ABS 0
 __Lbubble_code 0 0 ABS 0
 %segments
-udata_acs 0 32 COMRAM 0 1
+udata_acs 0 33 COMRAM 0 1
 udata_bank0 60 73 BANK0 60 1
 udata_bank2 200 2FF BANK2 200 1
 udata_bank1 100 113 BANK1 100 1
@@ -93,6 +97,7 @@ data_code 1FE9A 1FFFF CODE 1FE9A 0
 KNN_code 1FDD0 1FE99 CODE 1FDD0 0
 bubble_code 1FD1A 1FDCF CODE 1FD1A 0
 long_code 1FCC6 1FD19 CODE 1FCC6 0
+uart_code 1FC9C 1FCC5 CODE 1FC9C 0
 %locals
 build/default/debug/main.o
 main.s
@@ -450,3 +455,25 @@ bubble_sort.s
 122 1FDCA 0 CODE 0
 123 1FDCC 0 CODE 0
 125 1FDCE 0 CODE 0
+build/default/debug/UART.o
+UART.s
+10 1FC9C 0 CODE 0
+11 1FC9E 0 CODE 0
+12 1FCA0 0 CODE 0
+13 1FCA2 0 CODE 0
+14 1FCA4 0 CODE 0
+15 1FCA6 0 CODE 0
+16 1FCA8 0 CODE 0
+17 1FCAA 0 CODE 0
+18 1FCAC 0 CODE 0
+20 1FCAE 0 CODE 0
+23 1FCB0 0 CODE 0
+25 1FCB2 0 CODE 0
+26 1FCB4 0 CODE 0
+27 1FCB8 0 CODE 0
+28 1FCBA 0 CODE 0
+29 1FCBC 0 CODE 0
+32 1FCBE 0 CODE 0
+33 1FCC0 0 CODE 0
+34 1FCC2 0 CODE 0
+35 1FCC4 0 CODE 0
