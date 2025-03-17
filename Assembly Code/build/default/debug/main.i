@@ -11010,7 +11010,7 @@ read_data:
 
 
 UART_test:
- call test
+ call receive_input
  bra UART_test
  goto $
 
