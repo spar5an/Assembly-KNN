@@ -4,11 +4,11 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
-  -cs -h+dist/default/debug\Assembly_Code.debug.sym \
-  --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAsrbk.\driver_tmp_3.o \
+  -cs -h+dist/default/production\Assembly_Code.production.sym \
+  --cmf=dist/default/production\Assembly_Code.production.cmf -z -Q18F87K22 \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAsar0.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
+  -Mdist/default/production/Assembly_Code.production.map -E1 --acfsm=1493 \
   -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=00h-05Fh \
   -AABS1=00h-0F15h -ABIGRAM=00h-0F15h \
@@ -20,10 +20,11 @@ Linker command line:
   -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F15h \
   -ASFR=0F16h-0F5Fh,0F60h-0FFFh -ABIGSFR=0F16h-0FFFh \
   -AIDLOC=0200000h-0200007h -AEEDATA=0F00000h-0F003FFh \
-  build/default/debug/main.o build/default/debug/config.o \
-  build/default/debug/longs.o build/default/debug/data_loader.o \
-  build/default/debug/KNN_tools.o build/default/debug/bubble_sort.o \
-  build/default/debug/UART.o build/default/debug/input_handler.o 
+  build/default/production/main.o build/default/production/config.o \
+  build/default/production/longs.o build/default/production/data_loader.o \
+  build/default/production/KNN_tools.o \
+  build/default/production/bubble_sort.o build/default/production/UART.o \
+  build/default/production/input_handler.o 
 
 Object code version is 3.11
 
@@ -32,31 +33,31 @@ Machine type is 18F87K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-build/default/debug/main.o
+build/default/production/main.o
                 code                                  0        0      2A6        0       0
                 udata_bank1                         100      100       14      100       1
                 udata_acs                             0        0       11        0       1
                 config                           300000   300000        E        0       4
-build/default/debug/config.o
+build/default/production/config.o
                 config                           300000   300000        E        0       4
-build/default/debug/longs.o
+build/default/production/longs.o
                 long_code                         1FCC6    1FCC6       54    1FCC6       0
                 udata_acs                            27       27        9        0       1
-build/default/debug/data_loader.o
+build/default/production/data_loader.o
                 data_code                         1FE9A    1FE9A      166    1FE9A       0
                 udata_bank2                         200      200      100      200       1
                 udata_bank0                          60       60       14       60       1
                 udata_acs                            30       30        3        0       1
-build/default/debug/KNN_tools.o
+build/default/production/KNN_tools.o
                 KNN_code                          1FDD0    1FDD0       CA    1FDD0       0
                 udata_acs                            11       11        D        0       1
-build/default/debug/bubble_sort.o
+build/default/production/bubble_sort.o
                 bubble_code                       1FD1A    1FD1A       B6    1FD1A       0
                 udata_acs                            1E       1E        9        0       1
-build/default/debug/UART.o
+build/default/production/UART.o
                 uart_code                         1FC88    1FC88       3E    1FC88       0
                 udata_acs                            33       33        2        0       1
-build/default/debug/input_handler.o
+build/default/production/input_handler.o
                 io_code                           1FC62    1FC62       26    1FC62       0
                 udata_acs                            35       35        1        0       1
 

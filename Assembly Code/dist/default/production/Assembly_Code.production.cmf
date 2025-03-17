@@ -11,29 +11,29 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$build/default/debug/input_handler.o
+$build/default/production/input_handler.o
 io_code CODE 0 1FC62 1FC62 26 1 1
 udata_acs COMRAM 1 35 35 1 1 1
-$build/default/debug/config.o
-config CONFIG 4 300000 300000 E 1 1
-$build/default/debug/bubble_sort.o
-bubble_code CODE 0 1FD1A 1FD1A B6 1 1
-udata_acs COMRAM 1 1E 1E 9 1 1
-$build/default/debug/UART.o
-uart_code CODE 0 1FC88 1FC88 3E 1 1
-udata_acs COMRAM 1 33 33 2 1 1
-$build/default/debug/longs.o
+$build/default/production/longs.o
 long_code CODE 0 1FCC6 1FCC6 54 1 1
 udata_acs COMRAM 1 27 27 9 1 1
-$build/default/debug/main.o
+$build/default/production/bubble_sort.o
+bubble_code CODE 0 1FD1A 1FD1A B6 1 1
+udata_acs COMRAM 1 1E 1E 9 1 1
+$build/default/production/UART.o
+uart_code CODE 0 1FC88 1FC88 3E 1 1
+udata_acs COMRAM 1 33 33 2 1 1
+$build/default/production/KNN_tools.o
+udata_acs COMRAM 1 11 11 D 1 1
+KNN_code CODE 0 1FDD0 1FDD0 CA 1 1
+$build/default/production/main.o
 code CODE 0 0 0 2A6 1 2
 udata_bank1 BANK1 1 100 100 14 1 1
 udata_acs COMRAM 1 0 0 11 1 1
 config CONFIG 4 300000 300000 E 1 1
-$build/default/debug/KNN_tools.o
-udata_acs COMRAM 1 11 11 D 1 1
-KNN_code CODE 0 1FDD0 1FDD0 CA 1 1
-$build/default/debug/data_loader.o
+$build/default/production/config.o
+config CONFIG 4 300000 300000 E 1 1
+$build/default/production/data_loader.o
 udata_bank0 BANK0 1 60 60 14 1 1
 udata_bank2 BANK2 1 200 200 100 1 1
 udata_acs COMRAM 1 30 30 3 1 1
@@ -86,7 +86,7 @@ MEDIUMCONST 11000-1FC61 1
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$build/default/debug/input_handler.o
+$build/default/production/input_handler.o
 1FC62 io_code CODE >12:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
 1FC64 io_code CODE >13:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
 1FC66 io_code CODE >15:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
@@ -100,7 +100,50 @@ $build/default/debug/input_handler.o
 1FC7E io_code CODE >30:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
 1FC82 io_code CODE >31:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
 1FC86 io_code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\input_handler.s
-$build/default/debug/bubble_sort.o
+$build/default/production/longs.o
+1FCC6 long_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCC8 long_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCCA long_code CODE >25:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCCC long_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCCE long_code CODE >28:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCD0 long_code CODE >29:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCD2 long_code CODE >30:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCD4 long_code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCD6 long_code CODE >33:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCD8 long_code CODE >34:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCDA long_code CODE >36:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCDC long_code CODE >40:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCDE long_code CODE >41:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCE0 long_code CODE >42:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCE2 long_code CODE >45:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCE4 long_code CODE >46:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCE6 long_code CODE >47:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCE8 long_code CODE >50:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCEA long_code CODE >51:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCEC long_code CODE >52:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCEE long_code CODE >54:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCF0 long_code CODE >58:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCF2 long_code CODE >59:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCF4 long_code CODE >60:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCF6 long_code CODE >63:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCF8 long_code CODE >64:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCFA long_code CODE >65:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCFC long_code CODE >68:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FCFE long_code CODE >69:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD00 long_code CODE >70:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD02 long_code CODE >72:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD04 long_code CODE >78:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD06 long_code CODE >79:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD08 long_code CODE >80:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD0A long_code CODE >81:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD0C long_code CODE >84:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD0E long_code CODE >85:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD10 long_code CODE >86:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD12 long_code CODE >87:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD14 long_code CODE >90:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD16 long_code CODE >91:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+1FD18 long_code CODE >98:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
+$build/default/production/bubble_sort.o
 1FD1A bubble_code CODE >23:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
 1FD1C bubble_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
 1FD1E bubble_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
@@ -161,7 +204,7 @@ $build/default/debug/bubble_sort.o
 1FDCA bubble_code CODE >122:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
 1FDCC bubble_code CODE >123:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
 1FDCE bubble_code CODE >125:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\bubble_sort.s
-$build/default/debug/UART.o
+$build/default/production/UART.o
 1FC88 uart_code CODE >12:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
 1FC8A uart_code CODE >13:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
 1FC8C uart_code CODE >14:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
@@ -191,50 +234,72 @@ $build/default/debug/UART.o
 1FCC0 uart_code CODE >49:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
 1FCC2 uart_code CODE >50:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
 1FCC4 uart_code CODE >52:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\UART.s
-$build/default/debug/longs.o
-1FCC6 long_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCC8 long_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCCA long_code CODE >25:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCCC long_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCCE long_code CODE >28:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCD0 long_code CODE >29:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCD2 long_code CODE >30:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCD4 long_code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCD6 long_code CODE >33:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCD8 long_code CODE >34:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCDA long_code CODE >36:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCDC long_code CODE >40:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCDE long_code CODE >41:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCE0 long_code CODE >42:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCE2 long_code CODE >45:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCE4 long_code CODE >46:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCE6 long_code CODE >47:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCE8 long_code CODE >50:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCEA long_code CODE >51:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCEC long_code CODE >52:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCEE long_code CODE >54:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCF0 long_code CODE >58:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCF2 long_code CODE >59:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCF4 long_code CODE >60:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCF6 long_code CODE >63:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCF8 long_code CODE >64:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCFA long_code CODE >65:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCFC long_code CODE >68:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FCFE long_code CODE >69:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD00 long_code CODE >70:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD02 long_code CODE >72:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD04 long_code CODE >78:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD06 long_code CODE >79:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD08 long_code CODE >80:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD0A long_code CODE >81:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD0C long_code CODE >84:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD0E long_code CODE >85:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD10 long_code CODE >86:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD12 long_code CODE >87:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD14 long_code CODE >90:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD16 long_code CODE >91:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-1FD18 long_code CODE >98:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\longs.s
-$build/default/debug/main.o
+$build/default/production/KNN_tools.o
+1FDD0 KNN_code CODE >21:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDD2 KNN_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDD4 KNN_code CODE >23:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDD6 KNN_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDD8 KNN_code CODE >25:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDDA KNN_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDDC KNN_code CODE >30:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDDE KNN_code CODE >31:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDE0 KNN_code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDE2 KNN_code CODE >33:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDE6 KNN_code CODE >34:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDE8 KNN_code CODE >37:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDEA KNN_code CODE >38:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDEC KNN_code CODE >39:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDEE KNN_code CODE >40:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDF0 KNN_code CODE >47:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDF4 KNN_code CODE >48:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDF8 KNN_code CODE >49:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDFC KNN_code CODE >51:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FDFE KNN_code CODE >52:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE00 KNN_code CODE >54:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE04 KNN_code CODE >55:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE08 KNN_code CODE >56:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE0C KNN_code CODE >58:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE0E KNN_code CODE >59:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE10 KNN_code CODE >61:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE14 KNN_code CODE >62:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE18 KNN_code CODE >64:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE1C KNN_code CODE >66:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE20 KNN_code CODE >67:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE24 KNN_code CODE >68:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE28 KNN_code CODE >70:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE2C KNN_code CODE >71:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE30 KNN_code CODE >72:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE34 KNN_code CODE >74:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE36 KNN_code CODE >75:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE38 KNN_code CODE >77:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE3C KNN_code CODE >78:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE40 KNN_code CODE >79:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE44 KNN_code CODE >81:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE46 KNN_code CODE >82:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE48 KNN_code CODE >84:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE4C KNN_code CODE >85:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE50 KNN_code CODE >87:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE54 KNN_code CODE >89:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE58 KNN_code CODE >90:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE5C KNN_code CODE >91:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE60 KNN_code CODE >93:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE64 KNN_code CODE >94:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE68 KNN_code CODE >95:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE6C KNN_code CODE >97:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE6E KNN_code CODE >98:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE70 KNN_code CODE >100:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE74 KNN_code CODE >101:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE78 KNN_code CODE >102:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE7C KNN_code CODE >104:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE7E KNN_code CODE >105:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE80 KNN_code CODE >107:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE84 KNN_code CODE >108:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE88 KNN_code CODE >110:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE8C KNN_code CODE >112:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE90 KNN_code CODE >113:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE94 KNN_code CODE >114:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+1FE98 KNN_code CODE >118:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
+$build/default/production/main.o
 0 code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 100 code CODE >38:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 102 code CODE >39:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
@@ -387,72 +452,7 @@ $build/default/debug/main.o
 29C code CODE >313:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 2A0 code CODE >314:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
 2A4 code CODE >315:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\main.s
-$build/default/debug/KNN_tools.o
-1FDD0 KNN_code CODE >21:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDD2 KNN_code CODE >22:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDD4 KNN_code CODE >23:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDD6 KNN_code CODE >24:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDD8 KNN_code CODE >25:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDDA KNN_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDDC KNN_code CODE >30:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDDE KNN_code CODE >31:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDE0 KNN_code CODE >32:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDE2 KNN_code CODE >33:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDE6 KNN_code CODE >34:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDE8 KNN_code CODE >37:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDEA KNN_code CODE >38:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDEC KNN_code CODE >39:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDEE KNN_code CODE >40:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDF0 KNN_code CODE >47:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDF4 KNN_code CODE >48:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDF8 KNN_code CODE >49:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDFC KNN_code CODE >51:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FDFE KNN_code CODE >52:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE00 KNN_code CODE >54:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE04 KNN_code CODE >55:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE08 KNN_code CODE >56:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE0C KNN_code CODE >58:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE0E KNN_code CODE >59:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE10 KNN_code CODE >61:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE14 KNN_code CODE >62:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE18 KNN_code CODE >64:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE1C KNN_code CODE >66:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE20 KNN_code CODE >67:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE24 KNN_code CODE >68:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE28 KNN_code CODE >70:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE2C KNN_code CODE >71:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE30 KNN_code CODE >72:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE34 KNN_code CODE >74:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE36 KNN_code CODE >75:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE38 KNN_code CODE >77:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE3C KNN_code CODE >78:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE40 KNN_code CODE >79:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE44 KNN_code CODE >81:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE46 KNN_code CODE >82:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE48 KNN_code CODE >84:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE4C KNN_code CODE >85:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE50 KNN_code CODE >87:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE54 KNN_code CODE >89:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE58 KNN_code CODE >90:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE5C KNN_code CODE >91:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE60 KNN_code CODE >93:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE64 KNN_code CODE >94:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE68 KNN_code CODE >95:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE6C KNN_code CODE >97:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE6E KNN_code CODE >98:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE70 KNN_code CODE >100:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE74 KNN_code CODE >101:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE78 KNN_code CODE >102:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE7C KNN_code CODE >104:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE7E KNN_code CODE >105:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE80 KNN_code CODE >107:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE84 KNN_code CODE >108:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE88 KNN_code CODE >110:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE8C KNN_code CODE >112:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE90 KNN_code CODE >113:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE94 KNN_code CODE >114:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-1FE98 KNN_code CODE >118:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\KNN_tools.s
-$build/default/debug/data_loader.o
+$build/default/production/data_loader.o
 1FE9A data_code CODE >26:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
 1FEAE data_code CODE >29:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
 1FFAE data_code CODE >33:C:\Users\jc5322\OneDrive - Imperial College London\Documents\MPP\Assembly-KNN\Assembly Code\data_loader.s
@@ -504,14 +504,14 @@ $build/default/debug/data_loader.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-k 0 0 COMRAM 1 udata_acs build/default/debug/main.o
+k 0 0 COMRAM 1 udata_acs build/default/production/main.o
 __Hspace_0 20000 0 ABS 0 - -
 __Hspace_1 300 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 60000E 0 ABS 0 - -
 __Ldata_code 0 0 ABS 0 data_code -
-UART_Receive_Input 1FCB2 0 CODE 0 uart_code build/default/debug/UART.o
-data_loc 200 0 BANK2 1 udata_bank2 build/default/debug/data_loader.o
+UART_Receive_Input 1FCB2 0 CODE 0 uart_code build/default/production/UART.o
+data_loc 200 0 BANK2 1 udata_bank2 build/default/production/data_loader.o
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
 __Hudata_bank1 0 0 ABS 0 udata_bank1 -
 __Hudata_bank2 0 0 ABS 0 udata_bank2 -
@@ -523,13 +523,13 @@ __Hudata_bank7 0 0 ABS 0 udata_bank7 -
 __Hudata_bank8 0 0 ABS 0 udata_bank8 -
 __Hudata_bank9 0 0 ABS 0 udata_bank9 -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
-predict_point 1 0 COMRAM 1 udata_acs build/default/debug/main.o
-input_setup 1FC62 0 CODE 0 io_code build/default/debug/input_handler.o
+predict_point 1 0 COMRAM 1 udata_acs build/default/production/main.o
+input_setup 1FC62 0 CODE 0 io_code build/default/production/input_handler.o
 __HKNN_code 0 0 ABS 0 KNN_code -
-receive_input 1FC68 0 CODE 0 io_code build/default/debug/input_handler.o
+receive_input 1FC68 0 CODE 0 io_code build/default/production/input_handler.o
 __Huart_code 0 0 ABS 0 uart_code -
-setup_data 1FFAE 0 CODE 0 data_code build/default/debug/data_loader.o
-bubble_sort 1FD1A 0 CODE 0 bubble_code build/default/debug/bubble_sort.o
+setup_data 1FFAE 0 CODE 0 data_code build/default/production/data_loader.o
+bubble_sort 1FD1A 0 CODE 0 bubble_code build/default/production/bubble_sort.o
 __Hudata_bank10 0 0 ABS 0 udata_bank10 -
 __Hudata_bank11 0 0 ABS 0 udata_bank11 -
 __Hudata_bank12 0 0 ABS 0 udata_bank12 -
@@ -538,10 +538,10 @@ __Hudata_bank14 0 0 ABS 0 udata_bank14 -
 __Hudata_bank15 0 0 ABS 0 udata_bank15 -
 __Luart_code 0 0 ABS 0 uart_code -
 __Lbubble_code 0 0 ABS 0 bubble_code -
-isa$xinst 0 0 ABS 0 - build/default/debug/main.o
+isa$xinst 0 0 ABS 0 - build/default/production/main.o
 __Hedata 0 0 ABS 0 edata -
 __Hudata 0 0 ABS 0 udata -
-distance 19 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+distance 19 0 COMRAM 1 udata_acs build/default/production/KNN_tools.o
 __Hconfig 30000E 0 CONFIG 4 config -
 __Ledata 0 0 ABS 0 edata -
 __Ludata 0 0 ABS 0 udata -
@@ -549,36 +549,36 @@ __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
-NUM1 27 0 COMRAM 1 udata_acs build/default/debug/longs.o
-NUM2 2A 0 COMRAM 1 udata_acs build/default/debug/longs.o
+NUM1 27 0 COMRAM 1 udata_acs build/default/production/longs.o
+NUM2 2A 0 COMRAM 1 udata_acs build/default/production/longs.o
 __S0 20000 0 ABS 0 - -
 __S1 300 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-test 1FC7C 0 CODE 0 io_code build/default/debug/input_handler.o
+test 1FC7C 0 CODE 0 io_code build/default/production/input_handler.o
 __Ludata_bank10 0 0 ABS 0 udata_bank10 -
 __Ludata_bank11 0 0 ABS 0 udata_bank11 -
 __Ludata_bank12 0 0 ABS 0 udata_bank12 -
 __Ludata_bank13 0 0 ABS 0 udata_bank13 -
 __Ludata_bank14 0 0 ABS 0 udata_bank14 -
 __Ludata_bank15 0 0 ABS 0 udata_bank15 -
-long_subtract 1FCF0 0 CODE 0 long_code build/default/debug/longs.o
-long_add 1FCDC 0 CODE 0 long_code build/default/debug/longs.o
+long_subtract 1FCF0 0 CODE 0 long_code build/default/production/longs.o
+long_add 1FCDC 0 CODE 0 long_code build/default/production/longs.o
 __Hbubble_code 0 0 ABS 0 bubble_code -
-first_points_loc 60 0 BANK0 1 udata_bank0 build/default/debug/data_loader.o
+first_points_loc 60 0 BANK0 1 udata_bank0 build/default/production/data_loader.o
 __Lconfig 0 0 CONFIG 4 config -
-load_data 1FFBC 0 CODE 0 data_code build/default/debug/data_loader.o
-UART_Transmit_Message 1FC9C 0 CODE 0 uart_code build/default/debug/UART.o
-isa$std 1 0 ABS 0 - build/default/debug/main.o
-calculate_distance 1FDE8 0 CODE 0 KNN_code build/default/debug/KNN_tools.o
+load_data 1FFBC 0 CODE 0 data_code build/default/production/data_loader.o
+UART_Transmit_Message 1FC9C 0 CODE 0 uart_code build/default/production/UART.o
+isa$std 1 0 ABS 0 - build/default/production/main.o
+calculate_distance 1FDE8 0 CODE 0 KNN_code build/default/production/KNN_tools.o
 __Lio_code 0 0 ABS 0 io_code -
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-point_1 11 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-point_2 14 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
+point_1 11 0 COMRAM 1 udata_acs build/default/production/KNN_tools.o
+point_2 14 0 COMRAM 1 udata_acs build/default/production/KNN_tools.o
 __Hlong_code 0 0 ABS 0 long_code -
-RESULT 2D 0 COMRAM 1 udata_acs build/default/debug/longs.o
+RESULT 2D 0 COMRAM 1 udata_acs build/default/production/longs.o
 __Ludata_bank0 0 0 ABS 0 udata_bank0 -
 __Ludata_bank1 0 0 ABS 0 udata_bank1 -
 __Ludata_bank2 0 0 ABS 0 udata_bank2 -
@@ -590,16 +590,16 @@ __Ludata_bank7 0 0 ABS 0 udata_bank7 -
 __Ludata_bank8 0 0 ABS 0 udata_bank8 -
 __Ludata_bank9 0 0 ABS 0 udata_bank9 -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
-long_reset 1FCC6 0 CODE 0 long_code build/default/debug/longs.o
+long_reset 1FCC6 0 CODE 0 long_code build/default/production/longs.o
 __Llong_code 0 0 ABS 0 long_code -
 __LKNN_code 0 0 ABS 0 KNN_code -
-long_compare 1FD04 0 CODE 0 long_code build/default/debug/longs.o
+long_compare 1FD04 0 CODE 0 long_code build/default/production/longs.o
 __Hudata_acs 0 0 ABS 0 udata_acs -
-parameter_1 17 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-parameter_2 18 0 COMRAM 1 udata_acs build/default/debug/KNN_tools.o
-load_first_points_data 1FFDE 0 CODE 0 data_code build/default/debug/data_loader.o
+parameter_1 17 0 COMRAM 1 udata_acs build/default/production/KNN_tools.o
+parameter_2 18 0 COMRAM 1 udata_acs build/default/production/KNN_tools.o
+load_first_points_data 1FFDE 0 CODE 0 data_code build/default/production/data_loader.o
 __Hdata_code 0 0 ABS 0 data_code -
-UART_Setup 1FC88 0 CODE 0 uart_code build/default/debug/UART.o
+UART_Setup 1FC88 0 CODE 0 uart_code build/default/production/UART.o
 __Ludata_acs 0 0 ABS 0 udata_acs -
 __Hio_code 0 0 ABS 0 io_code -
 # %SPLITSTAB Section

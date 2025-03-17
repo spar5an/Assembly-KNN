@@ -107,7 +107,7 @@ long_code 1FCC6 1FD19 CODE 1FCC6 0
 uart_code 1FC88 1FCC5 CODE 1FC88 0
 io_code 1FC62 1FC87 CODE 1FC62 0
 %locals
-build/default/debug/main.o
+build/default/production/main.o
 main.s
 32 0 0 CODE 0
 38 100 0 CODE 0
@@ -261,7 +261,7 @@ main.s
 313 29C 0 CODE 0
 314 2A0 0 CODE 0
 315 2A4 0 CODE 0
-build/default/debug/longs.o
+build/default/production/longs.o
 longs.s
 22 1FCC6 0 CODE 0
 24 1FCC8 0 CODE 0
@@ -305,7 +305,7 @@ longs.s
 90 1FD14 0 CODE 0
 91 1FD16 0 CODE 0
 98 1FD18 0 CODE 0
-build/default/debug/data_loader.o
+build/default/production/data_loader.o
 data_loader.s
 26 1FE9A 0 CODE 0
 29 1FEAE 0 CODE 0
@@ -346,7 +346,7 @@ data_loader.s
 81 1FFFA 0 CODE 0
 82 1FFFC 0 CODE 0
 84 1FFFE 0 CODE 0
-build/default/debug/KNN_tools.o
+build/default/production/KNN_tools.o
 KNN_tools.s
 21 1FDD0 0 CODE 0
 22 1FDD2 0 CODE 0
@@ -412,7 +412,7 @@ KNN_tools.s
 113 1FE90 0 CODE 0
 114 1FE94 0 CODE 0
 118 1FE98 0 CODE 0
-build/default/debug/bubble_sort.o
+build/default/production/bubble_sort.o
 bubble_sort.s
 23 1FD1A 0 CODE 0
 24 1FD1C 0 CODE 0
@@ -474,7 +474,7 @@ bubble_sort.s
 122 1FDCA 0 CODE 0
 123 1FDCC 0 CODE 0
 125 1FDCE 0 CODE 0
-build/default/debug/UART.o
+build/default/production/UART.o
 UART.s
 12 1FC88 0 CODE 0
 13 1FC8A 0 CODE 0
@@ -505,7 +505,7 @@ UART.s
 49 1FCC0 0 CODE 0
 50 1FCC2 0 CODE 0
 52 1FCC4 0 CODE 0
-build/default/debug/input_handler.o
+build/default/production/input_handler.o
 input_handler.s
 12 1FC62 0 CODE 0
 13 1FC64 0 CODE 0

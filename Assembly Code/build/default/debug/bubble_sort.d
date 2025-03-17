@@ -1,1 +1,1 @@
-build/default/debug/bubble_sort.i: bubble_sort.s
+build/default/debug\bubble_sort.i: bubble_sort.s

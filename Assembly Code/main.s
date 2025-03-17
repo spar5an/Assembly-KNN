@@ -2,7 +2,7 @@
 
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 extrn	NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn	UART_Setup, input_setup, receive_input
+extrn	UART_Setup, input_setup, receive_input, test
 global	k, predict_point
 	
 psect	udata_acs
@@ -48,6 +48,14 @@ read_data:
 	movlw	0x0
 	movwf	TRISD
 	call	long_reset
+
+	
+	
+UART_test:
+	call	test
+	bra	UART_test
+	goto	$
+	
 	
 load_predict_point:
     	movlw	0x96
