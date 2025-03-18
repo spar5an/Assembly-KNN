@@ -9,7 +9,7 @@ signal:	ds  1
     
 PSECT	io_code, class=CODE
 input_setup:
-    movlw   0xff
+    movlw   0x0a
     movwf   signal
     
     return

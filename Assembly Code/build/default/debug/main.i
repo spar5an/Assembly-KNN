@@ -11009,22 +11009,9 @@ read_data:
 
 
 
-UART_test:
+load_point_to_predict:
  call receive_input
- bra UART_test
- goto $
 
-
-load_predict_point:
-     movlw 0x96
- movwf predict_point
- movlw 0xfa
- movwf predict_point+1
- movlw 0x1e
- movwf predict_point+2
- ;this is a point that should be classified as zero, not being used atm
- ;keeping this in for the time being but should be replaced with
- ;call receive_input
 
 
 predict:
@@ -11147,10 +11134,10 @@ classify_zero:
 
 output:;outputting to port D for the time being, might switch later
  movff classification, PORTD
- bsf PORTD, 2
- bcf PORTD, 2
+ bsf PORTD, 7
+ bcf PORTD, 7
 
- goto $
+ goto load_point_to_predict
 add_one:
     ;function for incrementing the one_counter
  movlw 0x01

@@ -6,7 +6,7 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cs -h+dist/default/debug\Assembly_Code.debug.sym \
   --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAshd4.\driver_tmp_3.o \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAs12jc.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
@@ -33,7 +33,7 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      2A6        0       0
+                code                                  0        0      294        0       0
                 udata_bank1                         100      100       14      100       1
                 udata_acs                             0        0       11        0       1
                 config                           300000   300000        E        0       4
@@ -62,7 +62,7 @@ build/default/debug/input_handler.o
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      2A6         0
+                code                                  0        0      294         0
                 long_code                         1FCC6    1FCC6       54         0
                 data_code                         1FE9A    1FE9A      166         0
                 KNN_code                          1FDD0    1FDD0       CA         0
@@ -171,11 +171,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           0002A6-000F15              C70
+        BIGRAM           000294-000F15              C82
         BIGSFR           000F16-000FFF               EA
-        CODE             0002A6-01FC61            1F9BC
+        CODE             000294-01FC61            1F9CE
         COMRAM           000036-00005F               2A
-        CONST            0002A6-01FC61            1F9BC
+        CONST            000294-01FC61            1F9CE
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000

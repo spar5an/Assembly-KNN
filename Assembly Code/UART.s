@@ -46,7 +46,7 @@ UART_Transmit_Byte:	    ; Transmits byte stored in W
     bra     UART_Receive_Input_Loop
     movff   RCREG1, POSTINC2; Read received byte
     bcf     RC1IF           ; Clear receive flag
-    decfsz  receive_counter, A  ; Check if 4 bytes received
+    decfsz  receive_counter, A  ; Check if 3 bytes received
     bra     UART_Receive_Input_Loop   ; Repeat for next byte
     
     return
