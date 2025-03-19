@@ -6,7 +6,7 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cs -h+dist/default/debug\Assembly_Code.debug.sym \
   --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAs12jc.\driver_tmp_3.o \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAsh3s.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
@@ -33,36 +33,36 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      294        0       0
+                code                                  0        0      2AA        0       0
                 udata_bank1                         100      100       14      100       1
-                udata_acs                             0        0       11        0       1
+                udata_acs                             0        0       13        0       1
                 config                           300000   300000        E        0       4
 build/default/debug/config.o
                 config                           300000   300000        E        0       4
 build/default/debug/longs.o
                 long_code                         1FCC6    1FCC6       54    1FCC6       0
-                udata_acs                            27       27        9        0       1
+                udata_acs                            29       29        9        0       1
 build/default/debug/data_loader.o
                 data_code                         1FE9A    1FE9A      166    1FE9A       0
                 udata_bank2                         200      200      100      200       1
                 udata_bank0                          60       60       14       60       1
-                udata_acs                            30       30        3        0       1
+                udata_acs                            32       32        3        0       1
 build/default/debug/KNN_tools.o
                 KNN_code                          1FDD0    1FDD0       CA    1FDD0       0
-                udata_acs                            11       11        D        0       1
+                udata_acs                            13       13        D        0       1
 build/default/debug/bubble_sort.o
                 bubble_code                       1FD1A    1FD1A       B6    1FD1A       0
-                udata_acs                            1E       1E        9        0       1
+                udata_acs                            20       20        9        0       1
 build/default/debug/UART.o
                 uart_code                         1FC88    1FC88       3E    1FC88       0
-                udata_acs                            33       33        2        0       1
+                udata_acs                            35       35        2        0       1
 build/default/debug/input_handler.o
                 io_code                           1FC62    1FC62       26    1FC62       0
-                udata_acs                            35       35        1        0       1
+                udata_acs                            37       37        1        0       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      294         0
+                code                                  0        0      2AA         0
                 long_code                         1FCC6    1FCC6       54         0
                 data_code                         1FE9A    1FE9A      166         0
                 KNN_code                          1FDD0    1FDD0       CA         0
@@ -77,13 +77,13 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                udata_acs                             0        0       11         1
-                udata_acs                            27       27        9         1
-                udata_acs                            30       30        3         1
-                udata_acs                            11       11        D         1
-                udata_acs                            1E       1E        9         1
-                udata_acs                            33       33        2         1
-                udata_acs                            35       35        1         1
+                udata_acs                             0        0       13         1
+                udata_acs                            29       29        9         1
+                udata_acs                            32       32        3         1
+                udata_acs                            13       13        D         1
+                udata_acs                            20       20        9         1
+                udata_acs                            35       35        2         1
+                udata_acs                            37       37        1         1
 
         CLASS   ABS1           
 
@@ -141,7 +141,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                udata_acs                      000000  000036  000036         0       1  COMRAM  
+                udata_acs                      000000  000038  000038         0       1  COMRAM  
                 udata_bank0                    000060  000014  000074        60       1  BANK0   
                 udata_bank1                    000100  000014  000114       100       1  BANK1   
                 udata_bank2                    000200  000100  000300       200       1  BANK2   
@@ -171,11 +171,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000294-000F15              C82
+        BIGRAM           0002AA-000F15              C6C
         BIGSFR           000F16-000FFF               EA
-        CODE             000294-01FC61            1F9CE
-        COMRAM           000036-00005F               2A
-        CONST            000294-01FC61            1F9CE
+        CODE             0002AA-01FC61            1F9B8
+        COMRAM           000038-00005F               28
+        CONST            0002AA-01FC61            1F9B8
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -188,9 +188,9 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-NUM1                   udata_acs    000027
-NUM2                   udata_acs    00002A
-RESULT                 udata_acs    00002D
+NUM1                   udata_acs    000029
+NUM2                   udata_acs    00002C
+RESULT                 udata_acs    00002F
 UART_Receive_Input     uart_code    01FCB2
 UART_Setup             uart_code    01FC88
 UART_Transmit_Message  uart_code    01FC9C
@@ -266,7 +266,7 @@ __S3                   (abs)        000000
 bubble_sort            bubble_code  01FD1A
 calculate_distance     KNN_code     01FDE8
 data_loc               udata_bank2  000200
-distance               udata_acs    000019
+distance               udata_acs    00001B
 first_points_loc       udata_bank0  000060
 input_setup            io_code      01FC62
 isa$std                (abs)        000001
@@ -278,11 +278,12 @@ long_add               long_code    01FCDC
 long_compare           long_code    01FD04
 long_reset             long_code    01FCC6
 long_subtract          long_code    01FCF0
-parameter_1            udata_acs    000017
-parameter_2            udata_acs    000018
-point_1                udata_acs    000011
-point_2                udata_acs    000014
+parameter_1            udata_acs    000019
+parameter_2            udata_acs    00001A
+point_1                udata_acs    000013
+point_2                udata_acs    000016
 predict_point          udata_acs    000001
 receive_input          io_code      01FC68
 setup_data             data_code    01FFAE
+signal                 udata_acs    000037
 test                   io_code      01FC7C
