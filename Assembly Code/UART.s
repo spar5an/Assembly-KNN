@@ -1,6 +1,6 @@
 #include <xc.inc>
     
-global  UART_Setup, UART_Transmit_Message, UART_Receive_Input
+global  UART_Setup, UART_Transmit_Message, UART_Receive_Input, UART_Receive_Data
     
 
 psect	udata_acs   ; reserve data space in access ram
@@ -36,18 +36,33 @@ UART_Transmit_Byte:	    ; Transmits byte stored in W
     movwf   TXREG1, A
     return
 
- UART_Receive_Input:
+UART_Receive_Input:
     ;designed to recieve 3 bytes and output them at fsr2
     movlw   0x03
     movwf   receive_counter
     
- UART_Receive_Input_Loop:
+UART_Receive_Input_Loop:
     btfss   RC1IF           ; Wait until a byte is received
     bra     UART_Receive_Input_Loop
     movff   RCREG1, POSTINC2; Read received byte
     bcf     RC1IF           ; Clear receive flag
     decfsz  receive_counter, A  ; Check if 3 bytes received
     bra     UART_Receive_Input_Loop   ; Repeat for next byte
+    
+    return
+    
+UART_Receive_Data:
+    ;designed to recieve 4 bytes and output them at fsr1
+    movlw   0x04
+    movwf   receive_counter
+    
+UART_Receive_Data_Loop:
+    btfss   RC1IF           ; Wait until a byte is received
+    bra     UART_Receive_Data_Loop
+    movff   RCREG1, POSTINC1; Read received byte
+    bcf     RC1IF           ; Clear receive flag
+    decfsz  receive_counter, A  ; Check if 3 bytes received
+    bra     UART_Receive_Data_Loop   ; Repeat for next byte
     
     return
 

@@ -10960,7 +10960,7 @@ ENDM
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn UART_Setup, input_setup, receive_input, test, UART_Transmit_Message
+extrn UART_Setup, input_setup, receive_input, UART_Transmit_Message
 global k, predict_point
 
 psect udata_acs
@@ -11002,9 +11002,14 @@ setup:
  movwf output_message+1
 
 read_data:
+
+ call UART_Setup
+
  call load_data
  call load_first_points_data
- call UART_Setup
+
+ goto $
+
  call input_setup
  movlw 0x0
  movwf TRISD
