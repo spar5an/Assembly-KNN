@@ -2,7 +2,7 @@
 
 extrn	UART_Transmit_Message, UART_Receive_Input, predict_point
 
-global	input_setup, receive_input, test
+global	input_setup, receive_input, test, signal
     
 PSECT udata_acs
 signal:	ds  1

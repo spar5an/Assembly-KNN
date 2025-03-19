@@ -10960,7 +10960,7 @@ ENDM
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
 extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn UART_Setup, input_setup, receive_input, test
+extrn UART_Setup, input_setup, receive_input, test, UART_Transmit_Message
 global k, predict_point
 
 psect udata_acs
@@ -10976,6 +10976,7 @@ classification_counter: ds 1
 zero_counter: ds 1
 one_counter: ds 1
 classification: ds 1
+output_message: ds 2
 
 
 
@@ -10997,6 +10998,8 @@ setup:
  movwf k
 
  call setup_data
+ movlw 0x0a
+ movwf output_message+1
 
 read_data:
  call load_data
@@ -11096,6 +11099,8 @@ count_classification:
 classification_loop:
 
  movlw 0x00
+ movwf one_counter
+ movwf zero_counter
  subwf INDF1, w
  btfsc STATUS, 2
  bra add_zero
@@ -11136,6 +11141,11 @@ output:;outputting to port D for the time being, might switch later
  movff classification, PORTD
  bsf PORTD, 7
  bcf PORTD, 7
+
+ movff classification, output_message
+ lfsr 2, output_message
+ movlw 0x02
+ call UART_Transmit_Message
 
  goto load_point_to_predict
 add_one:
