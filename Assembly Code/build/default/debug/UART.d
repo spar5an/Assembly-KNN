@@ -1,1 +1,1 @@
-build/default/debug\UART.i: UART.s
+build/default/debug/UART.i: UART.s

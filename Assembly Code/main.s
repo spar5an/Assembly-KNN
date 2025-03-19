@@ -1,6 +1,6 @@
 	#include <xc.inc>
 
-extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, bubble_sort
 extrn	NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
 extrn	UART_Setup, input_setup, receive_input, UART_Transmit_Message
 global	k, predict_point
@@ -11,6 +11,7 @@ predict_point:	ds  3; this is going to  be an example point to classify
 data_pointer:	ds  1
 compare_counter:  ds	1
 point_counter:	ds  1;number of points to read in each bank
+bank_counter:	ds  1
 storage_dl:  ds	4;this stores the distance to and the label of the point we are testing
 endpoint:   ds	1
 pushed:	    ds	1
@@ -43,16 +44,18 @@ setup:
 	movlw	0x0a
 	movwf	output_message+1
 	
-read_data:
-
 	call	UART_Setup
+	call	input_setup
 	
-	call	load_data
+read_data:
+	
+	
 	call	load_first_points_data
+	call	load_data
 	
 	goto	$
 	
-	call	input_setup
+
 	movlw	0x0
 	movwf	TRISD
 	call	long_reset
@@ -101,11 +104,13 @@ prepare:
 	;point fsr1 at 0x200
 	lfsr	1, 0x200
 	
+	call	load_pp_p1;loads prediction point into p1 in knn_tools
+	
+prepare2:	
+	
 	movlw	64;load counter for how many points we are going to search
 	movwf	point_counter
 	
-	call	load_pp_p1;loads prediction point into p1 in knn_tools
-
 point_loop:	
 	
 	;perform distance calculation
@@ -135,8 +140,13 @@ point_loop:
 	
 	call	compare_loop
 	
+	movlw	0x00
 	decfsz	point_counter
 	bra	point_loop
+	subwfb	bank_counter
+	bra	prepare2
+	
+	
 	
 count_classification:
 	lfsr	1, 0x103
