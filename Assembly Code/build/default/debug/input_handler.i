@@ -10960,7 +10960,7 @@ ENDM
 
 extrn UART_Transmit_Message, UART_Receive_Input, predict_point
 
-global input_setup, receive_input, test, signal
+global input_setup, receive_input, signal
 
 PSECT udata_acs
 signal: ds 1
@@ -10981,10 +10981,4 @@ receive_input:
     lfsr 2, predict_point
     call UART_Receive_Input
 
-    return
-
-test:
-    movlw 0x01
-    lfsr 2, signal
-    call UART_Transmit_Message
     return

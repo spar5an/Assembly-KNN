@@ -10958,7 +10958,7 @@ ENDM
 # 1 "UART.s" 2
 
 
-global UART_Setup, UART_Transmit_Message, UART_Receive_Input
+global UART_Setup, UART_Transmit_Message, UART_Receive_Input, UART_Receive_Data
 
 
 psect udata_acs ; reserve data space in access ram
@@ -10994,17 +10994,32 @@ UART_Transmit_Byte: ; Transmits byte stored in W
     movwf TXREG1, A
     return
 
- UART_Receive_Input:
+UART_Receive_Input:
     ;designed to recieve 3 bytes and output them at fsr2
     movlw 0x03
     movwf receive_counter
 
- UART_Receive_Input_Loop:
+UART_Receive_Input_Loop:
     btfss ((PIR1) and 0FFh), 5, a ; Wait until a byte is received
     bra UART_Receive_Input_Loop
     movff RCREG1, POSTINC2; Read received byte
     bcf ((PIR1) and 0FFh), 5, a ; Clear receive flag
-    decfsz receive_counter, A ; Check if 4 bytes received
+    decfsz receive_counter, A ; Check if 3 bytes received
     bra UART_Receive_Input_Loop ; Repeat for next byte
+
+    return
+
+UART_Receive_Data:
+    ;designed to recieve 4 bytes and output them at fsr1
+    movlw 0x04
+    movwf receive_counter
+
+UART_Receive_Data_Loop:
+    btfss ((PIR1) and 0FFh), 5, a ; Wait until a byte is received
+    bra UART_Receive_Data_Loop
+    movff RCREG1, POSTINC1; Read received byte
+    bcf ((PIR1) and 0FFh), 5, a ; Clear receive flag
+    decfsz receive_counter, A ; Check if 3 bytes received
+    bra UART_Receive_Data_Loop ; Repeat for next byte
 
     return
