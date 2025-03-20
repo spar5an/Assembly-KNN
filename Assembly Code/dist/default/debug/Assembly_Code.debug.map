@@ -1,14 +1,15 @@
-Microchip MPLAB XC8 PIC(R) Assembler V3.0
+Microchip MPLAB XC8 PIC(R) Assembler V2.45
 
 Linker command line:
 
--W-3 --edf=/opt/microchip/xc8/v3.00/pic/dat/20241204225717_en.msgs -cs \
-  -h+dist/default/debug/Assembly_Code.debug.sym \
-  --cmf=dist/default/debug/Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -o/tmp/xcXcoBDDm/driver_tmp_3.o --fixupoverflow=error \
-  -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Assembly_Code.debug.map -E1 -ACODE=00h-01FFFFh \
-  -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx240,011000h-0110FFhx240 \
+-W-3 \
+  --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
+  -cs -h+dist/default/debug\Assembly_Code.debug.sym \
+  --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAsj6g.\driver_tmp_3.o \
+  --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
+  -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
+  -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFFFh -ACOMRAM=00h-05Fh \
   -AABS1=00h-0F15h -ABIGRAM=00h-0F15h \
   -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F15h -ABANK0=060h-0FFh \
@@ -32,7 +33,7 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      2B4        0       0
+                code                                  0        0      2B2        0       0
                 udata_bank1                         100      100       14      100       1
                 udata_acs                             0        0       14        0       1
                 config                           300000   300000        E        0       4
@@ -60,7 +61,7 @@ build/default/debug/input_handler.o
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      2B4         0
+                code                                  0        0      2B2         0
                 long_code                         1FE2C    1FE2C       54         0
                 data_code                         1FD90    1FD90       4A         0
                 KNN_code                          1FF36    1FF36       CA         0
@@ -138,15 +139,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                bubble_code                    01FE80  0000B6  01FF36     1FE80       0  CODE    
-                uart_code                      01FDDA  000052  01FE2C     1FDDA       0  CODE    
-                long_code                      01FE2C  000054  01FE80     1FE2C       0  CODE    
                 udata_acs                      000000  00003B  00003B         0       1  COMRAM  
-                KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
+                udata_bank0                    000060  000014  000074        60       1  BANK0   
+                udata_bank1                    000100  000014  000114       100       1  BANK1   
                 io_code                        01FD76  00001A  01FD90     1FD76       0  CODE    
                 data_code                      01FD90  00004A  01FDDA     1FD90       0  CODE    
-                udata_bank1                    000100  000014  000114       100       1  BANK1   
-                udata_bank0                    000060  000014  000074        60       1  BANK0   
+                uart_code                      01FDDA  000052  01FE2C     1FDDA       0  CODE    
+                long_code                      01FE2C  000054  01FE80     1FE2C       0  CODE    
+                bubble_code                    01FE80  0000B6  01FF36     1FE80       0  CODE    
+                KNN_code                       01FF36  0000CA  020000     1FF36       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -168,11 +169,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           0002B4-000F15              C62
+        BIGRAM           0002B2-000F15              C64
         BIGSFR           000F16-000FFF               EA
-        CODE             0002B4-01FD75            1FAC2
+        CODE             0002B2-01FD75            1FAC4
         COMRAM           00003B-00005F               25
-        CONST            0002B4-01FD75            1FAC2
+        CONST            0002B2-01FD75            1FAC4
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -180,8 +181,7 @@ UNUSED ADDRESS RANGES
         RAM              000074-0000FF               8C
                          000114-000F15              100
         SFR              000F16-000FFF               4A
-        SMALLCONST       001000-00FFFF              100
-                         011000-01FD75              100
+        SMALLCONST       001000-01FD75              100
 
                                   Symbol Table
 
@@ -261,11 +261,14 @@ __Ludata_bank9         udata_bank9  000000
 __S0                   (abs)        020000
 __S1                   (abs)        000114
 __S3                   (abs)        000000
+bank_counter           udata_acs    000007
 banks_filled           udata_acs    000036
 bubble_sort            bubble_code  01FE80
 calculate_distance     KNN_code     01FF4E
+counter                udata_acs    000035
 distance               udata_acs    00001C
 first_points_loc       udata_bank0  000060
+high_counter           udata_acs    000037
 input_setup            io_code      01FD76
 isa$std                (abs)        000001
 isa$xinst              (abs)        000000
@@ -280,6 +283,7 @@ parameter_1            udata_acs    00001A
 parameter_2            udata_acs    00001B
 point_1                udata_acs    000014
 point_2                udata_acs    000017
+point_counter          udata_acs    000006
 predict_point          udata_acs    000001
 receive_input          io_code      01FD7C
 setup_data             data_code    01FD90

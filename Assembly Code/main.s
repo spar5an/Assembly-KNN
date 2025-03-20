@@ -3,7 +3,7 @@
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, bubble_sort
 extrn	NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
 extrn	UART_Setup, input_setup, receive_input, UART_Transmit_Message
-global	k, predict_point
+global	k, predict_point, point_counter, bank_counter
 	
 psect	udata_acs
 k:  ds	1
@@ -144,6 +144,7 @@ point_loop:
 	decfsz	point_counter
 	bra	point_loop
 	subwfb	bank_counter
+	btfss	STATUS, 2
 	bra	prepare2
 	
 	
