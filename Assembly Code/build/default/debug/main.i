@@ -10960,7 +10960,7 @@ ENDM
 
 extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, bubble_sort
 extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn UART_Setup, input_setup, receive_input, UART_Transmit_Message
+extrn UART_Setup, input_setup, receive_input, UART_Transmit_Message, banks_filled
 global k, predict_point, point_counter, bank_counter
 
 psect udata_acs
@@ -11008,10 +11008,9 @@ setup:
 read_data:
 
 
- ;call load_first_points_data
+ call load_first_points_data
  call load_data
 
- goto $
 
 
  movlw 0x0
@@ -11064,6 +11063,8 @@ prepare:
 
  call load_pp_p1;loads prediction point into p1 in knn_tools
 
+ movff banks_filled, bank_counter
+
 prepare2:
 
  movlw 64;load counter for how many points we are going to search
@@ -11102,7 +11103,7 @@ point_loop:
  decfsz point_counter
  bra point_loop
  subwfb bank_counter
- btfsc STATUS, 0
+ btfss STATUS, 2
  bra prepare2
 
 

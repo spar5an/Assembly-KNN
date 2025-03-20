@@ -10959,7 +10959,6 @@ ENDM
 
 
 ;Library for mathematics involving 3 byte long numbers
-;All are stored in bid endian
 ;Enter the numbers into NUM1+0/1/2 and NUM2+0/1/2 and result will come out
 ;In RESULT+0/1/2
 ;comp bit is set if NUM1 > NUM2 and long_compare is run

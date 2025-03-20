@@ -6,7 +6,7 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.45\pic\dat\20230818022343_en.msgs \
   -cs -h+dist/default/debug\Assembly_Code.debug.sym \
   --cmf=dist/default/debug\Assembly_Code.debug.cmf -z -Q18F87K22 \
-  -oC:\Users\jc5322\AppData\Local\Temp\xcAsj6g.\driver_tmp_3.o \
+  -oC:\Users\jc5322\AppData\Local\Temp\xcAst4g.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Assembly_Code.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=01000h-010FFhx496 \
@@ -33,7 +33,7 @@ Machine type is 18F87K22
 
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/main.o
-                code                                  0        0      2B2        0       0
+                code                                  0        0      2B6        0       0
                 udata_bank1                         100      100       14      100       1
                 udata_acs                             0        0       14        0       1
                 config                           300000   300000        E        0       4
@@ -61,7 +61,7 @@ build/default/debug/input_handler.o
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0      2B2         0
+                code                                  0        0      2B6         0
                 long_code                         1FE2C    1FE2C       54         0
                 data_code                         1FD90    1FD90       4A         0
                 KNN_code                          1FF36    1FF36       CA         0
@@ -169,11 +169,11 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           0002B2-000F15              C64
+        BIGRAM           0002B6-000F15              C60
         BIGSFR           000F16-000FFF               EA
-        CODE             0002B2-01FD75            1FAC4
+        CODE             0002B6-01FD75            1FAC0
         COMRAM           00003B-00005F               25
-        CONST            0002B2-01FD75            1FAC4
+        CONST            0002B6-01FD75            1FAC0
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -265,10 +265,8 @@ bank_counter           udata_acs    000007
 banks_filled           udata_acs    000036
 bubble_sort            bubble_code  01FE80
 calculate_distance     KNN_code     01FF4E
-counter                udata_acs    000035
 distance               udata_acs    00001C
 first_points_loc       udata_bank0  000060
-high_counter           udata_acs    000037
 input_setup            io_code      01FD76
 isa$std                (abs)        000001
 isa$xinst              (abs)        000000

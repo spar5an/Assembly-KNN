@@ -2,7 +2,7 @@
 
 extrn	setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, bubble_sort
 extrn	NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn	UART_Setup, input_setup, receive_input, UART_Transmit_Message
+extrn	UART_Setup, input_setup, receive_input, UART_Transmit_Message, banks_filled
 global	k, predict_point, point_counter, bank_counter
 	
 psect	udata_acs
@@ -53,7 +53,6 @@ read_data:
 	call	load_first_points_data
 	call	load_data
 	
-	goto	$
 	
 
 	movlw	0x0
@@ -105,6 +104,8 @@ prepare:
 	lfsr	1, 0x200
 	
 	call	load_pp_p1;loads prediction point into p1 in knn_tools
+	
+	movff	banks_filled, bank_counter
 	
 prepare2:	
 	

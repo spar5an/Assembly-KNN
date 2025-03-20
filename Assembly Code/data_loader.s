@@ -2,7 +2,7 @@
 
     
 extrn k, UART_Receive_Data, UART_Transmit_Message, signal
-global	setup_data, load_data, first_points_loc, load_first_points_data, banks_filled, high_counter, counter
+global	setup_data, load_data, first_points_loc, load_first_points_data, banks_filled
 ;this is a temporary solution to load some data in to begin coding the KNN
 ;20 binary data points with 3 parameters each
 
@@ -20,7 +20,7 @@ high_counter:	ds  1
     
 psect	data_code, class=CODE
 setup_data:
-	movlw	2   ;this is the number of banks we aim to use for the data
+	movlw	1   ;this is the number of banks we aim to use for the data
 	movwf	banks_filled
 	return
 	

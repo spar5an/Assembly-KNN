@@ -10958,10 +10958,10 @@ ENDM
 # 1 "main.s" 2
 
 
-extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, data_loc, bubble_sort
+extrn setup_data, load_data, point_1, point_2, calculate_distance, distance, long_reset, bubble_sort
 extrn NUM1, NUM2, RESULT, long_compare, load_first_points_data, first_points_loc
-extrn UART_Setup, input_setup, receive_input, test
-global k, predict_point
+extrn UART_Setup, input_setup, receive_input, UART_Transmit_Message, banks_filled
+global k, predict_point, point_counter, bank_counter
 
 psect udata_acs
 k: ds 1
@@ -10969,6 +10969,7 @@ predict_point: ds 3; this is going to be an example point to classify
 data_pointer: ds 1
 compare_counter: ds 1
 point_counter: ds 1;number of points to read in each bank
+bank_counter: ds 1
 storage_dl: ds 4;this stores the distance to and the label of the point we are testing
 endpoint: ds 1
 pushed: ds 1
@@ -10976,6 +10977,7 @@ classification_counter: ds 1
 zero_counter: ds 1
 one_counter: ds 1
 classification: ds 1
+output_message: ds 2
 
 
 
@@ -10997,34 +10999,29 @@ setup:
  movwf k
 
  call setup_data
+ movlw 0x0a
+ movwf output_message+1
 
-read_data:
- call load_data
- call load_first_points_data
  call UART_Setup
  call input_setup
+
+read_data:
+
+
+ call load_first_points_data
+ call load_data
+
+
+
  movlw 0x0
  movwf TRISD
  call long_reset
 
 
 
-UART_test:
- call test
- bra UART_test
- goto $
+load_point_to_predict:
+ call receive_input
 
-
-load_predict_point:
-     movlw 0x96
- movwf predict_point
- movlw 0xfa
- movwf predict_point+1
- movlw 0x1e
- movwf predict_point+2
- ;this is a point that should be classified as zero, not being used atm
- ;keeping this in for the time being but should be replaced with
- ;call receive_input
 
 
 predict:
@@ -11064,10 +11061,14 @@ prepare:
  ;point fsr1 at 0x200
  lfsr 1, 0x200
 
+ call load_pp_p1;loads prediction point into p1 in knn_tools
+
+ movff banks_filled, bank_counter
+
+prepare2:
+
  movlw 64;load counter for how many points we are going to search
  movwf point_counter
-
- call load_pp_p1;loads prediction point into p1 in knn_tools
 
 point_loop:
 
@@ -11098,8 +11099,14 @@ point_loop:
 
  call compare_loop
 
+ movlw 0x00
  decfsz point_counter
  bra point_loop
+ subwfb bank_counter
+ btfss STATUS, 2
+ bra prepare2
+
+
 
 count_classification:
  lfsr 1, 0x103
@@ -11109,6 +11116,8 @@ count_classification:
 classification_loop:
 
  movlw 0x00
+ movwf one_counter
+ movwf zero_counter
  subwf INDF1, w
  btfsc STATUS, 2
  bra add_zero
@@ -11147,10 +11156,15 @@ classify_zero:
 
 output:;outputting to port D for the time being, might switch later
  movff classification, PORTD
- bsf PORTD, 2
- bcf PORTD, 2
+ bsf PORTD, 7
+ bcf PORTD, 7
 
- goto $
+ movff classification, output_message
+ lfsr 2, output_message
+ movlw 0x02
+ call UART_Transmit_Message
+
+ goto load_point_to_predict
 add_one:
     ;function for incrementing the one_counter
  movlw 0x01
