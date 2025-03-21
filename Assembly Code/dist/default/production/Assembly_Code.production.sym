@@ -3,7 +3,7 @@ NUM1 2A 0 COMRAM 1
 NUM2 2D 0 COMRAM 1
 point_counter 6 0 COMRAM 1
 __S0 20000 0 ABS 0
-__S1 114 0 ABS 0
+__S1 128 0 ABS 0
 __S3 0 0 ABS 0
 __Hudata_bank10 0 0 ABS 0
 __Ludata_bank10 0 0 ABS 0
@@ -61,7 +61,7 @@ __Ludata_bank1 0 0 ABS 0
 __Hspace_0 20000 0 ABS 0
 __Lspace_0 0 0 ABS 0
 UART_Transmit_Message 1FDEE 0 CODE 0
-__Hspace_1 114 0 ABS 0
+__Hspace_1 128 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hudata_bank7 0 0 ABS 0
 __Ludata_bank7 0 0 ABS 0
@@ -100,8 +100,8 @@ __Hbubble_code 0 0 ABS 0
 __Lbubble_code 0 0 ABS 0
 %segments
 udata_acs 0 3A COMRAM 0 1
-udata_bank0 60 73 BANK0 60 1
-udata_bank1 100 113 BANK1 100 1
+udata_bank0 60 87 BANK0 60 1
+udata_bank1 100 127 BANK1 100 1
 KNN_code 1FF36 1FFFF CODE 1FF36 0
 bubble_code 1FE80 1FF35 CODE 1FE80 0
 long_code 1FE2C 1FE7F CODE 1FE2C 0

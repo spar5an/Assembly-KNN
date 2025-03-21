@@ -10982,7 +10982,7 @@ output_message: ds 2
 
 
 psect udata_bank1
-distance_storage: ds 20;make sure this value is 4 times k
+distance_storage: ds 40;make sure this value is 4 times k
 
 
 
@@ -10995,7 +10995,7 @@ main:
 
 setup:
  ;;;;;;;;;; HERE IS K ;;;;;;;;;;
- movlw 0x05;will have a hard limit of like 30
+ movlw 10;will have a hard limit of like 30
  movwf k
 
  call setup_data
