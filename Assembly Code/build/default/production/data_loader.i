@@ -10965,7 +10965,7 @@ global setup_data, load_data, first_points_loc, load_first_points_data, banks_fi
 ;20 binary data points with 3 parameters each
 
 PSECT udata_bank0
-first_points_loc: ds 20;this needs to be 4 times K
+first_points_loc: ds 40;this needs to be 4 times K
 
 
 psect udata_acs
@@ -10978,7 +10978,7 @@ high_counter: ds 1
 
 psect data_code, class=CODE
 setup_data:
- movlw 2 ;this is the number of banks we aim to use for the data
+ movlw 5 ;this is the number of banks we aim to use for the data
  movwf banks_filled
  return
 

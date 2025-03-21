@@ -10969,11 +10969,11 @@ psect uart_code,class=CODE
 UART_Setup:
     bsf ((RCSTA1) and 0FFh), 7, a ; enable
     bcf ((TXSTA1) and 0FFh), 4, a ; synchronous
-    bcf ((TXSTA1) and 0FFh), 2, a ; slow speed
+    bsf ((TXSTA1) and 0FFh), 2, a ; slow speed
     bsf ((TXSTA1) and 0FFh), 5, a ; enable transmit
     bsf ((RCSTA1) and 0FFh), 4, a ; enable receive
     bcf ((BAUDCON1) and 0FFh), 3, a ; 8-bit generator only
-    movlw 103 ; gives 9600 Baud rate (actually 9615)
+    movlw 2 ; gives 9600 Baud rate (actually 9615)
     movwf SPBRG1, A ; set baud rate
     bsf TRISC, PORTC_TX1_POSN, A ; ((PORTC) and 0FFh), 6, a pin is output on ((PORTC) and 0FFh), 6, a pin
      ; must set ((TRISC) and 0FFh), 6, a to 1

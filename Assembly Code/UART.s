@@ -11,11 +11,11 @@ psect	uart_code,class=CODE
 UART_Setup:
     bsf	    SPEN	; enable
     bcf	    SYNC	; synchronous
-    bcf	    BRGH	; slow speed
+    bsf	    BRGH	; slow speed
     bsf	    TXEN	; enable transmit
     bsf	    CREN	; enable receive
     bcf	    BRG16	; 8-bit generator only
-    movlw   103		; gives 9600 Baud rate (actually 9615)
+    movlw   2	; gives 9600 Baud rate (actually 9615)
     movwf   SPBRG1, A	; set baud rate
     bsf	    TRISC, PORTC_TX1_POSN, A	; TX1 pin is output on RC6 pin
 					; must set TRISC6 to 1
